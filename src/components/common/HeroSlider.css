@@ -329,4 +329,9 @@
     .hero-arrow {
         display: none;
     }
+
+    /* On mobile the top-header is 2 rows (~50px) + navbar (~54px) + ticker (~32px) = ~136px */
+    .hero-slide-content {
+        padding-top: 148px;
+    }
 }

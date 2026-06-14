@@ -430,7 +430,7 @@ button {
   }
 
   .navbar {
-    top: 26px;
+    top: 50px;   /* 2-row top-header on mobile ≈ 50px */
   }
 
   /* Mobile navbar layout: hamburger left, logo center */
@@ -461,7 +461,7 @@ button {
 
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: 104px;   /* 50px top-header + ~54px navbar on mobile */
     left: -100%;
     transform: none;
     width: 100%;
@@ -961,18 +961,22 @@ button {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Logo Responsive */
+/* Logo Responsive — height-based sizing keeps the logo clearly readable
+   on every screen size regardless of the image's aspect ratio            */
 .navbar-logo-img {
-  height: auto;
-  width: 155px;
-  max-width: 100%;
+  height: 46px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
   transition: var(--transition);
+  display: block;
 }
 
 @media (max-width: 992px) {
   .navbar-logo-img {
-    width: 140px;
-    height: auto;
+    height: 40px;
+    width: auto;
+    max-width: 160px;
   }
 
   .nav-cta {
