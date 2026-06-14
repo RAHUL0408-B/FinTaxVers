@@ -73,7 +73,7 @@ function BlogPost() {
             <Navbar />
 
             {/* Hero */}
-            <section style={{ background: 'linear-gradient(135deg,#0B1F3A,#16325C)', padding: '120px 0 50px', color: 'white' }}>
+            <section style={{ background: 'linear-gradient(135deg,#0B1F3A,#16325C)', padding: '125px 0 50px', color: 'white' }}>
                 <div className="container" style={{ maxWidth: '860px' }}>
                     <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap' }}>
                         <button onClick={() => navigate('/blog')} style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: 'white', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem' }}>← Blog</button>

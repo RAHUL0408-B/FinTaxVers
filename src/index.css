@@ -134,8 +134,8 @@ button {
 .top-header {
   background: var(--primary-dark);
   color: rgba(255, 255, 255, 0.9);
-  padding: 6px 0;
-  font-size: 0.8rem;
+  padding: 4px 0;
+  font-size: 0.78rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -190,16 +190,16 @@ button {
 
 /* Enhanced Navbar */
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   position: fixed;
-  top: 30px;
+  top: 26px;
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 10px 0;
+  padding: 7px 0;
   transition: var(--transition);
 }
 
@@ -964,7 +964,7 @@ button {
 /* Logo Responsive */
 .navbar-logo-img {
   height: auto;
-  width: 180px;
+  width: 155px;
   max-width: 100%;
   transition: var(--transition);
 }
@@ -1257,4 +1257,73 @@ textarea:focus-visible {
   /* ---- Top header: single line ---- */
   .top-header-content { flex-direction: row !important; justify-content: space-between !important; flex-wrap: nowrap !important; }
   .top-header-left .top-header-item:not(:first-child) { display: none !important; }
+}
+
+/* ---- Scrolling Ticker Bar ---- */
+.ticker-wrapper {
+  background: #1a3c6e;
+  color: #fff;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ticker-label {
+  background: #e8b400;
+  color: #1a1a1a;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.ticker-scroll-area {
+  overflow: hidden;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-left 30s linear infinite;
+  flex-shrink: 0;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused; /* pauses on hover */
+}
+
+.ticker-item {
+  font-size: 13px;
+  padding: 0 32px 0 0;
+  color: #f0f4ff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ticker-dot {
+  width: 5px;
+  height: 5px;
+  background: #e8b400;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }

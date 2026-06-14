@@ -38,7 +38,7 @@ function Blog() {
             <Navbar />
 
             {/* Hero */}
-            <section style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #16325C 100%)', padding: '120px 0 60px', color: 'white', textAlign: 'center' }}>
+            <section style={{ background: 'linear-gradient(135deg, #0B1F3A 0%, #16325C 100%)', padding: '125px 0 60px', color: 'white', textAlign: 'center' }}>
                 <div className="container">
                     <span style={{ background: 'rgba(22,163,74,0.2)', color: '#4ade80', padding: '6px 16px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>Financial Insights</span>
                     <h1 style={{ fontSize: 'clamp(1.8rem,4vw,2.8rem)', margin: '16px 0 12px', color: 'white' }}>Expert Financial Guides & Tips</h1>

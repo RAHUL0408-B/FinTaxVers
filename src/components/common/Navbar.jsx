@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import logo from '../../assets/fintaxverslogo.png';
 
@@ -182,8 +182,159 @@ const Navbar = () => {
                 </div>
 
             </nav>
+
+            {/* ── Scrolling Ticker Bar ── */}
+            <TickerBar />
         </>
     );
 };
+
+/* ─────────────────────────────────────────
+   Ticker — pure JS animation via RAF
+   Works regardless of any CSS conflicts
+───────────────────────────────────────── */
+const SERVICES = [
+    'Income Tax Filing — Fast & Accurate',
+    'GST Registration & Returns',
+    'Company Incorporation & Compliance',
+    'TDS Filing & Refunds',
+    'Audit & Accounting Services',
+    'ROC Filings & MCA Compliance',
+    'CMA Data & Project Financing',
+    'Business Loan Assistance',
+    'Govt. Subsidy Consulting',
+    'Shop Act & MSME (Udyam)',
+    'Financial Reporting & Internal Audit',
+];
+
+function TickerBar() {
+    const trackRef   = useRef(null);
+    const wrapperRef = useRef(null);
+    const xRef       = useRef(0);
+    const rafRef     = useRef(null);
+    const pauseRef   = useRef(false);
+
+    useEffect(() => {
+        const track   = trackRef.current;
+        const wrapper = wrapperRef.current;
+        if (!track || !wrapper) return;
+
+        /* ── Dynamic positioning: snap ticker right below the navbar ── */
+        const positionTicker = () => {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                const bottom = navbar.getBoundingClientRect().bottom;
+                wrapper.style.top = `${bottom}px`;
+            }
+        };
+        positionTicker();
+        window.addEventListener('resize', positionTicker);
+        // Re-check after a short delay in case navbar finishes loading
+        const posTimer = setTimeout(positionTicker, 300);
+
+        /* ── RAF scroll animation ── */
+        const startRaf = () => {
+            const halfW = track.scrollWidth / 2;
+            const speed = 0.5;                    // px per frame ≈ 30px/s @60fps
+            const step  = () => {
+                if (!pauseRef.current) {
+                    xRef.current -= speed;
+                    if (Math.abs(xRef.current) >= halfW) xRef.current = 0;
+                    track.style.transform = `translateX(${xRef.current}px)`;
+                }
+                rafRef.current = requestAnimationFrame(step);
+            };
+            rafRef.current = requestAnimationFrame(step);
+        };
+        const rafTimer = setTimeout(startRaf, 150);
+
+        return () => {
+            clearTimeout(posTimer);
+            clearTimeout(rafTimer);
+            window.removeEventListener('resize', positionTicker);
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+        };
+    }, []);
+
+    return (
+        <>
+            {/* Fixed ticker bar — JS positions it right below the navbar dynamically */}
+            <div ref={wrapperRef} style={{
+                position: 'fixed',
+                top: '95px',        /* fallback; overridden by JS */
+                left: 0,
+                width: '100%',
+                zIndex: 999,
+                background: '#1a3c6e',
+                color: '#fff',
+                overflow: 'hidden',
+                display: 'flex',
+                alignItems: 'center',
+                height: '32px',
+                fontFamily: "'Segoe UI', sans-serif",
+                userSelect: 'none',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+            }}>
+                {/* Label */}
+                <div style={{
+                    background: '#e8b400',
+                    color: '#1a1a1a',
+                    fontSize: '12px',
+                    fontWeight: '700',
+                    padding: '0 14px',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    whiteSpace: 'nowrap',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
+                    flexShrink: 0,
+                }}>Our Services</div>
+
+                {/* Scroll Area */}
+                <div style={{
+                    overflow: 'hidden',
+                    flex: 1,
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                }}
+                    onMouseEnter={() => { pauseRef.current = true;  }}
+                    onMouseLeave={() => { pauseRef.current = false; }}
+                >
+                    {/* Track — items duplicated for seamless loop */}
+                    <div ref={trackRef} style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        whiteSpace: 'nowrap',
+                        willChange: 'transform',
+                    }}>
+                        {[...SERVICES, ...SERVICES].map((item, i) => (
+                            <span key={i} style={{
+                                fontSize: '13px',
+                                padding: '0 36px 0 0',
+                                color: '#f0f4ff',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                flexShrink: 0,
+                            }}>
+                                <span style={{
+                                    width: '5px',
+                                    height: '5px',
+                                    background: '#e8b400',
+                                    borderRadius: '50%',
+                                    display: 'inline-block',
+                                    flexShrink: 0,
+                                }} />
+                                {item}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
 
 export default Navbar;

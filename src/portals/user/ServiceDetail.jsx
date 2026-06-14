@@ -84,6 +84,7 @@ const ServiceDetail = () => {
             <section className="service-hero" style={{
                 background: 'linear-gradient(135deg, #051020 0%, #0B1F3A 50%, #16325C 100%)',
                 padding: 'clamp(60px, 10vw, 100px) 0 clamp(40px, 8vw, 60px)',
+                paddingTop: '125px',
                 color: 'white'
             }}>
                 <div className="container">
