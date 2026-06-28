@@ -80,329 +80,234 @@ const ServiceDetail = () => {
             {faqSchema && <SEOHead schema={faqSchema} />}
             <Navbar />
 
-            {/* Hero Section */}
-            <section className="service-hero" style={{
-                background: 'linear-gradient(135deg, #051020 0%, #0B1F3A 50%, #16325C 100%)',
-                color: 'white'
-            }}>
-                <div className="container">
-                    <div className="breadcrumb">
-                        <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
-                        <span> / </span>
-                        <a href="/#services" onClick={(e) => { e.preventDefault(); navigate('/', { state: { scrollTo: 'services' } }); }}>Services</a>
-                        <span> / </span>
-                        <span>{service.title}</span>
-                    </div>
-                    <div className="service-hero-split">
-                        <div className="service-hero-left">
-                            <div className="service-icon-box">
-                                {service.icon}
-                            </div>
-                        </div>
-                        <div className="service-hero-right">
-                            <span className="service-category">{service.category}</span>
-                            <h1 className="service-title">{service.title}</h1>
-                            <p className="service-short-desc">{service.shortDesc}</p>
-                            <div className="hero-actions">
-                                <button className="btn btn-primary" onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. `)}&type=${encodeURIComponent(service.category)}`)}>
-                                    Get Started
-                                </button>
-                                <a href="tel:8928895195" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
-                                    📞 Call: 8928895195
-                                </a>
-                                <a href="tel:9011424236" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
-                                    📞 Call: 9011424236
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <div className="service-detail-container container">
+                {/* Breadcrumbs */}
+                <div className="breadcrumb">
+                    <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
+                    <span> / </span>
+                    <a href="/#services" onClick={(e) => { e.preventDefault(); navigate('/', { state: { scrollTo: 'services' } }); }}>Services</a>
+                    <span> / </span>
+                    <span className="active-breadcrumb">{service.title}</span>
                 </div>
-            </section>
 
-            {/* Tabs Navigation */}
-            <section className="service-tabs-section">
-                <div className="container">
-                    <div className="service-tabs">
-                        <button
-                            className={`tab-btn ${activeTab === 'overview' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('overview')}
-                        >
-                            Overview
-                        </button>
-                        <button
-                            className={`tab-btn ${activeTab === 'features' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('features')}
-                        >
-                            Key Features
-                        </button>
-                        <button
-                            className={`tab-btn ${activeTab === 'process' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('process')}
-                        >
-                            Our Process
-                        </button>
+                <div className="service-detail-grid">
+                    {/* Left Column: Sidebar */}
+                    <aside className="service-left-sidebar">
+                        {/* Service Image */}
+                        {service.image && (
+                            <div className="sidebar-image-container">
+                                <img 
+                                    src={service.image.replace('.jpg', '.png')} 
+                                    alt={service.title} 
+                                    className="service-sidebar-image" 
+                                />
+                            </div>
+                        )}
 
-                        <button
-                            className={`tab-btn ${activeTab === 'faq' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('faq')}
-                        >
-                            FAQ
-                        </button>
-                    </div>
-                </div>
-            </section>
+                        {/* Services Directory Menu */}
+                        <div className="services-directory-card">
+                            <h3>Our Services</h3>
+                            <nav className="services-directory-nav">
+                                {Object.values(servicesData).map(s => (
+                                    <button
+                                        key={s.id}
+                                        onClick={() => navigate(`/services/${s.id}`)}
+                                        className={`dir-nav-btn ${s.id === service.id ? 'active' : ''}`}
+                                    >
+                                        <span className="dir-nav-icon">{s.icon}</span>
+                                        <span className="dir-nav-text">{s.title}</span>
+                                    </button>
+                                ))}
+                            </nav>
+                        </div>
 
-            {/* Content Section */}
-            <section className="service-content-section section">
-                <div className="container">
-                    <div className="service-content-grid">
-                        {/* Main Content */}
-                        <div className="service-main-content">
-                            {/* Overview Tab */}
-                            {activeTab === 'overview' && (
-                                <div className="tab-content animate-fade-up">
-                                    <h2>Overview</h2>
-                                    <p className="overview-text">{service.overview}</p>
-
-                                    <div className="detailed-description"
-                                        dangerouslySetInnerHTML={{ __html: service.detailedDescription }}>
-                                    </div>
-
-                                    <div className="benefits-section">
-                                        <h3>Benefits</h3>
-                                        <div className="benefits-grid">
-                                            {service.benefits.map((benefit, index) => (
-                                                <div key={index} className="benefit-item">
-                                                    <span className="benefit-icon">✓</span>
-                                                    <span>{benefit}</span>
-                                                </div>
-                                            ))}
+                        {/* Quick Contact Card */}
+                        <div className="sidebar-card contact-card">
+                            <h3>Need Help?</h3>
+                            <p>Contact our Nagpur experts today</p>
+                            <div className="contact-info">
+                                <div className="contact-item">
+                                    <span className="contact-icon">📞</span>
+                                    <div>
+                                        <div className="contact-label">Call Us</div>
+                                        <div className="contact-value">
+                                            <a href="tel:8928895195">8928895195</a>
+                                            <a href="tel:9011424236">9011424236</a>
                                         </div>
                                     </div>
+                                </div>
+                                <a href="mailto:contact@fintaxvers.com" className="contact-item">
+                                    <span className="contact-icon">📧</span>
+                                    <div>
+                                        <div className="contact-label">Email</div>
+                                        <div className="contact-value">contact@fintaxvers.com</div>
+                                    </div>
+                                </a>
+                                <a 
+                                    href={`https://wa.me/918928895195?text=${encodeURIComponent(`Hi Yugant, I am interested in ${service.title} for my business. Please provide more details.`)}`} 
+                                    target="_blank" 
+                                    rel="noreferrer" 
+                                    className="contact-item"
+                                >
+                                    <span className="contact-icon">💬</span>
+                                    <div>
+                                        <div className="contact-label">WhatsApp</div>
+                                        <div className="contact-value">Chat with us</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
 
-                                    <div className="ideal-for-section">
+                        {/* Why Choose Us */}
+                        <div className="sidebar-card why-choose-card">
+                            <h3>Why Choose Us?</h3>
+                            <ul className="why-choose-list">
+                                <li><span className="check-icon">✓</span> 8+ Years Experience</li>
+                                <li><span className="check-icon">✓</span> 500+ Satisfied Clients</li>
+                                <li><span className="check-icon">✓</span> Expert Team</li>
+                                <li><span className="check-icon">✓</span> Timely Delivery</li>
+                                <li><span className="check-icon">✓</span> Affordable Pricing</li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    {/* Right Column: Main Content Box */}
+                    <main className="service-right-content">
+                        <div className="service-details-box">
+                            {/* Header */}
+                            <header className="service-details-header">
+                                <span className="service-category-badge">{service.category}</span>
+                                <h1 className="service-main-title">{service.title}</h1>
+                                <p className="service-sub-desc">{service.shortDesc}</p>
+                            </header>
+
+                            {/* Section 1: Overview */}
+                            <section className="details-section service-overview-section">
+                                <h2>Overview</h2>
+                                <p className="overview-paragraph">{service.overview}</p>
+                                <div 
+                                    className="html-description"
+                                    dangerouslySetInnerHTML={{ __html: service.detailedDescription }}
+                                />
+                            </section>
+
+                            {/* Section 2: Benefits & Ideal For */}
+                            <section className="details-section benefits-ideal-section">
+                                <div className="split-grid">
+                                    <div className="benefits-box">
+                                        <h3>Benefits</h3>
+                                        <ul className="benefits-checklist">
+                                            {service.benefits.map((benefit, idx) => (
+                                                <li key={idx}>
+                                                    <span className="check-green">✓</span>
+                                                    <span>{benefit}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                    <div className="ideal-for-box">
                                         <h3>Ideal For</h3>
-                                        <ul className="ideal-for-list">
-                                            {service.idealFor.map((item, index) => (
-                                                <li key={index}>{item}</li>
+                                        <ul className="ideal-for-bullet-list">
+                                            {service.idealFor.map((item, idx) => (
+                                                <li key={idx}>{item}</li>
                                             ))}
                                         </ul>
                                     </div>
                                 </div>
-                            )}
+                            </section>
 
-                            {/* Features Tab */}
-                            {activeTab === 'features' && (
-                                <div className="tab-content animate-fade-up">
-                                    <h2>Key Features</h2>
-                                    <div className="features-grid">
-                                        {service.keyFeatures.map((feature, index) => (
-                                            <div key={index} className="feature-card glass-card">
-                                                <div className="feature-number">{index + 1}</div>
-                                                <h3>{feature.title}</h3>
-                                                <p>{feature.description}</p>
+                            {/* Section 3: Key Features */}
+                            <section className="details-section features-section">
+                                <h2>Key Features</h2>
+                                <div className="compact-features-grid">
+                                    {service.keyFeatures.map((feature, idx) => (
+                                        <div key={idx} className="compact-feature-card">
+                                            <div className="feature-card-header">
+                                                <span className="feature-card-num">{idx + 1}</span>
+                                                <h4>{feature.title}</h4>
                                             </div>
-                                        ))}
-                                    </div>
+                                            <p>{feature.description}</p>
+                                        </div>
+                                    ))}
                                 </div>
-                            )}
+                            </section>
 
-                            {/* Process Tab */}
-                            {activeTab === 'process' && (
-                                <div className="tab-content animate-fade-up">
-                                    <h2>Our Process</h2>
-                                    <p className="process-intro">We follow a systematic approach to ensure the best results for our clients.</p>
-                                    <div className="process-timeline">
-                                        {service.process.map((step, index) => (
-                                            <div key={index} className="process-step">
-                                                <div className="step-marker">
-                                                    <div className="step-number">{step.step}</div>
-                                                    {index < service.process.length - 1 && <div className="step-line"></div>}
-                                                </div>
-                                                <div className="step-content">
-                                                    <h3>{step.title}</h3>
-                                                    <p>{step.description}</p>
-                                                </div>
+                            {/* Section 4: Our Process */}
+                            <section className="details-section process-section">
+                                <h2>Our Process</h2>
+                                <div className="compact-timeline">
+                                    {service.process.map((step, idx) => (
+                                        <div key={idx} className="timeline-step">
+                                            <div className="timeline-marker">
+                                                <span className="timeline-num">{step.step}</span>
+                                                {idx < service.process.length - 1 && <div className="timeline-line"></div>}
                                             </div>
-                                        ))}
-                                    </div>
+                                            <div className="timeline-content">
+                                                <h4>{step.title}</h4>
+                                                <p>{step.description}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            )}
+                            </section>
 
-
-
-                            {/* FAQ Tab */}
-                            {activeTab === 'faq' && (
-                                <div className="tab-content animate-fade-up">
+                            {/* Section 5: FAQs */}
+                            {service.faq && service.faq.length > 0 && (
+                                <section className="details-section faq-section">
                                     <h2>Frequently Asked Questions</h2>
-                                    <div className="faq-list">
-                                        {service.faq.map((item, index) => (
-                                            <div key={index} className="faq-item glass-card">
-                                                <h3 className="faq-question">
-                                                    <span className="faq-icon">Q.</span>
-                                                    {item.question}
-                                                </h3>
-                                                <p className="faq-answer">
-                                                    <span className="faq-icon">A.</span>
-                                                    {item.answer}
-                                                </p>
+                                    <div className="compact-faq-list">
+                                        {service.faq.map((item, idx) => (
+                                            <div key={idx} className="compact-faq-item">
+                                                <div className="faq-q">
+                                                    <span className="faq-q-icon">Q</span>
+                                                    <h4>{item.question}</h4>
+                                                </div>
+                                                <div className="faq-a">
+                                                    <span className="faq-a-icon">A</span>
+                                                    <p>{item.answer}</p>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
+                                </section>
+                            )}
 
-                                    <div className="faq-cta">
-                                        <h3>Still have questions?</h3>
-                                        <p>Our team is here to help. Contact us for personalized assistance.</p>
-                                        <button className="btn btn-primary" onClick={handleContactClick}>
-                                            Contact Us
-                                        </button>
+                            {/* Section 6: Pricing and Action */}
+                            {service.pricing && (
+                                <section className="details-section pricing-cta-section">
+                                    <div className="pricing-cta-card">
+                                        <div className="pricing-info-box">
+                                            <span className="pricing-label">Starting Price</span>
+                                            <h3 className="pricing-amount">{service.pricing.starting}</h3>
+                                            {service.pricing.note && <p className="pricing-note">{service.pricing.note}</p>}
+                                        </div>
+                                        <div className="pricing-cta-actions">
+                                            <button 
+                                                className="btn btn-primary"
+                                                onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. `)}&type=${encodeURIComponent(service.category)}`)}
+                                            >
+                                                Get Started
+                                            </button>
+                                            <a href="tel:8928895195" className="btn btn-outline">
+                                                📞 Call Nagpur Office
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
+                                </section>
                             )}
                         </div>
-
-                        {/* Sidebar */}
-                        <aside className="service-sidebar">
-                            {/* Contact Card */}
-                            <div className="sidebar-card glass-card">
-                                <h3>Need Help?</h3>
-                                <p>Get in touch with our expert team</p>
-                                <div className="contact-info">
-                                    <div className="contact-item" style={{ display: 'flex', gap: '10px', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
-                                        <span className="contact-icon">📞</span>
-                                        <div>
-                                            <div className="contact-label">Call Us</div>
-                                            <div className="contact-value" style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '0.95rem' }}>
-                                                <a href="tel:8928895195" style={{ textDecoration: 'none', color: 'inherit' }}>8928895195</a>
-                                                <a href="tel:9011424236" style={{ textDecoration: 'none', color: 'inherit' }}>9011424236</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="mailto:contact@fintaxvers.com" className="contact-item">
-                                        <span className="contact-icon">📧</span>
-                                        <div>
-                                            <div className="contact-label">Email Us</div>
-                                            <div className="contact-value">contact@fintaxvers.com</div>
-                                        </div>
-                                    </a>
-                                    <a href={`https://wa.me/918928895195?text=${encodeURIComponent(`Hi Yugant, I am interested in ${service.title} for my business. Please provide more details.`)}`} target="_blank" rel="noreferrer" className="contact-item">
-                                        <span className="contact-icon">💬</span>
-                                        <div>
-                                            <div className="contact-label">WhatsApp</div>
-                                            <div className="contact-value">Chat with us</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <button className="btn btn-primary" style={{ width: '100%', marginTop: '20px' }} onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. My business type is: `)}&type=${encodeURIComponent(service.category)}`)}>
-                                    Request Consultation
-                                </button>
-                            </div>
-
-                            {/* Quick Info Card */}
-                            <div className="sidebar-card glass-card">
-                                <h3>Quick Info</h3>
-                                <div className="quick-info-list">
-                                    <div className="quick-info-item">
-                                        <span className="info-label">Category</span>
-                                        <span className="info-value">{service.category}</span>
-                                    </div>
-
-                                    <div className="quick-info-item">
-                                        <span className="info-label">Expert</span>
-                                        <span className="info-value">Yugant V. Rahele</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Why Choose Us Card */}
-                            <div className="sidebar-card glass-card">
-                                <h3>Why Choose Us?</h3>
-                                <ul className="why-choose-list">
-                                    <li>
-                                        <span className="check-icon">✓</span>
-                                        8+ Years Experience
-                                    </li>
-                                    <li>
-                                        <span className="check-icon">✓</span>
-                                        500+ Satisfied Clients
-                                    </li>
-                                    <li>
-                                        <span className="check-icon">✓</span>
-                                        Expert Team
-                                    </li>
-                                    <li>
-                                        <span className="check-icon">✓</span>
-                                        Timely Delivery
-                                    </li>
-                                    <li>
-                                        <span className="check-icon">✓</span>
-                                        Affordable Pricing
-                                    </li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </div>
+                    </main>
                 </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="service-cta-section" style={{
-                background: 'linear-gradient(135deg, #051020 0%, #0B1F3A 50%, #16325C 100%)',
-                padding: 'clamp(40px, 8vw, 60px) 0',
-                color: 'white',
-                textAlign: 'center'
-            }}>
-                <div className="container">
-                    <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', marginBottom: '20px' }}>
-                        Ready to Get Started?
-                    </h2>
-                    <p style={{ fontSize: '1.1rem', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px' }}>
-                        Let our experts handle your {service.title.toLowerCase()} needs. Contact us today for a free consultation.
-                    </p>
-                    <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <button className="btn btn-primary" style={{ background: 'white', color: 'var(--primary)' }} onClick={handleContactClick}>
-                            Schedule Consultation
-                        </button>
-                        <a href="tel:8928895195" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
-                            Call: 8928895195
-                        </a>
-                        <a href="tel:9011424236" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
-                            Call: 9011424236
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            {/* Location + Internal Links */}
-            <section style={{ background: '#F8FAFC', padding: '40px 0' }}>
-                <div className="container">
-                    <div style={{ background: 'white', borderRadius: '16px', padding: '32px', border: '1px solid #e2e8f0' }}>
-                        <h3 style={{ color: '#0B1F3A', marginBottom: '8px' }}>Serving Clients Across Nagpur, Maharashtra & India</h3>
-                        <p style={{ color: '#64748b', marginBottom: '20px' }}>FinTaxVers Consultancy Services is a trusted {service.category.toLowerCase()} firm based in Nagpur, Maharashtra. We provide expert {service.title.toLowerCase()} services to businesses and individuals across Nagpur, Vidarbha, and Maharashtra. Contact our founder Yugant Rahele for personalized assistance.</p>
-                        {relatedServices.length > 0 && (
-                            <div>
-                                <h4 style={{ color: '#0B1F3A', marginBottom: '12px', fontSize: '1rem' }}>Related Services</h4>
-                                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                                    {relatedServices.map(s => (
-                                        <button key={s.id} onClick={() => navigate(`/services/${s.id}`)} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #e2e8f0', background: '#F8FAFC', cursor: 'pointer', color: '#0B1F3A', fontWeight: 500, fontSize: '0.85rem' }}>
-                                            {s.icon} {s.title}
-                                        </button>
-                                    ))}
-                                    <button onClick={() => navigate('/')} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #16A34A', background: '#F0FDF4', cursor: 'pointer', color: '#16A34A', fontWeight: 600, fontSize: '0.85rem' }}>🏠 Back to Home</button>
-                                    <button onClick={() => navigate('/calculators')} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #0B1F3A', background: '#EFF6FF', cursor: 'pointer', color: '#0B1F3A', fontWeight: 600, fontSize: '0.85rem' }}>🧮 Financial Calculators</button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section>
+            </div>
 
             {/* Footer */}
-            <footer className="section" style={{ background: '#0B1F3A', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '30px 0' }}>
+            <footer style={{ background: '#0B1F3A', borderTop: '1px solid rgba(255,255,255,0.1)', padding: '25px 0', marginTop: '40px' }}>
                 <div className="container">
-                    <div style={{ textAlign: 'center', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>
+                    <div style={{ textAlign: 'center', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }}>
                         <p>© 2026 FinTaxVers Consultancy Services, Nagpur, Maharashtra, India. All rights reserved.</p>
-                        <p style={{ marginTop: '8px' }}>Best financial consultant in Nagpur | GST consultant | Tax consultant | CMA report expert</p>
+                        <p style={{ marginTop: '6px', color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem' }}>
+                            Best financial consultant in Nagpur | GST consultant Nagpur | Tax consultant Nagpur | CMA report expert | Yugant Rahele
+                        </p>
                     </div>
                 </div>
             </footer>
