@@ -432,7 +432,6 @@ function UserPortal() {
                                 <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>SIP Calculator</a></li>
                                 <li><a href="/calculators" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Income Tax Calculator</a></li>
                                 <li><a href="/links" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Useful Links</a></li>
-                                <li><a href="/blog" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Financial Insights Blog</a></li>
                                 <li><a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>WhatsApp Support</a></li>
                             </ul>
                         </div>
