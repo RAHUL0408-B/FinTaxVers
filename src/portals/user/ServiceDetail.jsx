@@ -83,33 +83,37 @@ const ServiceDetail = () => {
             {/* Hero Section */}
             <section className="service-hero" style={{
                 background: 'linear-gradient(135deg, #051020 0%, #0B1F3A 50%, #16325C 100%)',
-                padding: 'clamp(60px, 10vw, 100px) 0 clamp(40px, 8vw, 60px)',
-                paddingTop: '125px',
                 color: 'white'
             }}>
                 <div className="container">
-                    <div className="service-hero-content">
-                        <div className="breadcrumb">
-                            <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
-                            <span> / </span>
-                            <a href="/#services" onClick={(e) => { e.preventDefault(); navigate('/', { state: { scrollTo: 'services' } }); }}>Services</a>
-                            <span> / </span>
-                            <span>{service.title}</span>
+                    <div className="breadcrumb">
+                        <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
+                        <span> / </span>
+                        <a href="/#services" onClick={(e) => { e.preventDefault(); navigate('/', { state: { scrollTo: 'services' } }); }}>Services</a>
+                        <span> / </span>
+                        <span>{service.title}</span>
+                    </div>
+                    <div className="service-hero-split">
+                        <div className="service-hero-left">
+                            <div className="service-icon-box">
+                                {service.icon}
+                            </div>
                         </div>
-                        <div className="service-icon-large">{service.icon}</div>
-                        <h1 className="service-title">{service.title}</h1>
-                        <p className="service-category">{service.category}</p>
-                        <p className="service-short-desc">{service.shortDesc}</p>
-                        <div className="hero-actions">
-                            <button className="btn btn-primary" onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. `)}&type=${encodeURIComponent(service.category)}`)}>
-                                Get Started
-                            </button>
-                            <a href="tel:8928895195" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
-                                📞 Call: 8928895195
-                            </a>
-                            <a href="tel:9011424236" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
-                                📞 Call: 9011424236
-                            </a>
+                        <div className="service-hero-right">
+                            <span className="service-category">{service.category}</span>
+                            <h1 className="service-title">{service.title}</h1>
+                            <p className="service-short-desc">{service.shortDesc}</p>
+                            <div className="hero-actions">
+                                <button className="btn btn-primary" onClick={() => navigate(`/?message=${encodeURIComponent(`I am interested in ${service.title}. `)}&type=${encodeURIComponent(service.category)}`)}>
+                                    Get Started
+                                </button>
+                                <a href="tel:8928895195" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
+                                    📞 Call: 8928895195
+                                </a>
+                                <a href="tel:9011424236" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>
+                                    📞 Call: 9011424236
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
