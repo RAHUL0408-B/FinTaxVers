@@ -6,8 +6,8 @@ import Calculators from './portals/user/Calculators'
 import ServiceDetail from './portals/user/ServiceDetail'
 import AdminPortal from './portals/admin/AdminPortal'
 import AdminLogin from './portals/admin/AdminLogin'
-import Blog from './portals/user/Blog'
-import BlogPost from './portals/user/BlogPost'
+// import Blog from './portals/user/Blog'
+// import BlogPost from './portals/user/BlogPost'
 import Links from './pages/Links'
 
 const ProtectedRoute = ({ children }) => {
@@ -23,8 +23,8 @@ function App() {
           <Route path="/" element={<UserPortal />} />
           <Route path="/calculators" element={<Calculators />} />
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/blog" element={<Navigate to="/" replace />} />
+          <Route path="/blog/:slug" element={<Navigate to="/" replace />} />
           <Route path="/links" element={<Links />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<ProtectedRoute><AdminPortal /></ProtectedRoute>} />
