@@ -386,7 +386,6 @@ const ServiceDetail = () => {
                                     ))}
                                     <button onClick={() => navigate('/')} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #16A34A', background: '#F0FDF4', cursor: 'pointer', color: '#16A34A', fontWeight: 600, fontSize: '0.85rem' }}>🏠 Back to Home</button>
                                     <button onClick={() => navigate('/calculators')} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #0B1F3A', background: '#EFF6FF', cursor: 'pointer', color: '#0B1F3A', fontWeight: 600, fontSize: '0.85rem' }}>🧮 Financial Calculators</button>
-                                    <button onClick={() => navigate('/blog')} style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid #7C3AED', background: '#F5F3FF', cursor: 'pointer', color: '#7C3AED', fontWeight: 600, fontSize: '0.85rem' }}>📖 Read Our Blog</button>
                                 </div>
                             </div>
                         )}

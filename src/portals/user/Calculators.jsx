@@ -185,7 +185,6 @@ function Calculators() {
                                 <a href="tel:+919011424236" style={{ background: '#0B1F3A', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>📞 Call: 9011424236</a>
                                 <a href="/services/gst-returns-solutions" style={{ background: '#16A34A', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>GST Services</a>
                                 <a href="/services/income-tax-planning" style={{ background: '#0284C7', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>Income Tax Filing</a>
-                                <a href="/blog" style={{ background: '#7C3AED', color: 'white', padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>Read Our Blog</a>
                             </div>
                         </div>
                     </div>
