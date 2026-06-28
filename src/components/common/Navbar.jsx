@@ -263,7 +263,7 @@ function TickerBar() {
                 top: '95px',        /* fallback; overridden by JS */
                 left: 0,
                 width: '100%',
-                zIndex: 999,
+                zIndex: 9999,
                 background: '#1a3c6e',
                 color: '#fff',
                 overflow: 'hidden',
