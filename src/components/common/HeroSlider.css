@@ -72,7 +72,7 @@
 
 /* Slide 4 – All Loans */
 .hero-slide-4 .hero-slide-bg {
-    background-image: url('/images/loan_approval_hero.png');
+    background-image: url('/images/all_loans_hero_new.png');
 }
 
 /* Slide 5 – Company Registration */
@@ -83,6 +83,21 @@
 /* Slide 6 – Tax Audits */
 .hero-slide-6 .hero-slide-bg {
     background-image: url('/images/tax_audit_hero.png');
+}
+
+/* Slide 7 – Business Development */
+.hero-slide-7 .hero-slide-bg {
+    background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80');
+}
+
+/* Slide 8 – Home Loan */
+.hero-slide-8 .hero-slide-bg {
+    background-image: url('/images/home_loan_hero_new.png');
+}
+
+/* Slide 9 – Car Loan */
+.hero-slide-9 .hero-slide-bg {
+    background-image: url('/images/car_loan_hero_new.png');
 }
 
 /* --- Content --- */

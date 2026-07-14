@@ -122,6 +122,8 @@ const Navbar = () => {
                                     <a href="/services/cma-data-project-financing" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/cma-data-project-financing'); }}>CMA Data & Project Financing</a>
                                     <a href="/services/business-loan-assistance" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/business-loan-assistance'); }}>Business Loan Assistance</a>
                                     <a href="/services/govt-subsidy-consulting" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/govt-subsidy-consulting'); }}>Govt. Subsidy Consulting</a>
+                                    <a href="/services/home-loan" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/home-loan'); }}>Home Loan Services</a>
+                                    <a href="/services/car-loan" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/car-loan'); }}>Car Loan Services</a>
                                 </div>
                                 <div className="calc-group">
                                     <h4>Registration</h4>
@@ -135,6 +137,7 @@ const Navbar = () => {
                                     <a href="/services/income-tax-planning" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/income-tax-planning'); }}>Income Tax & Planning</a>
                                     <a href="/services/financial-reporting" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/financial-reporting'); }}>Financial Reporting</a>
                                     <a href="/services/internal-audit" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/internal-audit'); }}>Internal Audit</a>
+                                    <a href="/services/business-development" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/business-development'); }}>Business Development</a>
                                 </div>
                             </div>
                         </li>

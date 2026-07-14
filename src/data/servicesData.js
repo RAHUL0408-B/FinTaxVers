@@ -1072,6 +1072,109 @@ export const servicesData = {
                 answer: "We conduct audits with minimal disruption to your operations. Most fieldwork can be done during normal business hours with cooperation from your team."
             }
         ]
+    },
+    "home-loan": {
+        id: "home-loan",
+        title: "Home Loan Services",
+        category: "Business Finance",
+        icon: "🏠",
+        shortDesc: "Get the best interest rates for your dream home. Quick processing and minimum documentation.",
+        image: "/images/home_loan_hero_new.png",
+        overview: "We offer hassle-free home loan services to help you purchase your dream house with the best possible interest rates and flexible repayment options.",
+        detailedDescription: `
+            <p>Our Home Loan services are designed to make your dream of owning a home a reality. We assist you through the entire process, from application to disbursement.</p>
+            <h3>Why Choose Us?</h3>
+            <ul>
+                <li>Quick approval process</li>
+                <li>Competitive interest rates</li>
+                <li>Minimum documentation</li>
+                <li>Flexible tenure options</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "Low Interest Rates", description: "Get loans at the most competitive rates in the market" },
+            { title: "Quick Processing", description: "Fast-tracked application and approval process" }
+        ],
+        process: [
+            { step: 1, title: "Application", description: "Submit your basic details and requirements" },
+            { step: 2, title: "Document Collection", description: "Provide necessary KYC and financial documents" },
+            { step: 3, title: "Approval", description: "Get your loan approved quickly" },
+            { step: 4, title: "Disbursement", description: "Funds transferred for your property purchase" }
+        ],
+        benefits: ["Expert guidance", "Time-saving", "Best rates", "Zero hidden charges"],
+        idealFor: ["Salaried individuals", "Self-employed professionals", "First-time home buyers"],
+        pricing: { starting: "Processing fee applies", note: "Depends on loan amount and bank" },
+        faq: [
+            { question: "What is the maximum loan tenure?", answer: "Usually up to 30 years depending on your age and eligibility." }
+        ]
+    },
+    "car-loan": {
+        id: "car-loan",
+        title: "Car Loan Services",
+        category: "Business Finance",
+        icon: "🚗",
+        shortDesc: "Fast car loan approvals with flexible repayment options and competitive interest rates.",
+        image: "/images/car_loan_hero_new.png",
+        overview: "Drive home your dream car today with our fast and easy car loan services. We partner with top banks to bring you the best deals.",
+        detailedDescription: `
+            <p>Whether you are buying a new car or a used one, our car loan assistance ensures you get the best financing options quickly.</p>
+            <h3>Our Services Include</h3>
+            <ul>
+                <li>New Car Loans</li>
+                <li>Used Car Loans</li>
+                <li>Loan Refinancing</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "High LTV", description: "Get up to 100% on-road funding for select models" },
+            { title: "Instant Approval", description: "Pre-approved offers for eligible customers" }
+        ],
+        process: [
+            { step: 1, title: "Choose Car", description: "Select the vehicle you want to purchase" },
+            { step: 2, title: "Apply", description: "Submit application with our help" },
+            { step: 3, title: "Approval", description: "Quick sanction of loan amount" },
+            { step: 4, title: "Drive Away", description: "Amount disbursed to dealer, take delivery" }
+        ],
+        benefits: ["Fast processing", "Minimal paperwork", "Flexible repayment"],
+        idealFor: ["Individuals buying personal vehicles", "Businesses buying commercial vehicles"],
+        pricing: { starting: "Processing fee applies", note: "Depends on the bank and loan scheme" },
+        faq: [
+            { question: "Can I get 100% financing?", answer: "Yes, 100% financing on the on-road price is available for eligible profiles." }
+        ]
+    },
+    "business-development": {
+        id: "business-development",
+        title: "Business Development",
+        category: "Tax & Operations",
+        icon: "📈",
+        shortDesc: "Transition from unorganised to organised business models with professional working structures.",
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80",
+        overview: "Scale your business by transitioning from an unorganised to an organised business model. We help implement professional working structures for sustainable growth.",
+        detailedDescription: `
+            <p>Our Business Development services focus on transforming traditional, unorganised operations into structured, professional, and scalable business models.</p>
+            <h3>Key Focus Areas</h3>
+            <ul>
+                <li>Unorganised to Organised business model transition</li>
+                <li>Professional working environment implementation</li>
+                <li>Business Development Models</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "Structured Growth", description: "Implement standard operating procedures (SOPs)" },
+            { title: "Professionalism", description: "Adopt corporate working standards for better efficiency" }
+        ],
+        process: [
+            { step: 1, title: "Assessment", description: "Evaluate your current business model" },
+            { step: 2, title: "Strategy", description: "Develop a transition plan to an organised model" },
+            { step: 3, title: "Implementation", description: "Execute the new professional working structures" },
+            { step: 4, title: "Review", description: "Monitor progress and optimize" }
+        ],
+        benefits: ["Scalability", "Better talent retention", "Improved efficiency", "Higher valuation"],
+        idealFor: ["Traditional family businesses", "Growing startups", "Unorganised sector MSMEs"],
+        pricing: { starting: "Custom", note: "Based on business size and scope of transformation" },
+        faq: [
+            { question: "How long does the transition take?", answer: "It typically takes 3 to 6 months depending on the size of the organization." }
+        ]
     }
 };
 
