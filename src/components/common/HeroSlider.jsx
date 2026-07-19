@@ -83,25 +83,14 @@ const slides = [
     },
     {
         id: 8,
-        badge: 'Home Loan Services',
-        headline: <>Quick & Easy <span>Home Loans</span></>,
-        sub: 'Get the best interest rates for your dream home. Quick processing and minimum documentation.',
+        badge: 'Home & Car Loans',
+        headline: <>Quick <span>Home & Car</span> Loans</>,
+        sub: 'Get the best interest rates for your dream home and fast car loan approvals. Minimum documentation and quick processing.',
         cta: 'Apply Now',
         ctaHref: '#contact',
         secondaryCta: 'View Rates',
         secondaryHref: '/services/loans',
         bgClass: 'hero-slide-8',
-    },
-    {
-        id: 9,
-        badge: 'Car Loan Services',
-        headline: <>Drive Your Dream <span>Car Today</span></>,
-        sub: 'Fast car loan approvals with flexible repayment options and competitive interest rates.',
-        cta: 'Apply Now',
-        ctaHref: '#contact',
-        secondaryCta: 'Know More',
-        secondaryHref: '/services/loans',
-        bgClass: 'hero-slide-9',
     },
 ];
 

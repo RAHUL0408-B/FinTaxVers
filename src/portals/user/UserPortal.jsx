@@ -4,7 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Briefcase, FileText, Landmark, Shield, FileCheck, Building2, 
-    Calculator, ArrowRight, Phone, ChevronDown, CheckCircle, Quote
+    Calculator, ArrowRight, Phone, ChevronDown, CheckCircle, Quote,
+    X, FileSignature
 } from 'lucide-react';
 import Navbar from '../../components/common/Navbar';
 import HeroSlider from '../../components/common/HeroSlider';
@@ -145,6 +146,17 @@ const newServicesData = [
       desc: 'Professional Tax (PT) is mandatory in Maharashtra for all businesses, employers and professionals. We handle PT registration, monthly deduction, and annual return filing.',
       features: ['PT registration (employer & employee)', 'Monthly challan & annual return', 'PT compliance for all staff'],
       link: '/services/income-tax-planning'
+    },
+    {
+      id: 13,
+      cat: 'registration',
+      img: '/services/dsc_generated.png',
+      categoryClass: 'cat-registration',
+      categoryName: 'Registration',
+      title: 'Digital Signature Certificate (DSC)',
+      desc: 'Get your Digital Signature Certificate (DSC) quickly and securely. We offer a paperless, Aadhar-based process with the fastest turnaround time and minimal documentation.',
+      features: ['Paperless & Quick Process', 'Aadhar-Based DSC Issuance', 'Minimal Documentation Required'],
+      link: '/services/digital-signature-certificate'
     }
 ];
 
@@ -183,8 +195,16 @@ function UserPortal() {
     const [showSuccess, setShowSuccess] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [activeFilter, setActiveFilter] = useState('all');
+    const [showDscPopup, setShowDscPopup] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowDscPopup(true);
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         if (location.state?.scrollTo) {
@@ -468,6 +488,38 @@ function UserPortal() {
                     <Phone size={28} />
                 </a>
             </div>
+
+            {/* DSC Popup */}
+            <AnimatePresence>
+                {showDscPopup && (
+                    <motion.div
+                        initial={{ opacity: 0, x: -50, scale: 0.9 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        exit={{ opacity: 0, x: -50, scale: 0.9 }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                        className="dsc-popup"
+                        onClick={() => navigate('/services/digital-signature-certificate')}
+                    >
+                        <button className="dsc-close" onClick={(e) => {
+                            e.stopPropagation();
+                            setShowDscPopup(false);
+                        }}>
+                            <X size={16} />
+                        </button>
+                        
+                        <div className="dsc-popup-content">
+                            <div className="dsc-icon-wrapper">
+                                <FileSignature size={28} />
+                            </div>
+                            <div className="dsc-text-content">
+                                <h4>Digital Signature Certificate</h4>
+                                <p>Best Price Guaranteed | Hassle-Free Process</p>
+                                <span className="dsc-btn">Get Now <ArrowRight size={14} style={{marginLeft: '4px'}}/></span>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

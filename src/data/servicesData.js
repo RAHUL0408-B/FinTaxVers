@@ -1175,6 +1175,45 @@ export const servicesData = {
         faq: [
             { question: "How long does the transition take?", answer: "It typically takes 3 to 6 months depending on the size of the organization." }
         ]
+    },
+
+    "digital-signature-certificate": {
+        id: "digital-signature-certificate",
+        title: "Digital Signature Certificate (DSC)",
+        category: "Registration",
+        icon: "🖋️",
+        shortDesc: "Best Price Guaranteed | Hassle-Free Process | Instant Approval.",
+        image: "/services/dsc_generated.png",
+        overview: "Get your Digital Signature Certificate (DSC) quickly and securely. We offer a paperless, Aadhar-based process with the fastest turnaround time and minimal documentation.",
+        detailedDescription: `
+            <p>A Digital Signature Certificate (DSC) is essential for authenticating documents electronically and filing various statutory returns in India, including Income Tax, GST, MCA, and e-Tenders.</p>
+            <h3>Why Choose Us?</h3>
+            <ul>
+                <li>Paperless & Quick Process</li>
+                <li>Aadhar-Based DSC Issuance</li>
+                <li>Minimal Documentation Required</li>
+                <li>Fastest Turnaround Time</li>
+                <li>Best Price Guaranteed with Instant Approval</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "Paperless Process", description: "Entire process can be completed online without physical documents" },
+            { title: "Aadhar-Based", description: "Quick verification using Aadhar eKYC for instant approval" },
+            { title: "Class 3 DSC", description: "Highest level of security for e-Tendering, MCA, and Tax filing" }
+        ],
+        process: [
+            { step: 1, title: "Submit Details", description: "Provide your basic details and Aadhar number" },
+            { step: 2, title: "e-KYC Verification", description: "Complete OTP-based Aadhar verification or video KYC" },
+            { step: 3, title: "Approval", description: "Instant approval by the Certifying Authority" },
+            { step: 4, title: "Download", description: "Download the DSC onto a secure USB token (ePass2003Auto)" }
+        ],
+        benefits: ["Saves time with online processing", "Highly secure for electronic filing", "Legally recognized under IT Act, 2000"],
+        idealFor: ["Directors and Partners of Companies/LLPs", "Individuals filing Income Tax or GST", "Vendors participating in e-Tenders"],
+        pricing: { starting: "Best Price Guaranteed", note: "Depends on validity (1/2/3 years)" },
+        faq: [
+            { question: "What documents are required?", answer: "With Aadhar-based eKYC, only your Aadhar number and PAN are required." },
+            { question: "How long is the DSC valid?", answer: "DSCs are typically issued with a validity of 1, 2, or 3 years." }
+        ]
     }
 };
 

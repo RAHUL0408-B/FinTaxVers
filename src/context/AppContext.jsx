@@ -95,15 +95,24 @@ export const AppProvider = ({ children }) => {
                         serviceId,
                         templateId,
                         {
+                            // Customer Details
                             to_name: newInquiry.name,
                             to_email: newInquiry.email,
-                            from_name: 'Yugant V. Rahele',
-                            message: `Thank you for your inquiry regarding ${newInquiry.type}. We have received your request and will contact you shortly at ${newInquiry.mobile}.`,
-                            reply_to: 'contact@fintaxvers.com'
+                            
+                            // Full Inquiry Details (for your Admin Notification Email)
+                            admin_email: 'contact@fintaxvers.com',
+                            from_name: newInquiry.name,
+                            from_email: newInquiry.email,
+                            mobile: newInquiry.mobile,
+                            business_type: newInquiry.businessType || 'N/A',
+                            inquiry_type: newInquiry.type,
+                            message: newInquiry.message,
+                            
+                            reply_to: newInquiry.email
                         },
                         publicKey
                     );
-                    console.log('Auto-reply email sent successfully!');
+                    console.log('Notification email sent successfully!');
                 }
             } catch (emailError) {
                 console.error('EmailJS error details:', {
