@@ -489,35 +489,29 @@ function UserPortal() {
                 </a>
             </div>
 
-            {/* DSC Popup */}
+            {/* Big Landscape Image Ad Modal for DSC */}
             <AnimatePresence>
                 {showDscPopup && (
-                    <motion.div
-                        initial={{ opacity: 0, x: -50, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1 }}
-                        exit={{ opacity: 0, x: -50, scale: 0.9 }}
-                        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                        className="dsc-popup"
-                        onClick={() => navigate('/services/digital-signature-certificate')}
-                    >
-                        <button className="dsc-close" onClick={(e) => {
-                            e.stopPropagation();
-                            setShowDscPopup(false);
-                        }}>
-                            <X size={16} />
-                        </button>
-                        
-                        <div className="dsc-popup-content">
-                            <div className="dsc-icon-wrapper">
-                                <FileSignature size={28} />
+                    <div className="dsc-ad-overlay" onClick={() => setShowDscPopup(false)}>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                            className="dsc-ad-modal landscape-only"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button className="dsc-ad-close" onClick={() => setShowDscPopup(false)}>
+                                <X size={24} />
+                            </button>
+                            <div className="dsc-ad-image-container landscape" onClick={() => {
+                                setShowDscPopup(false);
+                                navigate('/services/digital-signature-certificate');
+                            }}>
+                                <img src="/services/dsc_landscape_ad_poster.jpg" alt="Digital Signature Certificate & Consultancy Services Advertisement" className="dsc-ad-image" />
                             </div>
-                            <div className="dsc-text-content">
-                                <h4>Digital Signature Certificate</h4>
-                                <p>Best Price Guaranteed | Hassle-Free Process</p>
-                                <span className="dsc-btn">Get Now <ArrowRight size={14} style={{marginLeft: '4px'}}/></span>
-                            </div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    </div>
                 )}
             </AnimatePresence>
         </div>
