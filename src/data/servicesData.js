@@ -1117,11 +1117,10 @@ export const servicesData = {
         image: "/images/car_loan_hero_new.png",
         overview: "Drive home your dream car today with our fast and easy car loan services. We partner with top banks to bring you the best deals.",
         detailedDescription: `
-            <p>Whether you are buying a new car or a used one, our car loan assistance ensures you get the best financing options quickly.</p>
+            <p>Our car loan assistance ensures you get the best financing options quickly for your new car.</p>
             <h3>Our Services Include</h3>
             <ul>
                 <li>New Car Loans</li>
-                <li>Used Car Loans</li>
                 <li>Loan Refinancing</li>
             </ul>
         `,
