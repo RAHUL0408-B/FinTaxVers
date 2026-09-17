@@ -48,12 +48,17 @@ const Footer = () => {
                     <div className="f-col">
                         <h5>Our Services</h5>
                         <ul>
-                            <li><Link to="/services/cma-data-project-financing">Business Loan Project Report (CMA)</Link></li>
-                            <li><Link to="/services/gst-returns-solutions">GST Registration &amp; Return Filing</Link></li>
-                            <li><Link to="/services/income-tax-planning">Income Tax Return Filing</Link></li>
-                            <li><Link to="/services/company-llp-formation">Company &amp; LLP Registration</Link></li>
-                            <li><Link to="/services/shop-act-msme">MSME / Udyam Registration</Link></li>
+                            <li><Link to="/services/gst-returns-solutions">GST Registration &amp; Filing</Link></li>
+                            <li><Link to="/services/income-tax-planning">Income Tax Return (ITR)</Link></li>
+                            <li><Link to="/services/tax-audit-services">Tax Audit (Sec 44AB)</Link></li>
+                            <li><Link to="/services/internal-audit">Internal Audit &amp; Controls</Link></li>
+                            <li><Link to="/services/financial-reporting">Accounting &amp; Bookkeeping</Link></li>
+                            <li><Link to="/services/company-llp-formation">Company Registration (Pvt Ltd)</Link></li>
+                            <li><Link to="/services/shop-act-msme">Business &amp; MSME Registration</Link></li>
                             <li><Link to="/services/business-loan-assistance">Business Loan Assistance</Link></li>
+                            <li><Link to="/services/cma-data-project-financing">MSME Loans &amp; CMA Reports</Link></li>
+                            <li><Link to="/services/govt-subsidy-consulting">Subsidy Loans (PMEGP/CMEGP)</Link></li>
+                            <li><Link to="/services/roc-annual-compliance">ROC Annual Compliance</Link></li>
                         </ul>
                     </div>
 
@@ -64,7 +69,7 @@ const Footer = () => {
                             <li><Link to="/calculators">GST &amp; EMI Calculators</Link></li>
                             <li><Link to="/calculators">SIP Calculator</Link></li>
                             <li><Link to="/calculators">Income Tax Calculator</Link></li>
-                            <li><Link to="/links">Useful Links</Link></li>
+                            <li><Link to="/links">Useful Govt &amp; Tax Links</Link></li>
                             <li><Link to="/blog">Financial Insights Blog</Link></li>
                             <li><a href={`https://wa.me/918928895195`} target="_blank" rel="noreferrer">Chat on WhatsApp</a></li>
                         </ul>
@@ -76,10 +81,18 @@ const Footer = () => {
                 <div className="f-bottom">
                     <div className="f-copy">© {new Date().getFullYear()} <strong>FinTaxVers Consultancy Services</strong> — Nagpur, Maharashtra, India. All rights reserved.</div>
                     <div className="f-seo-links">
-                        <Link to="/">Best Financial Consultant in Nagpur</Link><span className="sep">|</span>
-                        <Link to="/">GST Consultant Nagpur</Link><span className="sep">|</span>
-                        <Link to="/">Tax Consultant Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/cma-data-project-financing">CMA Report Expert</Link><span className="sep">|</span>
+                        <Link to="/">FinTaxVers</Link><span className="sep">|</span>
+                        <Link to="/services/gst-returns-solutions">GST Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/income-tax-planning">Income Tax Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/tax-audit-services">Tax Audit Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/internal-audit">Internal Audit Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/financial-reporting">Accounting Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/shop-act-msme">Business Registration Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/business-loan-assistance">Business Loan Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/cma-data-project-financing">MSME Loan Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/govt-subsidy-consulting">Subsidy Loan Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/roc-annual-compliance">ROC Compliance Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/company-llp-formation">Company Registration Nagpur</Link><span className="sep">|</span>
                         <Link to="/">Yugant Rahele</Link>
                     </div>
                 </div>

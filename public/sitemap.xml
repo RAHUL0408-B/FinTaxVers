@@ -77,6 +77,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://fintaxvers.com/services/tax-audit-services</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://fintaxvers.com/services/financial-reporting</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -85,6 +91,12 @@
   <url>
     <loc>https://fintaxvers.com/services/internal-audit</loc>
     <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/services/digital-signature-certificate</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

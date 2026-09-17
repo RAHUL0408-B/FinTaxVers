@@ -1,6 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
+const DEFAULT_KEYWORDS = 'FinTaxVers, FinTaxVers Consultancy Services, FinTaxVers Nagpur, Yugant Rahele, GST, GST Nagpur, GST registration Nagpur, GST return filing Nagpur, Income Tax, Income Tax Nagpur, Income Tax Filing Nagpur, ITR filing Nagpur, Tax Audit, Tax Audit Nagpur, Tax Audit services 44AB Nagpur, Internal Audit, Internal Audit Nagpur, Internal Audit services, Accounting, Accounting services Nagpur, bookkeeping Nagpur, Business Registration, Business Registration Nagpur, startup registration Nagpur, Business Loan, Business Loan Nagpur, business loan project report Nagpur, CMA report Nagpur, MSME Loan, MSME Loan Nagpur, MSME registration Nagpur, Udyam registration Nagpur, Subsidy Loan, Subsidy Loan Nagpur, government subsidy consulting, PMEGP subsidy Nagpur, ROC Compliance, ROC Compliance Nagpur, MCA filing Nagpur, Company Registration, Company Registration Nagpur, Pvt Ltd company registration Nagpur, LLP registration Nagpur, financial consultant near me Nagpur, best financial advisor Nagpur, financial consultancy India';
+
 const SEOHead = ({ 
     title, 
     description, 
@@ -11,8 +13,12 @@ const SEOHead = ({
     articleSchema = null,
     faqSchema = null
 }) => {
-    const fullTitle = title ? `${title} | FinTaxVers Consultancy – Nagpur` : 'Trusted Financial Consultancy Services in Nagpur | FinTaxVers – Yugant Rahele';
-    const metaDesc = description || 'FinTaxVers Consultancy Services – Best financial consultant in Nagpur. Expert GST registration, income tax filing, business loan project reports & CMA reports. Founded by Yugant Rahele. Call +91-8928895195.';
+    const fullTitle = title 
+        ? `${title} | FinTaxVers Consultancy – Nagpur & Pan-India` 
+        : 'FinTaxVers | GST, Income Tax, Tax Audit, Internal Audit, Accounting, Business & MSME Loans, ROC Compliance, Company Registration | Nagpur & Pan-India';
+    
+    const metaDesc = description || 'FinTaxVers Consultancy Services – Top financial & tax consultant in Nagpur & Pan-India. Expert GST, Income Tax filing, Tax Audit, Internal Audit, Accounting, Business Registration, Business Loans, MSME Loans, Subsidy Loans, ROC Compliance & Company Registration. Founded by Yugant Rahele. Call +91-8928895195.';
+    const metaKeywords = keywords ? `${keywords}, ${DEFAULT_KEYWORDS}` : DEFAULT_KEYWORDS;
     const canonicalUrl = canonical || 'https://fintaxvers.com/';
 
     // Default AEO / GEO Organization & FinancialService Schema for AI Search Engines (ChatGPT, Perplexity, Gemini, Claude, SGE)
@@ -33,7 +39,8 @@ const SEOHead = ({
             '@type': 'PostalAddress',
             'addressLocality': 'Nagpur',
             'addressRegion': 'Maharashtra',
-            'addressCountry': 'IN'
+            'addressCountry': 'IN',
+            'postalCode': '440001'
         },
         'geo': {
             '@type': 'GeoCoordinates',
@@ -42,8 +49,12 @@ const SEOHead = ({
         },
         'areaServed': [
             {
-                '@type': 'AdministrativeArea',
+                '@type': 'City',
                 'name': 'Nagpur'
+            },
+            {
+                '@type': 'AdministrativeArea',
+                'name': 'Vidarbha'
             },
             {
                 '@type': 'AdministrativeArea',
@@ -60,19 +71,40 @@ const SEOHead = ({
             'jobTitle': 'Founder & Financial Consultant',
             'alumniOf': 'MBA Finance'
         },
+        'serviceType': [
+            'GST Registration & Return Filing',
+            'Income Tax Filing & Tax Planning',
+            'Tax Audit (Section 44AB) Services',
+            'Internal Audit & Risk Controls',
+            'Accounting & Bookkeeping Services',
+            'Business Registration & Setup',
+            'Business Loan Project Reports (CMA)',
+            'MSME Loan & Udyam Registration',
+            'Subsidy Loan & Government Grants',
+            'ROC Compliance & Annual Filings',
+            'Company Registration (Pvt Ltd & LLP)'
+        ],
         'knowsAbout': [
-            'GST Registration & Filing',
-            'Income Tax Filing',
-            'CMA Data & Project Financing Reports',
-            'Business Loan Assistance',
-            'MSME & Udyam Registration',
-            'ROC & Company Compliance',
-            'Digital Signature Certificate (DSC)',
-            'Government Subsidy Consulting'
+            'GST',
+            'Income Tax',
+            'Tax Audit',
+            'Internal Audit',
+            'Accounting',
+            'Business Registration',
+            'Business Loan',
+            'MSME Loan',
+            'Subsidy Loan',
+            'ROC Compliance',
+            'Company Registration',
+            'CMA Data & Project Financing',
+            'Financial Planning & Advisory in Nagpur'
         ],
         'sameAs': [
             'https://fintaxvers.com',
-            'https://share.google/1IwDqOBS8P4PNxiBU'
+            'https://share.google/1IwDqOBS8P4PNxiBU',
+            'https://www.linkedin.com/in/yugant-rahele-333101148/',
+            'https://www.facebook.com/yugant.rahele',
+            'https://www.instagram.com/fintaxvers'
         ]
     };
 
@@ -93,7 +125,7 @@ const SEOHead = ({
             {/* Standard SEO */}
             <title>{fullTitle}</title>
             <meta name="description" content={metaDesc} />
-            {keywords && <meta name="keywords" content={keywords} />}
+            <meta name="keywords" content={metaKeywords} />
             <link rel="canonical" href={canonicalUrl} />
             <meta name="author" content="Yugant V. Rahele - FinTaxVers Consultancy Services" />
             <meta name="publisher" content="FinTaxVers Consultancy Services" />

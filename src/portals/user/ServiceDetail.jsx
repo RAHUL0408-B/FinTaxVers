@@ -30,9 +30,9 @@ const ServiceDetail = () => {
     }
 
     // SEO Data
-    const seoTitle = service.seoTitle || `${service.title} in Nagpur`;
-    const seoDesc = service.metaDescription || `Expert ${service.title} services in Nagpur, Maharashtra. ${service.shortDesc} Contact FinTaxVers Consultancy at +91-8928895195.`;
-    const seoKeywords = `${service.title} Nagpur, ${service.category} Nagpur, financial consultant Nagpur, FinTaxVers, Yugant Rahele`;
+    const seoTitle = service.seoTitle || `${service.title} in Nagpur & Pan India | FinTaxVers`;
+    const seoDesc = service.metaDescription || `Expert ${service.title} services in Nagpur, Maharashtra & Pan India. ${service.shortDesc} Contact FinTaxVers Consultancy at +91-8928895195.`;
+    const seoKeywords = service.seoKeywords || `${service.title}, ${service.title} Nagpur, ${service.title} India, ${service.category} Nagpur, financial consultant Nagpur, FinTaxVers, Yugant Rahele`;
     const canonicalSlug = service.canonicalSlug || service.id;
 
     // Get 3 related services

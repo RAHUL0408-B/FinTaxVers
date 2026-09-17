@@ -22,8 +22,8 @@ const newServicesData = [
       categoryClass: 'cat-tax',
       categoryName: 'Tax & ITR',
       title: 'Income Tax Filing — Fast & Accurate',
-      desc: 'Expert ITR filing for salaried individuals, freelancers, businesses, and NRIs. We ensure maximum deductions, zero errors, and timely submission before deadlines.',
-      features: ['ITR-1 to ITR-6 all forms covered', 'Capital gains, business income, salary', 'Tax planning & refund tracking'],
+      desc: 'Expert Income Tax Return (ITR) filing for salaried individuals, freelancers, businesses, and NRIs. Maximum tax deductions, 100% accuracy, and fast refund processing.',
+      features: ['ITR-1 to ITR-7 all forms covered', 'Capital gains, business income, salary', 'Tax planning & refund tracking'],
       link: '/services/income-tax-planning'
     },
     {
@@ -32,32 +32,32 @@ const newServicesData = [
       img: '/services/gst_registration_1782653626758.png',
       categoryClass: 'cat-gst',
       categoryName: 'GST',
-      title: 'GST Registration & Returns',
-      desc: 'Complete GST lifecycle management — from registration and GSTIN to monthly/quarterly GSTR filing and reconciliation. Stay 100% compliant with GSTN rules.',
-      features: ['GSTR-1, 3B, 9 & 9C filing', 'ITC reconciliation & claim', 'GST notices & assessment support'],
+      title: 'GST Registration & Return Filing',
+      desc: 'Complete GST lifecycle solutions — from GST registration and GSTIN generation to monthly/quarterly GSTR-1, 3B, 9 & 9C filing and ITC reconciliation.',
+      features: ['GSTR-1, 3B, 9 & 9C filing', 'ITC reconciliation & tax advisory', 'GST notice replies & assessments'],
       link: '/services/gst-returns-solutions'
     },
     {
       id: 3,
-      cat: 'business',
-      img: '/services/company_incorporation_1782653638993.png',
-      categoryClass: 'cat-business',
-      categoryName: 'Business Setup',
-      title: 'Company Incorporation & Compliance',
-      desc: 'Set up your business the right way. We handle Private Limited, LLP, OPC, and Partnership firm registrations — including MCA filings, PAN/TAN, and post-incorporation compliance so you can focus on growing your business.',
-      features: ['Pvt. Ltd., LLP, OPC, Partnership registration', 'MCA, PAN, TAN, Bank account setup', 'MOA, AOA drafting & director KYC', 'Post-incorporation annual compliance'],
-      link: '/services/company-llp-formation'
+      cat: 'tax',
+      img: '/services/audit_accounting_1782653660793.png',
+      categoryClass: 'cat-tax',
+      categoryName: 'Tax & ITR',
+      title: 'Tax Audit (Section 44AB)',
+      desc: 'Statutory and Income Tax Audit under Section 44AB. Detailed 3CA, 3CB, and 3CD preparation, ledger review, and tax compliance validation for businesses & professionals.',
+      features: ['Form 3CA, 3CB & 3CD filing', 'Turnover threshold assessment', 'Disallowance and deduction verification'],
+      link: '/services/tax-audit-services'
     },
     {
       id: 4,
-      cat: 'tax',
-      img: '/services/tds_filing_1782653649499.png',
-      categoryClass: 'cat-tax',
-      categoryName: 'Tax & ITR',
-      title: 'TDS Filing & Refunds',
-      desc: 'Accurate TDS deduction calculation, challan payment, and quarterly TDS return filing (24Q, 26Q, 27Q). We also help track and claim TDS refunds efficiently.',
-      features: ['Form 24Q, 26Q, 27Q filing', 'TDS certificate (Form 16/16A) generation', 'Refund tracking & correction'],
-      link: '/services/income-tax-planning'
+      cat: 'compliance',
+      img: '/services/audit_accounting_1782653660793.png',
+      categoryClass: 'cat-compliance',
+      categoryName: 'Compliance',
+      title: 'Internal Audit & Risk Controls',
+      desc: 'Independent internal audit, process review, internal financial control (IFC) testing, and operational risk assessments to strengthen corporate governance.',
+      features: ['Internal financial controls (IFC)', 'SOP & fraud risk assessment', 'Management audit & operational reviews'],
+      link: '/services/internal-audit'
     },
     {
       id: 5,
@@ -65,32 +65,32 @@ const newServicesData = [
       img: '/services/audit_accounting_1782653660793.png',
       categoryClass: 'cat-compliance',
       categoryName: 'Compliance',
-      title: 'Audit & Accounting Services',
-      desc: 'Professional bookkeeping, Tally-based accounts maintenance, statutory audits, and internal audit reports that meet regulatory standards and support business decisions.',
-      features: ['Tally & digital bookkeeping', 'Statutory & tax audit reports', 'P&L, Balance Sheet preparation'],
+      title: 'Accounting & Bookkeeping Services',
+      desc: 'End-to-end accounting services, Tally/Zoho/Quickbooks ledger maintenance, payroll processing, bank reconciliation, and final P&L / Balance Sheet preparation.',
+      features: ['Tally & cloud-based bookkeeping', 'P&L, Balance Sheet preparation', 'Debtor/Creditor reconciliation & MIS'],
       link: '/services/financial-reporting'
     },
     {
       id: 6,
-      cat: 'compliance',
-      img: '/services/roc_compliance_1782653671630.png',
-      categoryClass: 'cat-compliance',
-      categoryName: 'Compliance',
-      title: 'ROC Filings & MCA Compliance',
-      desc: 'Never miss a compliance deadline. We file all ROC-mandated annual returns, board resolutions, director KYC (DIR-3), and event-based MCA forms on your behalf.',
-      features: ['AOC-4, MGT-7 annual filing', 'DIR-3 KYC & DIN compliance', 'Event-based forms (INC, CHG)'],
-      link: '/services/roc-annual-compliance'
+      cat: 'business',
+      img: '/services/company_incorporation_1782653638993.png',
+      categoryClass: 'cat-business',
+      categoryName: 'Business Setup',
+      title: 'Company Registration & Incorporation',
+      desc: 'Incorporate your Private Limited (Pvt Ltd) Company, LLP, One Person Company (OPC), or Public Limited Company with MCA approvals, DIN, PAN, TAN & Bank setup.',
+      features: ['Pvt. Ltd., LLP & OPC registration', 'MCA SPICe+ filing & DIN approval', 'MOA & AOA drafting & corporate kit'],
+      link: '/services/company-llp-formation'
     },
     {
       id: 7,
-      cat: 'finance',
-      img: '/services/cma_data_1782653694852.png',
-      categoryClass: 'cat-finance',
-      categoryName: 'Finance & Loans',
-      title: 'CMA Data & Project Financing',
-      desc: 'Bankable CMA (Credit Monitoring Arrangement) reports and detailed project reports for term loans, working capital, and MSME credit facilities from PSU and private banks.',
-      features: ['CMA data for bank loan sanction', 'Project report & DPR preparation', 'MSME loan & MUDRA documentation'],
-      link: '/services/cma-data-project-financing'
+      cat: 'registration',
+      img: '/services/shop_act_1782793618309.png',
+      categoryClass: 'cat-registration',
+      categoryName: 'Registration',
+      title: 'Business Registration & Shop Act',
+      desc: 'Complete business registration for proprietorship, partnership, and shops including Shop Act (Gumasta) license, Trade License, and local municipal permits.',
+      features: ['Shop Act (Gumasta) license', 'Partnership deed drafting & registration', 'Trade license & local permits'],
+      link: '/services/shop-act-msme'
     },
     {
       id: 8,
@@ -99,63 +99,52 @@ const newServicesData = [
       categoryClass: 'cat-finance',
       categoryName: 'Finance & Loans',
       title: 'Business Loan Assistance',
-      desc: 'End-to-end business loan support — eligibility assessment, documentation, bank liaison, and follow-up for MSME loans, CC limits, OD accounts, and term loans.',
-      features: ['SBI, Bank of Baroda, Canara & more', 'MSME, MUDRA, CGTMSE schemes', 'Complete file preparation & bank follow-up'],
+      desc: 'Secured and unsecured business loans, CC/OD working capital limits, term loans, and machinery financing from leading PSU and private banks.',
+      features: ['Unsecured business loans up to ₹50L+', 'Working capital (CC / OD limits)', 'Fast bank approvals with top lenders'],
       link: '/services/business-loan-assistance'
     },
     {
       id: 9,
       cat: 'finance',
-      img: '/services/gov_subsidy_1782793607920.png',
+      img: '/services/cma_data_1782653694852.png',
       categoryClass: 'cat-finance',
       categoryName: 'Finance & Loans',
-      title: 'Government Subsidy Consulting',
-      desc: 'We identify the right central and state government schemes for your business and handle the entire application process — from eligibility to subsidy disbursement follow-up.',
-      features: ['PMEGP, CMEGP schemes', 'State industrial subsidy programs', 'Agriculture & solar scheme support'],
-      link: '/services/govt-subsidy-consulting'
+      title: 'MSME Loan & CMA Project Reports',
+      desc: 'Bank-ready CMA (Credit Monitoring Arrangement) data, Detailed Project Reports (DPR), and MSME Udyam loan applications under MUDRA & CGTMSE collateral-free schemes.',
+      features: ['Bankable CMA reports for loan sanction', 'MUDRA & CGTMSE loan files', 'Detailed project financial projections'],
+      link: '/services/cma-data-project-financing'
     },
     {
       id: 10,
-      cat: 'registration',
-      img: '/services/shop_act_1782793618309.png',
-      categoryClass: 'cat-registration',
-      categoryName: 'Registration',
-      title: 'Shop Act & MSME Registration',
-      desc: 'Obtain mandatory Shop Act (Gumasta) license and Udyam Aadhar (MSME) registration to legally operate your business and unlock government benefits, subsidies and priority lending.',
-      features: ['Shop Act (Gumasta) license — all districts', 'Udyam Aadhar (MSME) registration', 'Trade License & Professional Tax'],
-      link: '/services/shop-act-msme'
+      cat: 'finance',
+      img: '/services/gov_subsidy_1782793607920.png',
+      categoryClass: 'cat-finance',
+      categoryName: 'Finance & Loans',
+      title: 'Subsidy Loan & Government Grants',
+      desc: 'Identify and claim government loan subsidies under PMEGP, CMEGP, PSI Maharashtra industrial schemes, and interest subsidy programs with end-to-end liaison.',
+      features: ['PMEGP & CMEGP subsidy claims up to 35%', 'State industrial & capital subsidies', 'Scheme eligibility & documentation'],
+      link: '/services/govt-subsidy-consulting'
     },
     {
       id: 11,
       cat: 'compliance',
-      img: '/services/annual_compliance_1782793628116.png',
+      img: '/services/roc_compliance_1782653671630.png',
       categoryClass: 'cat-compliance',
       categoryName: 'Compliance',
-      title: 'ROC & Annual Compliance Package',
-      desc: 'A complete annual compliance retainer covering all ROC filings, board meetings, statutory registers, secretarial records, and year-end disclosures for Pvt. Ltd. companies.',
-      features: ['AGM & board meeting minutes', 'Statutory register maintenance', 'Annual return + financial statement filing'],
+      title: 'ROC Compliance & Annual Filings',
+      desc: 'Statutory ROC annual filings (AOC-4, MGT-7), Director KYC (DIR-3 KYC), AGM resolutions, share capital changes, and complete MCA secretarial compliance.',
+      features: ['AOC-4 & MGT-7 annual filings', 'DIR-3 KYC & DIN compliance', 'Board meeting minutes & registers'],
       link: '/services/roc-annual-compliance'
     },
     {
       id: 12,
-      cat: 'tax',
-      img: '/services/professional_tax_1782793638097.png',
-      categoryClass: 'cat-tax',
-      categoryName: 'Tax & ITR',
-      title: 'Professional Tax Registration & Filing',
-      desc: 'Professional Tax (PT) is mandatory in Maharashtra for all businesses, employers and professionals. We handle PT registration, monthly deduction, and annual return filing.',
-      features: ['PT registration (employer & employee)', 'Monthly challan & annual return', 'PT compliance for all staff'],
-      link: '/services/income-tax-planning'
-    },
-    {
-      id: 13,
       cat: 'registration',
       img: '/services/dsc_generated.png',
       categoryClass: 'cat-registration',
       categoryName: 'Registration',
       title: 'Digital Signature Certificate (DSC)',
-      desc: 'Get your Digital Signature Certificate (DSC) quickly and securely. We offer a paperless, Aadhar-based process with the fastest turnaround time and minimal documentation.',
-      features: ['Paperless & Quick Process', 'Aadhar-Based DSC Issuance', 'Minimal Documentation Required'],
+      desc: 'Fast paperless Class 3 Digital Signature Certificate (DSC) for Income Tax, GST, MCA ROC filing, and e-tendering.',
+      features: ['Paperless Class 3 DSC', 'Quick Aadhar OTP issuance', 'Minimal documentation'],
       link: '/services/digital-signature-certificate'
     }
 ];
@@ -253,9 +242,9 @@ function UserPortal() {
     return (
         <div id="home" className="user-portal" style={{ background: 'var(--bg-page)' }}>
             <SEOHead
-                title="Trusted Financial Consultancy Services in Nagpur – Yugant Rahele"
-                description="FinTaxVers Consultancy Services – Best financial consultant in Nagpur. Expert GST registration, income tax filing, business loan project reports, CMA reports & MSME registration. Call +91-8928895195 / +91-9011424236."
-                keywords="best financial consultant in Nagpur, financial advisor Nagpur, GST consultant Nagpur, tax consultant Nagpur, income tax filing Nagpur, CMA report Nagpur, business loan project report Nagpur, Yugant Rahele, FinTaxVers"
+                title="FinTaxVers | GST, Income Tax, Tax Audit, Internal Audit, Accounting, Business & MSME Loans, ROC Compliance, Company Registration in Nagpur"
+                description="FinTaxVers Consultancy Services – Nagpur & India's trusted financial consultant. Expert GST Registration & Filing, Income Tax Returns, Tax Audit 44AB, Internal Audit, Accounting, Business Registration, Business Loans, MSME Loans, Subsidy Loans, ROC Compliance & Company Registration. Founded by Yugant Rahele."
+                keywords="FinTaxVers, FinTaxVers Nagpur, GST Nagpur, Income Tax Nagpur, Tax Audit Nagpur, Internal Audit Nagpur, Accounting Nagpur, Business Registration Nagpur, Business Loan Nagpur, MSME Loan Nagpur, Subsidy Loan Nagpur, ROC Compliance Nagpur, Company Registration Nagpur, Yugant Rahele"
                 canonical="https://fintaxvers.com/"
             />
             <Navbar />

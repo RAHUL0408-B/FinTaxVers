@@ -1071,8 +1071,63 @@ export const servicesData = {
                 question: "Will internal audit disrupt our operations?",
                 answer: "We conduct audits with minimal disruption to your operations. Most fieldwork can be done during normal business hours with cooperation from your team."
             }
-        ]
+        ],
+        seoTitle: "Internal Audit Services in Nagpur & Pan India | FinTaxVers",
+        metaDescription: "Professional Internal Audit, risk assessment, and internal financial controls (IFC) review services in Nagpur and across India by FinTaxVers.",
+        seoKeywords: "Internal Audit, Internal Audit Nagpur, internal audit services, risk assessment Nagpur, financial controls audit, FinTaxVers, Yugant Rahele"
     },
+
+    "tax-audit-services": {
+        id: "tax-audit-services",
+        title: "Tax Audit (Section 44AB)",
+        category: "Tax & Operations",
+        icon: "📋",
+        shortDesc: "Statutory Tax Audit under Section 44AB of the Income Tax Act with Form 3CA, 3CB, & 3CD filing.",
+        image: "/services/audit_accounting_1782653660793.png",
+        overview: "Ensure 100% compliance with Section 44AB of the Income Tax Act. We perform thorough tax audits, ledger verification, disallowed expense analysis, and timely submission of Form 3CA/3CB and 3CD reports.",
+        detailedDescription: `
+            <p>A Tax Audit under Section 44AB of the Income Tax Act, 1961 is mandatory for businesses and professionals crossing prescribed turnover thresholds. Our Tax Audit services help ensure zero penalties, accurate tax computation, and full regulatory compliance.</p>
+            <h3>Who Needs a Tax Audit?</h3>
+            <ul>
+                <li><strong>Businesses:</strong> With total turnover/gross receipts exceeding ₹1 Crore (or ₹10 Crore if cash transactions are ≤5%)</li>
+                <li><strong>Professionals:</strong> With gross receipts exceeding ₹50 Lakhs</li>
+                <li><strong>Presumptive Taxation:</strong> Businesses declaring profits lower than presumptive limits under Sec 44AD/44ADA/44AE</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "Form 3CA/3CB & 3CD Filing", description: "Accurate preparation and digital filing before the statutory deadline" },
+            { title: "Turnover & Ledger Verification", description: "Detailed check of sales, purchases, TDS compliance, and expense ledgers" },
+            { title: "Deduction & Depreciation Audit", description: "Verification of allowed deductions, depreciation schedules, and tax allowances" },
+            { title: "Penalty Prevention", description: "Avoid penalties under Section 271B with timely compliance" }
+        ],
+        process: [
+            { step: 1, title: "Data Collection", description: "Gather trial balance, ledgers, bills, invoices, and bank statements" },
+            { step: 2, title: "Audit & Verification", description: "Detailed audit of transactions, GST/ITR reconciliations, and Section 40/40A checks" },
+            { step: 3, title: "Draft Report Review", description: "Prepare Form 3CA/3CB and Form 3CD for management review" },
+            { step: 4, title: "CA Sign-off & E-Filing", description: "Sign-off by qualified Chartered Accountant and e-filing on IT portal" }
+        ],
+        benefits: [
+            "Complete compliance with Income Tax Act Sec 44AB",
+            "Zero penalty risk under Sec 271B",
+            "Identifies tax savings and disallowed expenditures",
+            "Enhances financial credibility with banks and investors"
+        ],
+        idealFor: [
+            "Manufacturing & Trading companies crossing turnover limits",
+            "Professionals (Doctors, Lawyers, Engineers, Consultants)",
+            "Private Limited Companies, LLPs & Partnership firms",
+            "Proprietorships crossing audit thresholds"
+        ],
+        pricing: { starting: "₹10,000", note: "Based on business turnover, transaction volume, and entity type" },
+        faq: [
+            { question: "What is the penalty for not completing a Tax Audit?", answer: "Under Section 271B, failure to get accounts audited can attract a penalty of 0.5% of total sales/turnover, up to ₹1,50,000." },
+            { question: "What is the due date for Tax Audit filing?", answer: "The due date is typically September 30th of the assessment year (or October 31st for corporate tax return filers)." }
+        ],
+        seoTitle: "Tax Audit Services in Nagpur & Pan India | Section 44AB | FinTaxVers",
+        metaDescription: "Expert Tax Audit services under Section 44AB in Nagpur and India. Form 3CA, 3CB, 3CD preparation and e-filing by FinTaxVers.",
+        seoKeywords: "Tax Audit, Tax Audit Nagpur, Section 44AB tax audit, Form 3CD filing Nagpur, Income tax audit, tax audit consultant Nagpur, FinTaxVers, Yugant Rahele"
+    },
+
     "home-loan": {
         id: "home-loan",
         title: "Home Loan Services",

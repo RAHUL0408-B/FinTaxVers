@@ -132,10 +132,11 @@ const Navbar = () => {
                                     <a href="/services/roc-annual-compliance" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/roc-annual-compliance'); }}>ROC & Annual Compliance</a>
                                 </div>
                                 <div className="calc-group">
-                                    <h4>Tax & Ops</h4>
-                                    <a href="/services/gst-returns-solutions" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/gst-returns-solutions'); }}>GST Returns & Solutions</a>
-                                    <a href="/services/income-tax-planning" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/income-tax-planning'); }}>Income Tax & Planning</a>
-                                    <a href="/services/financial-reporting" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/financial-reporting'); }}>Financial Reporting</a>
+                                    <h4>Tax &amp; Ops</h4>
+                                    <a href="/services/gst-returns-solutions" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/gst-returns-solutions'); }}>GST Returns &amp; Solutions</a>
+                                    <a href="/services/income-tax-planning" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/income-tax-planning'); }}>Income Tax &amp; Planning</a>
+                                    <a href="/services/tax-audit-services" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/tax-audit-services'); }}>Tax Audit (Sec 44AB)</a>
+                                    <a href="/services/financial-reporting" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/financial-reporting'); }}>Accounting &amp; Reporting</a>
                                     <a href="/services/internal-audit" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/internal-audit'); }}>Internal Audit</a>
                                     <a href="/services/business-development" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/business-development'); }}>Business Development</a>
                                 </div>
