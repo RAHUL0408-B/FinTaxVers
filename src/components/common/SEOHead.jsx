@@ -28,7 +28,7 @@ const SEOHead = ({
         'description': metaDesc,
         'telephone': ['+91-8928895195', '+91-9011424236', '+91-7057167045'],
         'email': 'admin@fintaxvers.com',
-        'priceRange': '₹₹',
+        'hasMap': 'https://share.google/1IwDqOBS8P4PNxiBU',
         'address': {
             '@type': 'PostalAddress',
             'addressLocality': 'Nagpur',
@@ -71,7 +71,8 @@ const SEOHead = ({
             'Government Subsidy Consulting'
         ],
         'sameAs': [
-            'https://fintaxvers.com'
+            'https://fintaxvers.com',
+            'https://share.google/1IwDqOBS8P4PNxiBU'
         ]
     };
 

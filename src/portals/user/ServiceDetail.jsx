@@ -102,6 +102,10 @@ const ServiceDetail = () => {
                                 <div className="contact-ic ic-wa">💬</div>
                                 <div><div className="label">WhatsApp</div><div className="value">Chat with us</div></div>
                             </div>
+                            <div className="contact-line" onClick={() => window.open('https://share.google/1IwDqOBS8P4PNxiBU', '_blank')} style={{ cursor: 'pointer' }}>
+                                <div className="contact-ic" style={{ background: '#e0f2fe', color: '#0284c7' }}>📍</div>
+                                <div><div className="label">Office Location</div><div className="value">Nagpur, Maharashtra</div></div>
+                            </div>
                             <button className="side-cta-btn" onClick={() => navigate(`/?message=${encodeURIComponent(`I would like a callback regarding ${service.title}. `)}&type=${encodeURIComponent(service.category)}`)}>Request a callback</button>
                         </div>
 

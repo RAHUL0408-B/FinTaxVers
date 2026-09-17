@@ -22,7 +22,7 @@ const Footer = () => {
                         </p>
 
                         <div className="f-contact">
-                            <div className="f-contact-row"><span className="ic">📍</span> Nagpur, Maharashtra, India</div>
+                            <div className="f-contact-row"><span className="ic">📍</span> <a href="https://share.google/1IwDqOBS8P4PNxiBU" target="_blank" rel="noopener noreferrer">Nagpur, Maharashtra, India</a></div>
                             <div className="f-contact-row"><span className="ic">📞</span> <a href="tel:+918928895195">+91-8928895195</a> / <a href="tel:+919011424236">+91-9011424236</a></div>
                             <div className="f-contact-row"><span className="ic">✉️</span> <a href="mailto:contact@fintaxvers.com">contact@fintaxvers.com</a></div>
                             <div className="f-contact-row"><span className="ic">🕘</span> Mon–Sat: 10 AM – 7 PM</div>
