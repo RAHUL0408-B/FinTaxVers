@@ -4,6 +4,8 @@ import { getServiceById, servicesData } from '../../data/servicesData';
 import Navbar from '../../components/common/Navbar';
 import SEOHead from '../../components/common/SEOHead';
 import Footer from '../../components/common/Footer';
+import FintaxversAIChatWidget from '../../components/chat/FintaxversAIChatWidget';
+import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema } from '../../lib/seo/schemaGenerators';
 import './ServiceDetail.css';
 
 const ServiceDetail = () => {
@@ -40,6 +42,21 @@ const ServiceDetail = () => {
         .filter(s => s.id !== service.id && s.category === service.category)
         .slice(0, 3);
 
+    // Generate structured schemas for AEO/GEO
+    const breadcrumbItems = [
+        { name: 'Home', url: 'https://fintaxvers.com/' },
+        { name: 'Services', url: 'https://fintaxvers.com/#services' },
+        { name: service.title, url: `https://fintaxvers.com/services/${canonicalSlug}` }
+    ];
+    const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+    const serviceSchema = generateServiceSchema({
+        name: service.title,
+        description: service.shortDesc || service.overview,
+        category: service.category,
+        url: `https://fintaxvers.com/services/${canonicalSlug}`
+    });
+    const faqSchema = service.faq && service.faq.length > 0 ? generateFAQSchema(service.faq) : null;
+
     return (
         <div className="service-detail-page">
             <SEOHead
@@ -47,6 +64,9 @@ const ServiceDetail = () => {
                 description={seoDesc}
                 keywords={seoKeywords}
                 canonical={`https://fintaxvers.com/services/${canonicalSlug}`}
+                serviceSchema={serviceSchema}
+                faqSchema={faqSchema}
+                breadcrumbSchema={breadcrumbSchema}
             />
             <Navbar />
 
@@ -214,6 +234,9 @@ const ServiceDetail = () => {
                 </div>
             </section>
             
+            {/* AI Assistant Chat Widget */}
+            <FintaxversAIChatWidget />
+
             <Footer />
         </div>
     );

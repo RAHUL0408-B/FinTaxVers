@@ -1,8 +1,24 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { generateOrganizationSchema, generateWebSiteSchema } from '../../lib/seo/schemaGenerators';
 
 const DEFAULT_KEYWORDS = 'FinTaxVers, FinTaxVers Consultancy Services, FinTaxVers Nagpur, Yugant Rahele, GST, GST Nagpur, GST registration Nagpur, GST return filing Nagpur, Income Tax, Income Tax Nagpur, Income Tax Filing Nagpur, ITR filing Nagpur, Tax Audit, Tax Audit Nagpur, Tax Audit services 44AB Nagpur, Internal Audit, Internal Audit Nagpur, Internal Audit services, Accounting, Accounting services Nagpur, bookkeeping Nagpur, Business Registration, Business Registration Nagpur, startup registration Nagpur, Business Loan, Business Loan Nagpur, business loan project report Nagpur, CMA report Nagpur, MSME Loan, MSME Loan Nagpur, MSME registration Nagpur, Udyam registration Nagpur, Subsidy Loan, Subsidy Loan Nagpur, government subsidy consulting, PMEGP subsidy Nagpur, ROC Compliance, ROC Compliance Nagpur, MCA filing Nagpur, Company Registration, Company Registration Nagpur, Pvt Ltd company registration Nagpur, LLP registration Nagpur, financial consultant near me Nagpur, best financial advisor Nagpur, financial consultancy India';
 
+/**
+ * SEOHead — universal SEO + AEO + GEO meta component.
+ *
+ * Props:
+ *   title          — page title prefix (without site suffix)
+ *   description    — meta description
+ *   keywords       — extra keywords (merged with defaults)
+ *   canonical      — full canonical URL
+ *   ogImage        — Open Graph image URL
+ *   schema         — additional JSON-LD schema object (e.g. Service schema)
+ *   articleSchema  — Article schema object
+ *   faqSchema      — FAQPage schema object
+ *   breadcrumbSchema — BreadcrumbList schema object
+ *   noIndex        — set true ONLY for private/admin pages
+ */
 const SEOHead = ({ 
     title, 
     description, 
@@ -11,7 +27,9 @@ const SEOHead = ({
     ogImage = 'https://fintaxvers.com/image_c26745.png', 
     schema = null, 
     articleSchema = null,
-    faqSchema = null
+    faqSchema = null,
+    breadcrumbSchema = null,
+    noIndex = false,
 }) => {
     const fullTitle = title 
         ? `${title} | FinTaxVers Consultancy – Nagpur & Pan-India` 
@@ -21,104 +39,9 @@ const SEOHead = ({
     const metaKeywords = keywords ? `${keywords}, ${DEFAULT_KEYWORDS}` : DEFAULT_KEYWORDS;
     const canonicalUrl = canonical || 'https://fintaxvers.com/';
 
-    // Default AEO / GEO Organization & FinancialService Schema for AI Search Engines (ChatGPT, Perplexity, Gemini, Claude, SGE)
-    const defaultOrganizationSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'FinancialService',
-        '@id': 'https://fintaxvers.com/#organization',
-        'name': 'FinTaxVers Consultancy Services',
-        'alternateName': ['FinTaxVers', 'FinTaxVers Nagpur', 'FinTaxYug'],
-        'url': 'https://fintaxvers.com',
-        'logo': 'https://fintaxvers.com/image_c26745.png',
-        'image': ogImage,
-        'description': metaDesc,
-        'telephone': ['+91-8928895195', '+91-9011424236', '+91-7057167045'],
-        'email': 'admin@fintaxvers.com',
-        'hasMap': 'https://share.google/1IwDqOBS8P4PNxiBU',
-        'address': {
-            '@type': 'PostalAddress',
-            'addressLocality': 'Nagpur',
-            'addressRegion': 'Maharashtra',
-            'addressCountry': 'IN',
-            'postalCode': '440001'
-        },
-        'geo': {
-            '@type': 'GeoCoordinates',
-            'latitude': 21.1458,
-            'longitude': 79.0882
-        },
-        'areaServed': [
-            {
-                '@type': 'City',
-                'name': 'Nagpur'
-            },
-            {
-                '@type': 'AdministrativeArea',
-                'name': 'Vidarbha'
-            },
-            {
-                '@type': 'AdministrativeArea',
-                'name': 'Maharashtra'
-            },
-            {
-                '@type': 'Country',
-                'name': 'India'
-            }
-        ],
-        'founder': {
-            '@type': 'Person',
-            'name': 'Yugant V. Rahele',
-            'jobTitle': 'Founder & Financial Consultant',
-            'alumniOf': 'MBA Finance'
-        },
-        'serviceType': [
-            'GST Registration & Return Filing',
-            'Income Tax Filing & Tax Planning',
-            'Tax Audit (Section 44AB) Services',
-            'Internal Audit & Risk Controls',
-            'Accounting & Bookkeeping Services',
-            'Business Registration & Setup',
-            'Business Loan Project Reports (CMA)',
-            'MSME Loan & Udyam Registration',
-            'Subsidy Loan & Government Grants',
-            'ROC Compliance & Annual Filings',
-            'Company Registration (Pvt Ltd & LLP)'
-        ],
-        'knowsAbout': [
-            'GST',
-            'Income Tax',
-            'Tax Audit',
-            'Internal Audit',
-            'Accounting',
-            'Business Registration',
-            'Business Loan',
-            'MSME Loan',
-            'Subsidy Loan',
-            'ROC Compliance',
-            'Company Registration',
-            'CMA Data & Project Financing',
-            'Financial Planning & Advisory in Nagpur'
-        ],
-        'sameAs': [
-            'https://fintaxvers.com',
-            'https://share.google/1IwDqOBS8P4PNxiBU',
-            'https://www.linkedin.com/in/yugant-rahele-333101148/',
-            'https://www.facebook.com/yugant.rahele',
-            'https://www.instagram.com/fintaxvers'
-        ]
-    };
-
-    const defaultWebSiteSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        '@id': 'https://fintaxvers.com/#website',
-        'url': 'https://fintaxvers.com',
-        'name': 'FinTaxVers Consultancy Services',
-        'publisher': {
-            '@id': 'https://fintaxvers.com/#organization'
-        },
-        'inLanguage': 'en-IN'
-    };
+    // Use centralized schema generators for consistency across all pages
+    const orgSchema = generateOrganizationSchema();
+    const siteSchema = generateWebSiteSchema();
 
     return (
         <Helmet>
@@ -130,27 +53,34 @@ const SEOHead = ({
             <meta name="author" content="Yugant V. Rahele - FinTaxVers Consultancy Services" />
             <meta name="publisher" content="FinTaxVers Consultancy Services" />
 
-            {/* AEO & GEO Specific Meta Tags for AI Answer Engines */}
-            <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-            <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-            <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
-            <meta name="chatgpt-bot" content="index, follow" />
-            <meta name="perplexity-bot" content="index, follow" />
-            <meta name="anthropic-ai" content="index, follow" />
-            <meta name="claudebot" content="index, follow" />
+            {/* Robots */}
+            {noIndex
+                ? <meta name="robots" content="noindex, nofollow" />
+                : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+            }
+            {!noIndex && <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />}
+            {!noIndex && <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />}
 
-            {/* GEO (Geographic & Regional Targeting) Tags */}
+            {/* AEO — AI Answer Engine bots */}
+            {!noIndex && <meta name="chatgpt-bot" content="index, follow" />}
+            {!noIndex && <meta name="perplexity-bot" content="index, follow" />}
+            {!noIndex && <meta name="anthropic-ai" content="index, follow" />}
+            {!noIndex && <meta name="claudebot" content="index, follow" />}
+            {!noIndex && <meta name="gptbot" content="index, follow" />}
+
+            {/* GEO — Geographic & Regional Targeting */}
             <meta name="geo.region" content="IN-MH" />
             <meta name="geo.placename" content="Nagpur" />
             <meta name="geo.position" content="21.1458;79.0882" />
             <meta name="ICBM" content="21.1458, 79.0882" />
 
-            {/* Citation & AI Verification Tags */}
+            {/* Citation & AI Verification Tags (GEO / AEO) */}
             <meta name="citation_title" content={fullTitle} />
             <meta name="citation_publisher" content="FinTaxVers Consultancy Services" />
             <meta name="ai-content-declaration" content="verified-financial-consultancy" />
+            <meta name="content-authority" content="financial-tax-consultancy-india" />
 
-            {/* OpenGraph & Social */}
+            {/* Open Graph */}
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={metaDesc} />
             <meta property="og:url" content={canonicalUrl} />
@@ -159,18 +89,21 @@ const SEOHead = ({
             <meta property="og:site_name" content="FinTaxVers Consultancy Services" />
             <meta property="og:locale" content="en_IN" />
 
-            {/* Twitter / X */}
+            {/* Twitter / X Card */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={metaDesc} />
             <meta name="twitter:image" content={ogImage} />
 
-            {/* JSON-LD Schemas for AEO / GEO Engine Citation */}
-            <script type="application/ld+json">{JSON.stringify(defaultOrganizationSchema)}</script>
-            <script type="application/ld+json">{JSON.stringify(defaultWebSiteSchema)}</script>
+            {/* JSON-LD — Organization + Website always present on public pages */}
+            {!noIndex && <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>}
+            {!noIndex && <script type="application/ld+json">{JSON.stringify(siteSchema)}</script>}
+
+            {/* Dynamic page-level schemas */}
             {schema && <script type="application/ld+json">{JSON.stringify(schema)}</script>}
             {articleSchema && <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>}
             {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
+            {breadcrumbSchema && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>}
         </Helmet>
     );
 };

@@ -1,5 +1,5 @@
 # Robots.txt – fintaxvers.com
-# Financial Consultancy Services in Nagpur by Yugant Rahele
+# Financial Consultancy Services in Nagpur & Pan India by FinTaxVers (Yugant Rahele)
 
 User-agent: *
 Allow: /
@@ -20,6 +20,31 @@ User-agent: Slurp
 Allow: /
 
 User-agent: DuckDuckBot
+Allow: /
+
+# Allow AI / Generative Engine Bots for GEO & AEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 # Sitemap location

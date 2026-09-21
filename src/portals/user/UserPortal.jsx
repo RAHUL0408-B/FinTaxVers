@@ -11,6 +11,7 @@ import Navbar from '../../components/common/Navbar';
 import HeroSlider from '../../components/common/HeroSlider';
 import SEOHead from '../../components/common/SEOHead';
 import Footer from '../../components/common/Footer';
+import FintaxversAIChatWidget from '../../components/chat/FintaxversAIChatWidget';
 import logo from '../../assets/fintaxverslogo.png';
 import './UserPortal.css';
 
@@ -477,6 +478,9 @@ function UserPortal() {
                     <Phone size={28} />
                 </a>
             </div>
+
+            {/* AI Assistant Chat Widget */}
+            <FintaxversAIChatWidget />
 
             {/* Big Landscape Image Ad Modal for DSC */}
             <AnimatePresence>
