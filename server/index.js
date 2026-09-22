@@ -1,4 +1,4 @@
-﻿/**
+/**
  * FinTaxVers Backend Server
  * Express server providing:
  *   POST /api/chat              — AI chatbot with RAG
@@ -23,14 +23,7 @@ import { buildIndex } from './services/vectorStore.js';
 
 const app = express();
 
-// Capture raw body for WhatsApp signature verification
-app.use((req, res, next) => {
-    let raw = '';
-    req.on('data', chunk => { raw += chunk.toString(); });
-    req.on('end', () => { req.rawBody = raw; next(); });
-});
-
-// CORS — Allow frontend origin and WhatsApp/Meta
+// CORS — Allow frontend origin
 const allowedOrigins = [
     config.siteUrl,
     'http://localhost:5173',  // Vite dev
@@ -48,7 +41,11 @@ app.use(cors({
     credentials: true,
 }));
 
-app.use(express.json({ limit: '2mb' }));
+// Parse JSON bodies — capture rawBody safely inside verify (does NOT consume the stream)
+app.use(express.json({
+    limit: '2mb',
+    verify: (req, res, buf) => { req.rawBody = buf.toString(); }
+}));
 app.use(express.urlencoded({ extended: true }));
 
 // Health check

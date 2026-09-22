@@ -1,52 +1,39 @@
-﻿/**
+/**
  * FinTaxVers AI Chat Service — RAG + LLM Pipeline
  * 
  * Retrieves relevant Fintaxvers knowledge, calls LLM with strict system prompt,
  * detects service intent, triggers lead capture and human handoff.
- * 
- * IMPORTANT SAFETY CONSTRAINTS:
- * - Does NOT claim to be a human CA, lawyer, or government official
- * - Does NOT invent tax rates, deadlines, or government rules
- * - Does NOT make personalized legal or financial decisions
- * - Always recommends human expert contact for specific situations
  */
 import { searchKnowledge } from './vectorStore.js';
 import { config, isLLMConfigured } from '../config/env.js';
 
-const SYSTEM_PROMPT = `You are Fintaxvers AI, a helpful digital assistant for FinTaxVers Consultancy Services based in Nagpur, India.
+const SYSTEM_PROMPT = `You are FinTaxVers AI, the official AI Tax & Compliance Assistant for FinTaxVers Consultancy Services, Nagpur, Maharashtra, India.
+Founder: Yugant V. Rahele | Website: https://fintaxvers.com
 
-ABOUT FINTAXVERS:
-FinTaxVers is a professional financial and tax consultancy firm founded by Yugant V. Rahele.
-Services: GST Registration & Return Filing, Income Tax Filing & Tax Planning, Tax Audit (Section 44AB), Internal Audit, Accounting & Bookkeeping, Business Registration, Company Formation (Pvt Ltd/LLP), Business Loans (CMA/MUDRA/CGTMSE), MSME Udyam Registration, Government Subsidy Consulting, ROC Compliance, Digital Signature Certificates (DSC).
-Contact: +91-8928895195, +91-9011424236 | Email: contact@fintaxvers.com | Location: Nagpur, Maharashtra.
+OFFICIAL SERVICES:
+1. Income Tax: ITR-1 to ITR-7, Tax Audit (Sec 44AB), Capital Gains, NRI Taxation, Demand Notice replies.
+2. GST: Registration (REG-01), GSTR-1, GSTR-3B, GSTR-9, GSTR-9C filing, ITC Reconciliation, Revocation of Cancellation.
+3. Business Setup & ROC: Pvt Ltd, LLP, OPC Incorporation, Partnership, Shop Act, MSME/Udyam, MCA annual filings.
+4. Business Loans & Subsidies: CMA Data, Project Reports, Working Capital (CC/OD), Term Loans, CGTMSE, MUDRA, PMEGP, CMEGP.
+5. Assurance & Compliance: IFC, Accounting, Bookkeeping, DSC (Class 3).
 
-STRICT RULES — YOU MUST FOLLOW THESE EXACTLY:
-1. You are an informational assistant ONLY. You are NOT a Chartered Accountant, lawyer, or government official.
-2. Do NOT invent or fabricate tax rates, deadlines, penalties, or legal rules not provided in context.
-3. Do NOT guarantee loan approvals, tax refunds, or specific financial outcomes.
-4. Do NOT make personalized tax calculations or legal decisions.
-5. When information is uncertain or situation-specific, ALWAYS say so and recommend human expert consultation.
-6. Always identify yourself as "Fintaxvers AI" — never claim to be a human.
-7. Keep responses concise, factual, and helpful. Do not write long essays.
-8. For specific client situations requiring personalized advice, always offer to connect them with the Fintaxvers team.
-9. Use simple, clear language. Avoid jargon where possible.
-10. If knowledge context is provided below, use it. If not, be honest about knowledge limits.
-
-FORMAT:
-- Use short paragraphs or bullet points for clarity.
-- Include relevant Fintaxvers contact info when offering human connection.
-- When offering to generate a lead/callback, clearly ask for the user's name, phone number, and service needed.`;
+CORE BEHAVIOR RULES:
+1. Give comprehensive, accurate, and clearly structured answers. Use **bold** for key terms and bullet points for lists.
+2. Always cite relevant sections of Indian law (Income Tax Act 1961, CGST/SGST Acts, Companies Act 2013) where applicable.
+3. If asked about specific fees or pricing, explain that fees vary case-by-case and encourage the user to describe their situation so you can provide a detailed estimate or framework.
+4. Never fabricate tax rates, portal procedures, or guarantee loan approvals. If uncertain, say so clearly and explain what factors apply.
+5. Answer every question as thoroughly as possible — the user is seeking expert-level information.
+6. Maintain a professional, warm, and helpful tone throughout.`;
 
 const INTENT_KEYWORDS = {
-    GST_REGISTRATION: ['gst registration', 'gstin', 'get gst number', 'gst apply', 'register for gst'],
-    GST_FILING: ['gst return', 'gstr', 'gstr-1', 'gstr-3b', 'gstr-9', 'file gst', 'gst filing'],
-    ITR_FILING: ['itr', 'income tax return', 'income tax filing', 'file income tax', 'tax filing'],
-    TAX_AUDIT: ['tax audit', 'section 44ab', '3ca', '3cb', '3cd', 'audit report'],
-    BUSINESS_LOAN: ['business loan', 'mudra', 'cgtmse', 'cma data', 'loan application', 'working capital', 'od', 'cc limit'],
-    COMPANY_REGISTRATION: ['company registration', 'pvt ltd', 'llp', 'opc', 'incorporate', 'start company'],
-    MSME: ['msme', 'udyam', 'udyog aadhaar', 'msme loan', 'msme registration'],
-    SUBSIDY: ['subsidy', 'pmegp', 'cmegp', 'government scheme', 'grant'],
-    HUMAN_HANDOFF: ['talk to human', 'speak to agent', 'contact team', 'call me', 'callback', 'get consultation', 'need expert', 'speak to consultant', 'human', 'agent'],
+    GST_REGISTRATION: ['gst registration', 'gstin', 'get gst number', 'gst apply', 'register for gst', 'gst new'],
+    GST_FILING: ['gst return', 'gstr', 'gstr-1', 'gstr-3b', 'gstr-9', 'gstr-9c', 'file gst', 'gst filing', 'itc reconciliation'],
+    ITR_FILING: ['itr', 'income tax return', 'income tax filing', 'file income tax', 'tax filing', 'itr-1', 'itr-2', 'itr-3', 'itr-4', 'section 80c'],
+    TAX_AUDIT: ['tax audit', 'section 44ab', '3ca', '3cb', '3cd', 'audit report', 'turnover limit'],
+    BUSINESS_LOAN: ['business loan', 'mudra', 'cgtmse', 'cma data', 'project report', 'loan application', 'working capital', 'od', 'cc limit', 'bank loan'],
+    COMPANY_REGISTRATION: ['company registration', 'pvt ltd', 'private limited', 'llp', 'opc', 'incorporate', 'incorporation', 'start company', 'mca'],
+    MSME: ['msme', 'udyam', 'udyog aadhaar', 'msme certificate', 'udyam registration'],
+    SUBSIDY: ['subsidy', 'pmegp', 'cmegp', 'subsidy scheme', 'government subsidy', 'grant'],
 };
 
 function detectIntent(message) {
@@ -59,22 +46,7 @@ function detectIntent(message) {
     return null;
 }
 
-function requiresHumanCheck(message, intent, aiResponse) {
-    const humanTriggers = [
-        'quote', 'quotation', 'pricing', 'how much', 'fee', 'cost',
-        'upload document', 'share document', 'sensitive', 'specific advice',
-        'my situation', 'my case', 'my business',
-    ];
-    if (intent === 'HUMAN_HANDOFF') return true;
-    if (humanTriggers.some(t => message.toLowerCase().includes(t))) return true;
-    // If AI responded with uncertainty markers
-    if (aiResponse && (
-        aiResponse.includes("I'm unable to find") ||
-        aiResponse.includes("not in my knowledge") ||
-        aiResponse.includes("specific situation")
-    )) return true;
-    return false;
-}
+
 
 async function callOpenAI(messages) {
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -84,7 +56,7 @@ async function callOpenAI(messages) {
             'Authorization': `Bearer ${config.llmApiKey}`,
         },
         body: JSON.stringify({
-            model: config.llmModel,
+            model: config.llmModel || 'gpt-4o-mini',
             messages,
             temperature: config.llmTemperature,
             max_tokens: config.llmMaxTokens,
@@ -99,8 +71,16 @@ async function callOpenAI(messages) {
 }
 
 async function callGemini(messages) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${config.llmModel}:generateContent?key=${config.llmApiKey}`;
-    // Convert OpenAI message format to Gemini
+    const modelsToTry = [
+        config.llmModel || 'gemini-2.0-flash',
+        'gemini-2.0-flash',
+        'gemini-2.0-flash-lite',
+        'gemini-1.5-flash',
+        'gemini-1.5-flash-8b',
+    ];
+    // deduplicate models
+    const uniqueModels = [...new Set(modelsToTry.map(m => m.replace(/^models\//, '')))];
+
     const geminiContents = messages
         .filter(m => m.role !== 'system')
         .map(m => ({
@@ -109,44 +89,73 @@ async function callGemini(messages) {
         }));
     
     const systemInstruction = messages.find(m => m.role === 'system')?.content || '';
-    
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            system_instruction: { parts: [{ text: systemInstruction }] },
-            contents: geminiContents,
-            generationConfig: {
-                temperature: config.llmTemperature,
-                maxOutputTokens: config.llmMaxTokens,
-            },
-        }),
-    });
-    if (!response.ok) {
-        const err = await response.text();
-        throw new Error(`Gemini API error ${response.status}: ${err}`);
+    let lastError = null;
+
+    for (const model of uniqueModels) {
+        try {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${config.llmApiKey}`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    system_instruction: { parts: [{ text: systemInstruction }] },
+                    contents: geminiContents,
+                    generationConfig: {
+                        temperature: config.llmTemperature,
+                        maxOutputTokens: config.llmMaxTokens,
+                    },
+                }),
+            });
+            if (!response.ok) {
+                const err = await response.text();
+                throw new Error(`Gemini API error ${response.status}: ${err}`);
+            }
+            const data = await response.json();
+            if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
+                return data.candidates[0].content.parts[0].text;
+            }
+        } catch (err) {
+            lastError = err;
+            console.warn(`[AIChatService] Model ${model} failed, trying next candidate:`, err.message);
+        }
     }
-    const data = await response.json();
-    return data.candidates[0].content.parts[0].text;
+
+    throw lastError || new Error('All Gemini candidate models failed');
+}
+
+/**
+ * Intelligent domain-informed fallback generator when no LLM key is configured
+ */
+function buildSmartDomainFallback(userQuery, chunks, intent) {
+    if (chunks && chunks.length > 0) {
+        const topChunk = chunks[0];
+        return `**${topChunk.title}**\n\n${topChunk.content.substring(0, 600).trim()}\n\n---\n📌 For a detailed analysis of your specific case, visit **https://fintaxvers.com** or email **contact@fintaxvers.com**.`;
+    }
+
+    if (intent === 'GST_REGISTRATION' || intent === 'GST_FILING') {
+        return `**Goods & Services Tax (GST) — Key Information**\n\n- **GST Registration** is mandatory if annual turnover exceeds ₹40L (goods) or ₹20L (services).\n- Apply via the GST portal using **Form REG-01** with PAN, Aadhaar, bank details & business proof.\n- Monthly filings: **GSTR-1** (outward supplies) & **GSTR-3B** (tax payment).\n- Annual: **GSTR-9** (all taxpayers), **GSTR-9C** (turnover > ₹5Cr).\n\nFinTaxVers handles end-to-end GST Registration and Return Filing across India.`;
+    }
+
+    if (intent === 'ITR_FILING' || intent === 'TAX_AUDIT') {
+        return `**Income Tax Filing & Tax Audit — Key Information**\n\n- **ITR-1**: Salaried individuals (income up to ₹50L).\n- **ITR-2**: Capital gains, HRA, foreign assets.\n- **ITR-3/4**: Business income / presumptive taxation.\n- **Tax Audit (Sec 44AB)**: Mandatory if business turnover > ₹1Cr (or ₹10Cr with digital payments) or professional receipts > ₹50L.\n- Forms **3CA / 3CB / 3CD** must be filed along with the ITR.\n\nFinTaxVers provides accurate, on-time filing for all ITR forms and audit reports.`;
+    }
+
+    if (intent === 'BUSINESS_LOAN' || intent === 'SUBSIDY') {
+        return `**Business Loans & Govt Subsidy Schemes — Key Information**\n\n- **MUDRA Loan**: Up to ₹10L for micro/small businesses (Shishu / Kishor / Tarun).\n- **CGTMSE**: Collateral-free loans up to ₹2Cr for MSMEs.\n- **PMEGP**: Up to 35% margin subsidy for new enterprises (max project ₹25L manufacturing / ₹10L service).\n- **CMEGP** (Maharashtra): State-level subsidy for entrepreneurs.\n- FinTaxVers prepares **CMA Data Reports & Detailed Project Reports (DPR)** required for bank processing.`;
+    }
+
+    if (intent === 'COMPANY_REGISTRATION' || intent === 'MSME') {
+        return `**Business Registration — Key Information**\n\n- **Pvt Ltd Company**: Min 2 directors, 2 shareholders. Requires DSC, DIN, MOA/AOA, Certificate of Incorporation via MCA portal.\n- **LLP**: Flexible structure; ideal for professionals. Governed by LLP Act 2008.\n- **OPC**: Single-person company — suitable for solo entrepreneurs.\n- **MSME/Udyam**: Register at udyamregistration.gov.in for benefits like priority lending, subsidies, and government tenders.\n\nFinTaxVers handles complete incorporation documentation and MCA filings.`;
+    }
+
+    return `**FinTaxVers — Tax & Business Compliance Experts**\n\nI can answer detailed questions on:\n- 📋 **GST** (Registration, GSTR Filing, ITC Reconciliation)\n- 💰 **Income Tax** (ITR Filing, Capital Gains, NRI Taxation, Notices)\n- 🏢 **Company Registration** (Pvt Ltd, LLP, OPC, MSME/Udyam)\n- 🏦 **Business Loans** (CMA Data, MUDRA, CGTMSE, Project Reports)\n- 🎯 **Govt Subsidies** (PMEGP, CMEGP and more)\n\nPlease ask your specific question and I will provide a detailed answer!`;
 }
 
 /**
  * Main chat function — RAG + LLM pipeline.
- * @param {{ message: string, conversationHistory: Array<{role, content}>, channel: string }} opts
- * @returns {Promise<{ reply: string, sources: Array, intent: string|null, requiresHuman: boolean }>}
  */
 export async function processChat({ message, conversationHistory = [], channel = 'WEBSITE' }) {
     const intent = detectIntent(message);
-    
-    // Immediate human handoff if explicitly requested
-    if (intent === 'HUMAN_HANDOFF') {
-        return {
-            reply: "Of course! I'll connect you with the FinTaxVers team right away.\n\nYou can reach them directly:\n📞 **+91-8928895195** or **+91-9011424236**\n✉️ contact@fintaxvers.com\n\nAlternatively, please share your **name**, **phone number**, and what you need help with, and the team will call you back shortly.",
-            sources: [],
-            intent,
-            requiresHuman: true,
-        };
-    }
     
     // RAG: Search knowledge base
     let contextChunks = [];
@@ -155,57 +164,45 @@ export async function processChat({ message, conversationHistory = [], channel =
     try {
         contextChunks = await searchKnowledge(message, config.ragTopK, config.ragRelevanceThreshold);
         sources = contextChunks
-            .filter(c => c.source && !sources.find(s => s === c.source))
+            .filter(c => c.source && !sources.find(s => s.url === c.source))
             .slice(0, 3)
             .map(c => ({ title: c.title, url: c.source }));
     } catch (err) {
-        console.warn('[AIChatService] Knowledge search error:', err.message);
+        console.warn('[AIChatService] Knowledge search warning:', err.message);
     }
-    
-    const contextText = contextChunks.length > 0
-        ? contextChunks.map(c => `[${c.title}]\n${c.content}`).join('\n\n---\n\n')
-        : '';
-    
-    const userMessageWithContext = contextText
-        ? `Context from FinTaxVers knowledge base:\n\n${contextText}\n\n---\n\nUser question: ${message}`
-        : message;
-    
-    // Build message history (limited window to avoid token overflow)
-    const historyWindow = conversationHistory.slice(-6);
-    
-    const messages = [
-        { role: 'system', content: SYSTEM_PROMPT },
-        ...historyWindow,
-        { role: 'user', content: userMessageWithContext },
-    ];
     
     let reply;
     
     if (!isLLMConfigured()) {
-        // Graceful degradation without LLM
-        if (contextChunks.length > 0) {
-            reply = `Based on FinTaxVers information:\n\n${contextChunks[0].content.substring(0, 600)}...\n\nFor personalized assistance, please contact the FinTaxVers team:\n📞 +91-8928895195 | ✉️ contact@fintaxvers.com`;
-        } else {
-            reply = config.ragFallbackMessage;
-        }
+        // High quality domain fallback without external API dependency
+        reply = buildSmartDomainFallback(message, contextChunks, intent);
     } else {
+        const contextText = contextChunks.length > 0
+            ? contextChunks.map(c => `### ${c.title}\n${c.content}`).join('\n\n---\n\n')
+            : '';
+        
+        const userMessageWithContext = contextText
+            ? `FinTaxVers Verified Reference Context:\n${contextText}\n\nClient Inquiry: ${message}`
+            : message;
+        
+        const historyWindow = conversationHistory.slice(-6);
+        const messages = [
+            { role: 'system', content: SYSTEM_PROMPT },
+            ...historyWindow,
+            { role: 'user', content: userMessageWithContext },
+        ];
+
         try {
-            if (config.llmProvider === 'gemini') {
-                reply = await callGemini(messages);
-            } else {
+            if (config.llmProvider === 'openai') {
                 reply = await callOpenAI(messages);
+            } else {
+                reply = await callGemini(messages);
             }
         } catch (err) {
-            console.error('[AIChatService] LLM error:', err.message);
-            if (contextChunks.length > 0) {
-                reply = `I found some relevant information for you:\n\n${contextChunks[0].content.substring(0, 500)}...\n\nFor detailed assistance, please contact:\n📞 +91-8928895195 | ✉️ contact@fintaxvers.com`;
-            } else {
-                reply = "I'm experiencing a temporary issue. Please contact the FinTaxVers team directly:\n📞 **+91-8928895195** | ✉️ contact@fintaxvers.com";
-            }
+            console.error('[AIChatService] LLM API call error, falling back to local domain engine:', err.message);
+            reply = buildSmartDomainFallback(message, contextChunks, intent);
         }
     }
     
-    const needsHuman = requiresHumanCheck(message, intent, reply);
-    
-    return { reply, sources, intent, requiresHuman: needsHuman };
+    return { reply, sources, intent };
 }

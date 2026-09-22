@@ -11,6 +11,7 @@ import Navbar from '../../components/common/Navbar';
 import HeroSlider from '../../components/common/HeroSlider';
 import SEOHead from '../../components/common/SEOHead';
 import Footer from '../../components/common/Footer';
+import FAQSection from '../../components/common/FAQSection';
 import FintaxversAIChatWidget from '../../components/chat/FintaxversAIChatWidget';
 import logo from '../../assets/fintaxverslogo.png';
 import './UserPortal.css';
@@ -453,6 +454,53 @@ function UserPortal() {
                             </form>
                         )}
                     </div>
+                </div>
+            </section>
+
+            {/* AEO/GEO Homepage FAQ Section */}
+            <section style={{ background: '#f8fafc', padding: '60px 0' }}>
+                <div style={{ maxWidth: '860px', margin: '0 auto', padding: '0 20px' }}>
+                    <FAQSection
+                        title="Frequently Asked Questions — FinTaxVers"
+                        faqs={[
+                            {
+                                question: 'What services does FinTaxVers offer?',
+                                answer: 'FinTaxVers Consultancy Services, Nagpur offers GST Registration & Return Filing (GSTR-1, 3B, 9, 9C), Income Tax Return (ITR-1 to ITR-7) filing, Tax Audit under Section 44AB, Company & LLP Registration, MSME/Udyam Registration, Business Loans (CMA Data & Project Reports), Government Subsidy assistance (PMEGP, CMEGP), Internal Audit & IFC, Accounting, Bookkeeping, and Digital Signature Certificate (DSC) services.'
+                            },
+                            {
+                                question: 'Who is the founder of FinTaxVers?',
+                                answer: 'FinTaxVers Consultancy Services was founded by Yugant V. Rahele, a qualified financial and tax consultant based in Nagpur, Maharashtra. The firm serves clients across Nagpur, Vidarbha, Maharashtra, and Pan-India.'
+                            },
+                            {
+                                question: 'What is GST registration and when is it mandatory?',
+                                answer: 'GST (Goods and Services Tax) registration is mandatory for businesses with annual turnover exceeding ₹40 lakhs (goods) or ₹20 lakhs (services). It is also mandatory for inter-state suppliers, e-commerce operators, and businesses under the Reverse Charge Mechanism. FinTaxVers handles complete GST Registration (Form REG-01), GSTIN generation, and post-registration compliance.'
+                            },
+                            {
+                                question: 'How do I file an Income Tax Return (ITR)?',
+                                answer: 'Income Tax Returns are filed on the Income Tax e-filing portal (incometax.gov.in). Select the correct ITR form based on your income source: ITR-1 (salaried, income up to ₹50L), ITR-2 (capital gains, multiple properties), ITR-3 (business/profession), ITR-4 (presumptive income). FinTaxVers provides accurate, error-free ITR filing with maximum deduction planning under Sections 80C, 80D, HRA, and more.'
+                            },
+                            {
+                                question: 'What is a Tax Audit under Section 44AB?',
+                                answer: 'A Tax Audit under Section 44AB of the Income Tax Act is mandatory for businesses with turnover exceeding ₹1 crore (₹10 crore if 95% transactions are digital) and professionals with gross receipts above ₹50 lakhs. The audit report is filed in Form 3CA/3CB along with Form 3CD. FinTaxVers provides full Tax Audit, ledger review, and audit report submission services.'
+                            },
+                            {
+                                question: 'How can I register a Private Limited Company in India?',
+                                answer: 'To register a Private Limited Company, you need: minimum 2 directors and 2 shareholders, Digital Signature Certificates (DSC) for directors, Director Identification Numbers (DIN), approval for company name via RUN (Reserve Unique Name) on MCA portal, drafting of MOA & AOA, and filing SPICe+ form. FinTaxVers handles the complete incorporation process including post-registration compliances like PAN, TAN, bank account setup, and first-year MCA filings.'
+                            },
+                            {
+                                question: 'What government subsidy schemes are available for new businesses in Maharashtra?',
+                                answer: 'Key government subsidy schemes include: PMEGP (Prime Minister Employment Generation Programme) — up to 35% margin subsidy for manufacturing (max project ₹25L) and 25% for service (max ₹10L); CMEGP (Chief Minister Employment Generation Programme) — Maharashtra state scheme for entrepreneurs; MUDRA Loan — collateral-free loans up to ₹10L under Shishu, Kishor, and Tarun categories; CGTMSE — credit guarantee for MSMEs up to ₹2 crore without collateral. FinTaxVers assists with project reports, DPR preparation, and complete subsidy application.'
+                            },
+                            {
+                                question: 'What is CMA Data and when is it needed?',
+                                answer: 'CMA (Credit Monitoring Arrangement) Data is a financial report required by banks and NBFCs when processing business loan applications above ₹10 lakhs. It includes past 3 years financial statements, projected balance sheets, P&L, cash flow statements, and fund flow analysis. FinTaxVers prepares bank-compliant CMA Data Reports and Detailed Project Reports (DPR) for Working Capital (CC/OD), Term Loans, and government-backed schemes.'
+                            },
+                            {
+                                question: 'Where is FinTaxVers located and do they serve clients outside Nagpur?',
+                                answer: 'FinTaxVers Consultancy Services is headquartered in Nagpur, Maharashtra, India. The firm serves clients across Nagpur city, Vidarbha region, and Pan-India through online/digital consultancy. Contact: +91-8928895195 | +91-9011424236 | contact@fintaxvers.com | Website: fintaxvers.com'
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

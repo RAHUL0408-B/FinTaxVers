@@ -1,35 +1,74 @@
-﻿/**
+/**
  * FinTaxVers Embedding Service
  * Generates vector embeddings for knowledge base content and user queries.
- * Supports OpenAI text-embedding-3-small (default) and Gemini embeddings.
- * Falls back to TF-IDF keyword matching if AI API is unavailable.
+ * Supports OpenAI text-embedding-3-small and Gemini text-embedding-004.
+ * Includes enhanced BM25-style keyword matching fallback when API key is not present.
  */
 import { config } from '../config/env.js';
 
-// Simple TF-IDF fallback embedding (no API dependency)
-function termFrequency(text) {
-    const words = text.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean);
+// Enhanced tokenization and stop words filter for Indian financial domain
+const STOP_WORDS = new Set([
+    'a', 'about', 'above', 'after', 'again', 'against', 'all', 'am', 'an', 'and', 'any', 'are', 'as', 'at',
+    'be', 'because', 'been', 'before', 'being', 'below', 'between', 'both', 'but', 'by', 'can', 'did', 'do',
+    'does', 'doing', 'down', 'during', 'each', 'few', 'for', 'from', 'further', 'had', 'has', 'have', 'having',
+    'he', 'her', 'here', 'hers', 'herself', 'him', 'himself', 'his', 'how', 'i', 'if', 'in', 'into', 'is', 'it',
+    'its', 'itself', 'just', 'me', 'more', 'most', 'my', 'myself', 'no', 'nor', 'not', 'now', 'of', 'off', 'on',
+    'once', 'only', 'or', 'other', 'our', 'ours', 'ourselves', 'out', 'over', 'own', 'same', 'she', 'should', 'so',
+    'some', 'such', 'than', 'that', 'the', 'their', 'theirs', 'them', 'themselves', 'then', 'there', 'these',
+    'they', 'this', 'those', 'through', 'to', 'too', 'under', 'until', 'up', 'very', 'was', 'we', 'were', 'what',
+    'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'with', 'would', 'you', 'your', 'yours'
+]);
+
+function tokenize(text) {
+    return text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .split(/\s+/)
+        .filter(w => w.length > 1 && !STOP_WORDS.has(w));
+}
+
+function termFrequency(tokens) {
     const freq = {};
-    for (const word of words) {
-        freq[word] = (freq[word] || 0) + 1;
+    for (const token of tokens) {
+        freq[token] = (freq[token] || 0) + 1;
     }
     return freq;
 }
 
-function cosineSimilarityTFIDF(a, b) {
-    const aFreq = termFrequency(a);
-    const bFreq = termFrequency(b);
-    const allWords = new Set([...Object.keys(aFreq), ...Object.keys(bFreq)]);
-    let dot = 0, magA = 0, magB = 0;
-    for (const word of allWords) {
-        const va = aFreq[word] || 0;
-        const vb = bFreq[word] || 0;
-        dot += va * vb;
-        magA += va * va;
-        magB += vb * vb;
+/**
+ * Enhanced similarity matching with exact phrase & keyword boosting
+ */
+export function fallbackSimilarity(queryText, chunkText) {
+    const qTokens = tokenize(queryText);
+    const cTokens = tokenize(chunkText);
+    if (qTokens.length === 0 || cTokens.length === 0) return 0;
+
+    const qFreq = termFrequency(qTokens);
+    const cFreq = termFrequency(cTokens);
+
+    let matchCount = 0;
+    let weightedScore = 0;
+
+    for (const [token, qCount] of Object.entries(qFreq)) {
+        if (cFreq[token]) {
+            matchCount++;
+            // Log frequency weight
+            weightedScore += (1 + Math.log(qCount)) * (1 + Math.log(cFreq[token]));
+        }
     }
-    if (magA === 0 || magB === 0) return 0;
-    return dot / (Math.sqrt(magA) * Math.sqrt(magB));
+
+    // Exact string bonus
+    const queryClean = queryText.toLowerCase().trim();
+    const chunkClean = chunkText.toLowerCase();
+    if (chunkClean.includes(queryClean)) {
+        weightedScore += 2.5;
+    }
+
+    // Keyword coverage ratio (how much of user query is satisfied)
+    const coverage = matchCount / qTokens.length;
+    const baseScore = weightedScore / (Math.sqrt(qTokens.length) * Math.sqrt(cTokens.length) + 1);
+
+    return Math.min(1.0, (baseScore * 2.0) + (coverage * 0.5));
 }
 
 async function embedWithOpenAI(text) {
@@ -40,36 +79,39 @@ async function embedWithOpenAI(text) {
             'Authorization': `Bearer ${config.embeddingApiKey}`,
         },
         body: JSON.stringify({
-            model: config.embeddingModel,
+            model: config.embeddingModel || 'text-embedding-3-small',
             input: text.substring(0, 8000),
         }),
     });
     if (!response.ok) {
-        throw new Error(`OpenAI Embeddings API error: ${response.status}`);
+        throw new Error(`OpenAI Embeddings error: ${response.status}`);
     }
     const data = await response.json();
     return data.data[0].embedding;
 }
 
 async function embedWithGemini(text) {
-    const model = config.embeddingModel || 'models/text-embedding-004';
-    const url = `https://generativelanguage.googleapis.com/v1beta/${model}:embedContent?key=${config.embeddingApiKey}`;
+    let modelName = config.embeddingModel || 'text-embedding-004';
+    if (!modelName.startsWith('models/')) {
+        modelName = `models/${modelName}`;
+    }
+    const url = `https://generativelanguage.googleapis.com/v1beta/${modelName}:embedContent?key=${config.embeddingApiKey}`;
     const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: { parts: [{ text: text.substring(0, 8000) }] } }),
+        body: JSON.stringify({
+            content: { parts: [{ text: text.substring(0, 8000) }] }
+        }),
     });
     if (!response.ok) {
-        throw new Error(`Gemini Embeddings API error: ${response.status}`);
+        throw new Error(`Gemini Embeddings error: ${response.status}`);
     }
     const data = await response.json();
     return data.embedding.values;
 }
 
 /**
- * Generate an embedding for text. Returns null if API is unavailable.
- * @param {string} text
- * @returns {Promise<number[]|null>}
+ * Generate an embedding vector. Gracefully returns null if no API key or network failure.
  */
 export async function generateEmbedding(text) {
     if (!config.embeddingApiKey) return null;
@@ -79,7 +121,6 @@ export async function generateEmbedding(text) {
         }
         return await embedWithOpenAI(text);
     } catch (err) {
-        console.warn('[EmbeddingService] Embedding API unavailable, will use TF-IDF fallback:', err.message);
         return null;
     }
 }
@@ -97,12 +138,4 @@ export function cosineSimilarity(vecA, vecB) {
     }
     if (magA === 0 || magB === 0) return 0;
     return dot / (Math.sqrt(magA) * Math.sqrt(magB));
-}
-
-/**
- * Fallback similarity when embeddings are not available.
- * Uses TF-IDF keyword matching.
- */
-export function fallbackSimilarity(queryText, chunkText) {
-    return cosineSimilarityTFIDF(queryText, chunkText);
 }

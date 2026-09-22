@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Send, Phone, RefreshCw, ExternalLink } from 'lucide-react';
+import { X, Send, RefreshCw } from 'lucide-react';
 import logo from '../../assets/fintaxverslogo.png';
 import './ChatWidget.css';
 
@@ -9,14 +9,6 @@ export default function FintaxversAIChatWidget() {
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState(null);
-  const [showLeadForm, setShowLeadForm] = useState(false);
-  const [handoffToken, setHandoffToken] = useState(null);
-  
-  // Lead form state
-  const [leadName, setLeadName] = useState('');
-  const [leadPhone, setLeadPhone] = useState('');
-  const [leadService, setLeadService] = useState('Income Tax Filing');
-  const [leadSubmitted, setLeadSubmitted] = useState(false);
 
   const messagesEndRef = useRef(null);
 
@@ -24,7 +16,7 @@ export default function FintaxversAIChatWidget() {
     'How do I file ITR?',
     'What are GST registration steps?',
     'How to register a Pvt Ltd company?',
-    'Do you assist with Business Loans?'
+    'What is PMEGP subsidy scheme?'
   ];
 
   // Initialize conversation and load state from localStorage
@@ -71,7 +63,7 @@ export default function FintaxversAIChatWidget() {
       {
         id: 'msg_welcome',
         role: 'assistant',
-        content: 'Hello! 👋 Welcome to FinTaxVers. I am your AI Tax & Compliance Assistant. How can I help you today with GST, ITR, Company Registration, or Business Loans?',
+        content: 'Hello! 👋 Welcome to **FinTaxVers AI**. I am your Tax & Compliance Assistant.\n\nAsk me anything about **GST**, **Income Tax (ITR)**, **Company Registration**, **Business Loans**, or **Government Subsidies**. I am here to help!',
         timestamp: new Date().toISOString()
       }
     ];
@@ -114,68 +106,30 @@ export default function FintaxversAIChatWidget() {
         setConversationId(data.conversationId);
       }
 
+      const replyContent = data.reply || data.message || 'I could not retrieve an answer right now. Please try rephrasing your question.';
+      const citationsList = data.citations || data.sources || [];
+
       const botMsg = {
         id: 'bot_' + Date.now(),
         role: 'assistant',
-        content: data.reply || "I'm having trouble retrieving details right now. Please connect with our team directly.",
-        citations: data.citations || [],
+        content: replyContent,
+        citations: citationsList,
         timestamp: new Date().toISOString()
       };
 
       setMessages((prev) => [...prev, botMsg]);
 
-      if (data.intent === 'HUMAN_HANDOFF' || data.handoffSuggested) {
-        setShowLeadForm(true);
-      }
     } catch (err) {
       console.error('Chat error:', err);
       const fallbackMsg = {
         id: 'bot_err_' + Date.now(),
         role: 'assistant',
-        content: "I apologize, but I'm having trouble reaching our AI engine right now. You can chat with our expert team immediately on WhatsApp or submit a callback request!",
+        content: 'I am having a temporary connection issue. Please try your question again in a moment.',
         timestamp: new Date().toISOString()
       };
       setMessages((prev) => [...prev, fallbackMsg]);
-      setShowLeadForm(true);
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const handleLeadSubmit = async (e) => {
-    e.preventDefault();
-    if (!leadPhone.trim() || !leadName.trim()) return;
-
-    try {
-      const response = await fetch('/api/chat/handoff', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          conversationId,
-          name: leadName,
-          phone: leadPhone,
-          serviceNeeded: leadService
-        })
-      });
-
-      const data = await response.json();
-      if (data.handoffToken) {
-        setHandoffToken(data.handoffToken);
-      }
-
-      setLeadSubmitted(true);
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: 'bot_lead_' + Date.now(),
-          role: 'assistant',
-          content: `Thank you, ${leadName}! Our Senior Tax Specialist has been notified and will call you at ${leadPhone} shortly.`,
-          timestamp: new Date().toISOString()
-        }
-      ]);
-    } catch (err) {
-      console.error('Error submitting handoff:', err);
-      setLeadSubmitted(true);
     }
   };
 
@@ -184,18 +138,48 @@ export default function FintaxversAIChatWidget() {
     localStorage.removeItem('fintax_chat_cid');
     setConversationId(null);
     setMessages(getDefaultGreeting());
-    setShowLeadForm(false);
-    setLeadSubmitted(false);
-    setHandoffToken(null);
   };
 
-  const getWhatsAppHandoffUrl = () => {
-    const base = 'https://wa.me/918928895195';
-    let text = `Hello FinTaxVers, I was speaking with your AI assistant.`;
-    if (handoffToken) {
-      text += ` [Reference Token: ${handoffToken}]`;
-    }
-    return `${base}?text=${encodeURIComponent(text)}`;
+  // Render markdown: bold (**text**), bullet points (- or *), line breaks
+  const renderMessageContent = (text) => {
+    if (!text) return null;
+    const lines = text.split('\n');
+    const result = [];
+
+    lines.forEach((line, lIdx) => {
+      const trimmed = line.trimStart();
+      const isBullet = trimmed.startsWith('- ') || trimmed.startsWith('* ');
+      const content = isBullet ? trimmed.slice(2) : line;
+
+      // Bold replacer: **text** -> <strong>text</strong>
+      const parts = content.split(/(\*\*.*?\*\*)/g);
+      const formattedLine = parts.map((part, pIdx) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+          return <strong key={pIdx}>{part.slice(2, -2)}</strong>;
+        }
+        return part;
+      });
+
+      if (isBullet) {
+        result.push(
+          <div key={lIdx} className="ftv-bullet-line">
+            <span className="ftv-bullet-dot">•</span>
+            <span>{formattedLine}</span>
+          </div>
+        );
+      } else if (line.trim() === '') {
+        result.push(<div key={lIdx} className="ftv-line-gap" />);
+      } else {
+        result.push(
+          <React.Fragment key={lIdx}>
+            {formattedLine}
+            {lIdx < lines.length - 1 && <br />}
+          </React.Fragment>
+        );
+      }
+    });
+
+    return result;
   };
 
   return (
@@ -223,7 +207,7 @@ export default function FintaxversAIChatWidget() {
             </div>
             <div className="ftv-chat-header-info">
               <h4>FinTaxVers AI</h4>
-              <span>Online • Tax & Finance Assistant</span>
+              <span>Online • Tax &amp; Finance Assistant</span>
             </div>
             <div className="ftv-chat-header-actions">
               <button onClick={clearChat} title="Reset Chat" className="ftv-chat-icon-btn">
@@ -253,27 +237,37 @@ export default function FintaxversAIChatWidget() {
                 key={m.id}
                 className={`ftv-msg ${m.role === 'user' ? 'ftv-msg-user' : 'ftv-msg-ai'}`}
               >
-                <div className="ftv-bubble">
-                  {m.content}
-                  {m.citations && m.citations.length > 0 && (
-                    <div className="ftv-citations">
-                      <span>Source: </span>
-                      {m.citations.map((c, i) => (
-                        <span key={i} className="ftv-citation-tag">
-                          {c.title}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <div className="ftv-msg-time">
-                  {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                {m.role === 'assistant' && (
+                  <div className="ftv-msg-avatar">
+                    <img src={logo} alt="AI" className="ftv-msg-avatar-img" />
+                  </div>
+                )}
+                <div>
+                  <div className="ftv-bubble">
+                    {renderMessageContent(m.content)}
+                    {m.citations && m.citations.length > 0 && (
+                      <div className="ftv-citations">
+                        <span>Source: </span>
+                        {m.citations.map((c, i) => (
+                          <span key={i} className="ftv-citation-tag">
+                            {c.title}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  <div className="ftv-msg-time">
+                    {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </div>
                 </div>
               </div>
             ))}
 
             {isLoading && (
               <div className="ftv-msg ftv-msg-ai">
+                <div className="ftv-msg-avatar">
+                  <img src={logo} alt="AI" className="ftv-msg-avatar-img" />
+                </div>
                 <div className="ftv-typing-dots">
                   <span></span>
                   <span></span>
@@ -282,55 +276,7 @@ export default function FintaxversAIChatWidget() {
               </div>
             )}
 
-            {/* In-chat Lead Form / Expert Handoff */}
-            {showLeadForm && !leadSubmitted && (
-              <div className="ftv-lead-card">
-                <div className="ftv-lead-header">
-                  <Phone size={16} />
-                  <span>Connect with a CA / Tax Consultant</span>
-                </div>
-                <form onSubmit={handleLeadSubmit} className="ftv-lead-form">
-                  <input
-                    type="text"
-                    placeholder="Your Full Name"
-                    value={leadName}
-                    onChange={(e) => setLeadName(e.target.value)}
-                    required
-                  />
-                  <input
-                    type="tel"
-                    placeholder="WhatsApp / Phone Number"
-                    value={leadPhone}
-                    onChange={(e) => setLeadPhone(e.target.value)}
-                    required
-                  />
-                  <select value={leadService} onChange={(e) => setLeadService(e.target.value)}>
-                    <option value="Income Tax Filing">Income Tax Return (ITR)</option>
-                    <option value="GST Services">GST Filing / Audit</option>
-                    <option value="Company Registration">Pvt Ltd / LLP Registration</option>
-                    <option value="Business Loan / CMA">Business Loan & CMA Data</option>
-                    <option value="Govt Subsidy">Govt Subsidy Schemes</option>
-                  </select>
-                  <button type="submit" className="ftv-lead-btn">
-                    Request Fast Callback
-                  </button>
-                </form>
-              </div>
-            )}
-
             <div ref={messagesEndRef} />
-          </div>
-
-          {/* Quick WhatsApp Handoff Bar */}
-          <div className="ftv-chat-whatsapp-bar">
-            <a
-              href={getWhatsAppHandoffUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ExternalLink size={13} />
-              <span>Talk to Specialist on WhatsApp</span>
-            </a>
           </div>
 
           {/* Input Box */}

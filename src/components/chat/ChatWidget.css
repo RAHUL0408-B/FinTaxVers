@@ -210,10 +210,36 @@
 
 .ftv-msg-ai {
     align-self: flex-start;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
 }
 
 .ftv-msg-user {
     align-self: flex-end;
+}
+
+/* Small logo avatar next to AI messages */
+.ftv-msg-avatar {
+    width: 26px;
+    height: 26px;
+    background: white;
+    border-radius: 50%;
+    border: 1.5px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.ftv-msg-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
 @keyframes ftv-fade-in {
@@ -253,7 +279,25 @@
 
 .ftv-msg-user .ftv-msg-time {
     text-align: right;
-    color: rgba(255,255,255,0.7);
+}
+
+/* Bullet point lines inside AI bubbles */
+.ftv-bullet-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 2px 0;
+}
+
+.ftv-bullet-dot {
+    color: #0B1F3A;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.ftv-line-gap {
+    height: 6px;
 }
 
 /* Sources */
@@ -306,77 +350,6 @@
     30% { transform: translateY(-6px); }
 }
 
-/* Lead capture card */
-.ftv-lead-card {
-    background: #f0fdf4;
-    border: 1px solid #86efac;
-    border-radius: 12px;
-    padding: 14px;
-    margin-top: 4px;
-}
-
-.ftv-lead-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    color: #166534;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.ftv-lead-form {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.ftv-lead-form input,
-.ftv-lead-form select {
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    padding: 8px 10px;
-    font-size: 0.82rem;
-    background: white;
-}
-
-.ftv-lead-btn {
-    background: #16A34A;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 9px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.ftv-lead-btn:hover {
-    background: #15803d;
-}
-
-/* WhatsApp handoff bar */
-.ftv-chat-whatsapp-bar {
-    padding: 8px 14px;
-    background: #f0fdf4;
-    border-top: 1px solid #dcfce7;
-    text-align: center;
-}
-
-.ftv-chat-whatsapp-bar a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: #15803d;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.ftv-chat-whatsapp-bar a:hover {
-    text-decoration: underline;
-}
 
 /* Input row */
 .ftv-chat-input-row {

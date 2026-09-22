@@ -4,6 +4,7 @@ import { getServiceById, servicesData } from '../../data/servicesData';
 import Navbar from '../../components/common/Navbar';
 import SEOHead from '../../components/common/SEOHead';
 import Footer from '../../components/common/Footer';
+import FAQSection from '../../components/common/FAQSection';
 import FintaxversAIChatWidget from '../../components/chat/FintaxversAIChatWidget';
 import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema } from '../../lib/seo/schemaGenerators';
 import './ServiceDetail.css';
@@ -220,12 +221,7 @@ const ServiceDetail = () => {
                                     <div className="acc-chevron">▾</div>
                                 </summary>
                                 <div className="acc-body">
-                                    {service.faq.map((item, index) => (
-                                        <details key={index} className="faq-item">
-                                            <summary className="faq-q">{item.question} <span className="faq-plus">+</span></summary>
-                                            <div className="faq-a">{item.answer}</div>
-                                        </details>
-                                    ))}
+                                    <FAQSection faqs={service.faq} title="" />
                                 </div>
                             </details>
                         )}
