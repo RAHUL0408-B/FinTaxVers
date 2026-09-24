@@ -69,6 +69,12 @@ export default function FintaxversAIChatWidget() {
     ];
   }
 
+  const API_BASE = import.meta.env.VITE_API_URL || (
+    typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? ''
+      : 'https://fintaxvers.onrender.com'
+  );
+
   const handleSend = async (textToSend) => {
     const query = (textToSend || inputMessage).trim();
     if (!query || isLoading) return;
@@ -86,7 +92,7 @@ export default function FintaxversAIChatWidget() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch(`${API_BASE}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

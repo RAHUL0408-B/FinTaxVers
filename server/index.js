@@ -35,12 +35,21 @@ const allowedOrigins = [
     'https://fintaxvers.com',
     'https://www.fintaxvers.com',
     'https://fintaxvers.onrender.com',
+    'https://fintxyug.web.app',
+    'https://fintxyug.firebaseapp.com',
     'http://localhost:5173',  // Vite dev
     'http://localhost:3000',
 ];
 app.use(cors({
     origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.onrender.com') || origin.endsWith('fintaxvers.com')) {
+        if (
+            !origin ||
+            allowedOrigins.includes(origin) ||
+            origin.endsWith('.onrender.com') ||
+            origin.endsWith('fintaxvers.com') ||
+            origin.endsWith('.web.app') ||
+            origin.endsWith('.firebaseapp.com')
+        ) {
             callback(null, true);
         } else {
             callback(new Error('CORS: Not allowed - ' + origin));
