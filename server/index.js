@@ -13,6 +13,8 @@
  * In production, deploy this server behind your hosting platform and point
  * the proxy/rewrites accordingly.
  */
+import path from 'path';
+import { fileURLToPath } from 'url';
 import express from 'express';
 import cors from 'cors';
 import { config } from './config/env.js';
@@ -21,17 +23,24 @@ import whatsappRoutes from './routes/whatsappRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import { buildIndex } from './services/vectorStore.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distPath = path.resolve(__dirname, '../dist');
+
 const app = express();
 
 // CORS — Allow frontend origin
 const allowedOrigins = [
     config.siteUrl,
+    'https://fintaxvers.com',
+    'https://www.fintaxvers.com',
+    'https://fintaxvers.onrender.com',
     'http://localhost:5173',  // Vite dev
     'http://localhost:3000',
 ];
 app.use(cors({
     origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
+        if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.onrender.com') || origin.endsWith('fintaxvers.com')) {
             callback(null, true);
         } else {
             callback(new Error('CORS: Not allowed - ' + origin));
@@ -48,6 +57,9 @@ app.use(express.json({
 }));
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static frontend from Vite build (dist)
+app.use(express.static(distPath));
+
 // Health check
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', service: 'FinTaxVers API', timestamp: new Date().toISOString() });
@@ -59,8 +71,13 @@ app.use('/api/whatsapp/webhook', whatsappRoutes);
 app.use('/api/admin', adminRoutes);
 
 // 404 for unknown /api routes
-app.use('/api/*', (req, res) => {
+app.all('/api/*', (req, res) => {
     res.status(404).json({ error: 'API endpoint not found.' });
+});
+
+// SPA fallback: any non-API GET request serves React index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
 });
 
 // Global error handler — never expose stack traces to clients
