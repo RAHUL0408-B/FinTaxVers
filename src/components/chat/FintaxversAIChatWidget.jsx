@@ -11,6 +11,8 @@ export default function FintaxversAIChatWidget() {
   const [conversationId, setConversationId] = useState(null);
 
   const messagesEndRef = useRef(null);
+  const lastBotMsgRef = useRef(null);
+  const prevMessageCountRef = useRef(0);
 
   const suggestedPrompts = [
     'How do I file ITR?',
@@ -51,11 +53,26 @@ export default function FintaxversAIChatWidget() {
     }
   }, [conversationId]);
 
-  // Auto scroll to bottom
+  // Smart scroll: go to TOP of new AI message, bottom for loading/user messages
   useEffect(() => {
-    if (isOpen) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (!isOpen) return;
+
+    const newCount = messages.length;
+    const prevCount = prevMessageCountRef.current;
+    prevMessageCountRef.current = newCount;
+
+    if (newCount > prevCount) {
+      const lastMsg = messages[messages.length - 1];
+      if (lastMsg?.role === 'assistant' && lastBotMsgRef.current) {
+        // Scroll to TOP of the new AI message so user reads from beginning
+        setTimeout(() => {
+          lastBotMsgRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+        return;
+      }
     }
+    // For user messages and loading indicator, scroll to bottom
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isLoading, isOpen]);
 
   function getDefaultGreeting() {
@@ -238,36 +255,40 @@ export default function FintaxversAIChatWidget() {
 
           {/* Messages Body */}
           <div className="ftv-chat-messages">
-            {messages.map((m) => (
-              <div
-                key={m.id}
-                className={`ftv-msg ${m.role === 'user' ? 'ftv-msg-user' : 'ftv-msg-ai'}`}
-              >
-                {m.role === 'assistant' && (
-                  <div className="ftv-msg-avatar">
-                    <img src={logo} alt="AI" className="ftv-msg-avatar-img" />
-                  </div>
-                )}
-                <div>
-                  <div className="ftv-bubble">
-                    {renderMessageContent(m.content)}
-                    {m.citations && m.citations.length > 0 && (
-                      <div className="ftv-citations">
-                        <span>Source: </span>
-                        {m.citations.map((c, i) => (
-                          <span key={i} className="ftv-citation-tag">
-                            {c.title}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <div className="ftv-msg-time">
-                    {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            {messages.map((m, idx) => {
+              const isLastBot = m.role === 'assistant' && idx === messages.length - 1;
+              return (
+                <div
+                  key={m.id}
+                  ref={isLastBot ? lastBotMsgRef : null}
+                  className={`ftv-msg ${m.role === 'user' ? 'ftv-msg-user' : 'ftv-msg-ai'}`}
+                >
+                  {m.role === 'assistant' && (
+                    <div className="ftv-msg-avatar">
+                      <img src={logo} alt="AI" className="ftv-msg-avatar-img" />
+                    </div>
+                  )}
+                  <div>
+                    <div className="ftv-bubble">
+                      {renderMessageContent(m.content)}
+                      {m.citations && m.citations.length > 0 && (
+                        <div className="ftv-citations">
+                          <span>Source: </span>
+                          {m.citations.map((c, i) => (
+                            <span key={i} className="ftv-citation-tag">
+                              {c.title}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div className="ftv-msg-time">
+                      {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
 
             {isLoading && (
               <div className="ftv-msg ftv-msg-ai">
