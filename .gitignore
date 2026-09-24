@@ -29,3 +29,17 @@ dist-ssr
 # Firebase
 .firebase
 firebase-debug.log
+
+# AI IDE artifacts (not part of website)
+skills/
+docs/
+.superpowers/
+agent.yaml
+apphosting.emulator.yaml
+
+# Design prototypes and dev notes (not part of website)
+OptionB_StitchDesign.html
+SERVICE_DETAILS_IMPLEMENTATION.md
+
+# Vercel config (not using Vercel)
+vercel.json
