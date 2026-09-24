@@ -52,7 +52,7 @@ app.use(cors({
         ) {
             callback(null, true);
         } else {
-            callback(new Error('CORS: Not allowed - ' + origin));
+            callback(null, false);
         }
     },
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
