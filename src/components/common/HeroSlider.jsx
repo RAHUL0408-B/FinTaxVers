@@ -6,10 +6,10 @@ import './HeroSlider.css';
 const slides = [
     {
         id: 1,
-        badge: 'GST Registration Services',
-        headline: <>Fast & Reliable <span>GST Registration</span> Services</>,
-        sub: 'Expert support for GST registration, return filing, and full compliance — so you focus on growing your business.',
-        cta: 'Get Started',
+        badge: 'GST Return & Business Return',
+        headline: <>Accurate <span>GST Return</span> & Business Return Filing</>,
+        sub: 'Timely GST return filing and complete business return solutions — handled by expert CAs to keep your business fully compliant and penalty-free.',
+        cta: 'File Now',
         ctaHref: '#contact',
         secondaryCta: 'Learn More',
         secondaryHref: '/services/gst-returns-solutions',
