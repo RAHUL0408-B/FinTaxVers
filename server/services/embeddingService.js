@@ -68,7 +68,10 @@ export function fallbackSimilarity(queryText, chunkText) {
     const coverage = matchCount / qTokens.length;
     const baseScore = weightedScore / (Math.sqrt(qTokens.length) * Math.sqrt(cTokens.length) + 1);
 
-    return Math.min(1.0, (baseScore * 2.0) + (coverage * 0.5));
+    // Keep the fallback score below saturation for partial matches. This preserves
+    // ranking between closely related services (for example, GST registration and
+    // LLP registration) instead of turning several candidates into the same 1.0.
+    return Math.min(1.0, (baseScore * 1.2) + (coverage * 0.4));
 }
 
 async function embedWithOpenAI(text) {
@@ -120,7 +123,7 @@ export async function generateEmbedding(text) {
             return await embedWithGemini(text);
         }
         return await embedWithOpenAI(text);
-    } catch (err) {
+    } catch {
         return null;
     }
 }

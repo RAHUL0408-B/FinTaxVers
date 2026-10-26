@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getServiceById, servicesData } from '../../data/servicesData';
+import { getLocalServiceContent } from '../../data/localServiceContent';
 import Navbar from '../../components/common/Navbar';
 import SEOHead from '../../components/common/SEOHead';
 import Footer from '../../components/common/Footer';
@@ -30,10 +31,14 @@ const ServiceDetail = () => {
         );
     }
 
-    // SEO Data
-    const seoTitle = service.seoTitle || `${service.title} in Nagpur & Pan India | FinTaxVers`;
-    const seoDesc = service.metaDescription || `Expert ${service.title} services in Nagpur, Maharashtra & Pan India. ${service.shortDesc} Contact FinTaxVers Consultancy at +91-8928895195.`;
-    const seoKeywords = service.seoKeywords || `${service.title}, ${service.title} Nagpur, ${service.title} India, ${service.category} Nagpur, financial consultant Nagpur, FinTaxVers, Yugant Rahele`;
+    const localGuide = getLocalServiceContent(service.id, service.title);
+    const allFaqs = [...(service.faq || []), ...(localGuide.faqs || [])];
+
+    // SEO Data — service-specific local guidance keeps these tags useful rather
+    // than repeating one generic Nagpur description across every service route.
+    const seoTitle = service.seoTitle || localGuide.seo.title || `${service.title} in Nagpur & Pan India | FinTaxVers`;
+    const seoDesc = service.metaDescription || localGuide.seo.description || `Expert ${service.title} services in Nagpur, Maharashtra & Pan India. ${service.shortDesc} Contact FinTaxVers Consultancy at +91-8928895195.`;
+    const seoKeywords = service.seoKeywords || localGuide.seo.keywords || `${service.title}, ${service.title} Nagpur, ${service.title} India, ${service.category} Nagpur, financial consultant Nagpur, FinTaxVers, Yugant Rahele`;
     const canonicalSlug = service.canonicalSlug || service.id;
 
     // Get 3 related services
@@ -54,7 +59,7 @@ const ServiceDetail = () => {
         category: service.category,
         url: `https://fintaxvers.com/services/${canonicalSlug}`
     });
-    const faqSchema = service.faq && service.faq.length > 0 ? generateFAQSchema(service.faq) : null;
+    const faqSchema = allFaqs.length > 0 ? generateFAQSchema(allFaqs) : null;
 
     return (
         <div className="service-detail-page">
@@ -209,7 +214,35 @@ const ServiceDetail = () => {
                             </details>
                         )}
 
-                        {service.faq && service.faq.length > 0 && (
+                        <details className="acc-item local-guide-item" open>
+                            <summary className="acc-head">
+                                <div className="acc-head-left">
+                                    <div className="acc-tag local">&#128205;</div>
+                                    <div><div className="acc-title">Nagpur consultation guide</div><div className="acc-sub">Practical information to prepare before you enquire</div></div>
+                                </div>
+                                <div className="acc-chevron">&#9662;</div>
+                            </summary>
+                            <div className="acc-body local-guide-body">
+                                <span className="local-guide-kicker">FinTaxVers in Nagpur</span>
+                                <h2>{localGuide.heading}</h2>
+                                <p>{localGuide.intro}</p>
+                                <h3>{localGuide.checklistTitle}</h3>
+                                <ul className="local-guide-list">
+                                    {localGuide.checklist.map((item) => <li key={item}>{item}</li>)}
+                                </ul>
+                                <div className="local-guide-actions">
+                                    <button
+                                        className="local-guide-cta"
+                                        onClick={() => navigate(`/?message=${encodeURIComponent(`I am looking for ${service.title} guidance in Nagpur. `)}&type=${encodeURIComponent(service.category)}`)}
+                                    >
+                                        Talk to FinTaxVers
+                                    </button>
+                                    <a className="local-guide-call" href="tel:8928895195">Call 8928895195</a>
+                                </div>
+                            </div>
+                        </details>
+
+                        {allFaqs.length > 0 && (
                             <details className="acc-item">
                                 <summary className="acc-head">
                                     <div className="acc-head-left">
@@ -219,7 +252,7 @@ const ServiceDetail = () => {
                                     <div className="acc-chevron">▾</div>
                                 </summary>
                                 <div className="acc-body">
-                                    <FAQSection faqs={service.faq} title="" />
+                                    <FAQSection faqs={allFaqs} title="" />
                                 </div>
                             </details>
                         )}

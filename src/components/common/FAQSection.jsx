@@ -1,5 +1,4 @@
 ﻿import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 /**
@@ -17,7 +16,11 @@ const FAQSection = ({ faqs = [], title = 'Frequently Asked Questions' }) => {
     const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
     return (
-        <section className="faq-section-component" aria-labelledby="faq-section-heading">
+        <section
+            className="faq-section-component"
+            aria-labelledby={title ? 'faq-section-heading' : undefined}
+            aria-label={title ? undefined : 'Frequently asked questions'}
+        >
             {title && (
                 <h2 id="faq-section-heading" className="faq-section-title">
                     {title}
@@ -40,33 +43,25 @@ const FAQSection = ({ faqs = [], title = 'Frequently Asked Questions' }) => {
                             itemProp="name"
                         >
                             <span>{faq.question}</span>
-                            <motion.span
-                                animate={{ rotate: openIndex === i ? 180 : 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="faq-chevron"
-                            >
+                            <span className="faq-chevron">
                                 <ChevronDown size={18} />
-                            </motion.span>
+                            </span>
                         </button>
-                        <AnimatePresence initial={false}>
-                            {openIndex === i && (
-                                <motion.div
-                                    id={`faq-answer-${i}`}
-                                    initial={{ height: 0, opacity: 0 }}
-                                    animate={{ height: 'auto', opacity: 1 }}
-                                    exit={{ height: 0, opacity: 0 }}
-                                    transition={{ duration: 0.22, ease: 'easeInOut' }}
-                                    style={{ overflow: 'hidden' }}
-                                    itemScope
-                                    itemProp="acceptedAnswer"
-                                    itemType="https://schema.org/Answer"
-                                >
-                                    <div className="faq-answer-body" itemProp="text">
-                                        {faq.answer}
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                        {/* Keep answers in the DOM so the expandable FAQ and its structured data agree. */}
+                        <div
+                            id={`faq-answer-${i}`}
+                            className={`faq-answer-panel${openIndex === i ? ' open' : ''}`}
+                            aria-hidden={openIndex !== i}
+                            itemScope
+                            itemProp="acceptedAnswer"
+                            itemType="https://schema.org/Answer"
+                        >
+                            <div className="faq-answer-panel-inner">
+                                <div className="faq-answer-body" itemProp="text">
+                                    {faq.answer}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>

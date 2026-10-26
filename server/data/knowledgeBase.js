@@ -30,6 +30,64 @@ export const knowledgeBase = [
         tags: ['fintaxvers', 'about', 'contact', 'location', 'services'],
     },
 
+    // ==================== NAGPUR LOCAL SERVICE GUIDANCE ====================
+    {
+        id: 'local-nagpur-gst-001',
+        type: 'local-service-guide',
+        title: 'GST Consultant in Nagpur — Local Registration and Return-Filing Guidance',
+        content: `People searching for a "GST consultant near me" or "GST return filing in Nagpur" can contact FinTaxVers, a Nagpur-based tax and business consultancy. FinTaxVers assists businesses with GST registration, return preparation, invoice and Input Tax Credit reconciliation, and understanding GST notices.
+
+        Before a GST consultation, it is useful to keep the business PAN, address proof for the principal place of business, bank details, and recent sales and purchase records ready. The documents and return obligations depend on the business activity, registration status, turnover, and applicable GST rules.
+
+        A consultant can help organise information and prepare filings, but the taxpayer remains responsible for reviewing submissions and keeping records accurate. Do not share GST portal passwords or OTPs with anyone. GST registration eligibility, filing dates, and portal requirements should be checked against the latest official GST guidance for the specific case.
+
+        FinTaxVers can support clients in Nagpur and remotely where appropriate. For a service assessment, contact the Nagpur team at +91-8928895195.`,
+        source: 'https://www.gst.gov.in',
+        tags: ['nagpur', 'gst consultant', 'gst service near me', 'gst registration nagpur', 'gst return filing nagpur', 'gstr filing', 'itc reconciliation'],
+    },
+    {
+        id: 'local-nagpur-itr-001',
+        type: 'local-service-guide',
+        title: 'Income Tax and ITR Filing in Nagpur — What to Prepare',
+        content: `For people looking for an "income tax consultant near me" or "ITR filing in Nagpur", FinTaxVers offers Nagpur-based assistance with return preparation, tax-planning discussions, and document review for salaried individuals, professionals, and business owners.
+
+        A first discussion is more useful when the client has relevant records available, such as PAN, Aadhaar details, Form 16 or salary records where applicable, bank-interest details, investment proofs, prior-year returns, business records, and information about property, capital gains, or foreign income if relevant. The correct ITR form, tax treatment, and documents required depend on the person’s facts and the current Income Tax Department instructions.
+
+        FinTaxVers can explain the filing workflow and help prepare a return, but personal tax positions should be reviewed before submission. Clients should not share income-tax portal passwords or OTPs. Official portal notices and deadlines can change, so case-specific advice should be confirmed before filing.
+
+        FinTaxVers serves clients from Nagpur and can discuss the appropriate next step at +91-8928895195.`,
+        source: 'https://www.incometax.gov.in',
+        tags: ['nagpur', 'income tax consultant', 'itr filing near me', 'itr filing nagpur', 'tax consultant nagpur', 'income tax return', 'tax planning'],
+    },
+    {
+        id: 'local-nagpur-company-001',
+        type: 'local-service-guide',
+        title: 'Company and LLP Registration in Nagpur — Local Startup Guidance',
+        content: `Entrepreneurs searching for "company registration near me", "LLP registration in Nagpur", or "startup consultant in Nagpur" can speak with FinTaxVers about business-structure options and incorporation documentation. FinTaxVers assists with company and LLP formation, Digital Signature Certificates, MCA filing preparation, and related compliance support.
+
+        A useful initial conversation covers the proposed business activity, founders or partners, ownership plan, intended registered office, and whether the business expects investors, regulated licences, or particular tax registrations. Common documents can include PAN and identity/address proofs for proposed directors or partners, along with registered-office support documents. Exact MCA requirements and approvals depend on the chosen entity and current portal rules.
+
+        A consultant can prepare and coordinate incorporation documents; government approval, name availability, and formal registration decisions remain with the relevant authority. FinTaxVers does not represent that registration is guaranteed before the application is reviewed.
+
+        FinTaxVers is based in Nagpur and can help founders understand the incorporation process before they apply. Contact +91-8928895195 for an initial discussion.`,
+        source: 'https://www.mca.gov.in',
+        tags: ['nagpur', 'company registration', 'company registration near me', 'llp registration nagpur', 'startup consultant nagpur', 'pvt ltd registration', 'mca filing'],
+    },
+    {
+        id: 'local-nagpur-business-finance-001',
+        type: 'local-service-guide',
+        title: 'Business Loan and CMA Report Support in Nagpur',
+        content: `Business owners searching for a "business loan consultant near me", "CMA report in Nagpur", or "project report for bank loan" can contact FinTaxVers for documentation and financial-information support. FinTaxVers helps prepare CMA data, detailed project reports, financial projections, and application-ready records for business-finance discussions.
+
+        Before a consultation, a business may need to gather KYC documents, registration certificates, GST records if applicable, prior-year financial statements and ITRs, recent bank statements, details of the proposed use of funds, and any lender checklist already received. The information required differs by lender, product, security, business history, and the scheme being considered.
+
+        FinTaxVers can help present business information clearly, but it is not a lender and cannot promise loan approval, subsidy approval, interest rates, or disbursal timing. Lending and scheme decisions are made solely by banks, NBFCs, and government authorities under their current criteria.
+
+        Nagpur businesses can call +91-8928895195 to discuss CMA data, a project report, or business-loan documentation.`,
+        source: 'https://www.rbi.org.in',
+        tags: ['nagpur', 'business loan consultant', 'business loan near me', 'cma report nagpur', 'project report nagpur', 'loan documentation', 'working capital'],
+    },
+
     // ==================== GST ====================
     {
         id: 'gst-001',

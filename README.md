@@ -134,7 +134,7 @@ FinTaxVers/
 │   │   ├── vectorStore.js          # In-memory vector index
 │   │   └── conversationStore.js    # Conversation & lead management
 │   └── data/
-│       └── knowledgeBase.js        # Tax & compliance knowledge base (14 entries)
+│       └── knowledgeBase.js        # Tax, compliance & Nagpur local-service knowledge base (18 entries)
 │
 ├── src/                            # React frontend (deployed on Firebase Hosting)
 │   ├── assets/                     # Images, logos, profile photos

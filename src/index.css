@@ -2003,6 +2003,28 @@ textarea:focus-visible {
     color: var(--primary);
     opacity: 0.7;
     display: flex;
+    transition: transform 0.2s ease;
+}
+
+.faq-question-btn.open .faq-chevron {
+    transform: rotate(180deg);
+}
+
+.faq-answer-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.22s ease-in-out, opacity 0.22s ease-in-out;
+}
+
+.faq-answer-panel.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.faq-answer-panel-inner {
+    min-height: 0;
+    overflow: hidden;
 }
 
 .faq-answer-body {

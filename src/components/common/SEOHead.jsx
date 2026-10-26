@@ -2,7 +2,10 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { generateOrganizationSchema, generateWebSiteSchema } from '../../lib/seo/schemaGenerators';
 
-const DEFAULT_KEYWORDS = 'FinTaxVers, FinTaxVers Consultancy Services, FinTaxVers Nagpur, Yugant Rahele, GST, GST Nagpur, GST registration Nagpur, GST return filing Nagpur, Income Tax, Income Tax Nagpur, Income Tax Filing Nagpur, ITR filing Nagpur, Tax Audit, Tax Audit Nagpur, Tax Audit services 44AB Nagpur, Internal Audit, Internal Audit Nagpur, Internal Audit services, Accounting, Accounting services Nagpur, bookkeeping Nagpur, Business Registration, Business Registration Nagpur, startup registration Nagpur, Business Loan, Business Loan Nagpur, business loan project report Nagpur, CMA report Nagpur, MSME Loan, MSME Loan Nagpur, MSME registration Nagpur, Udyam registration Nagpur, Subsidy Loan, Subsidy Loan Nagpur, government subsidy consulting, PMEGP subsidy Nagpur, ROC Compliance, ROC Compliance Nagpur, MCA filing Nagpur, Company Registration, Company Registration Nagpur, Pvt Ltd company registration Nagpur, LLP registration Nagpur, financial consultant near me Nagpur, best financial advisor Nagpur, financial consultancy India';
+// Search engines put far more weight on the page title, description and visible
+// content than on this legacy tag. Keep it short and let each page supply its
+// own specific terms instead of repeating a long city-keyword list everywhere.
+const DEFAULT_KEYWORDS = 'FinTaxVers, FinTaxVers Consultancy Services, financial consultancy Nagpur, GST services, income tax, business compliance';
 
 /**
  * SEOHead — universal SEO + AEO + GEO meta component.
@@ -35,7 +38,7 @@ const SEOHead = ({
         ? (title.includes('FinTaxVers') ? title : `${title} | FinTaxVers Consultancy – Nagpur & Pan-India`)
         : 'FinTaxVers | GST, Income Tax, Tax Audit, Internal Audit, Accounting, Business & MSME Loans, ROC Compliance, Company Registration | Nagpur & Pan-India';
     
-    const metaDesc = description || 'FinTaxVers Consultancy Services – Top financial & tax consultant in Nagpur & Pan-India. Expert GST, Income Tax filing, Tax Audit, Internal Audit, Accounting, Business Registration, Business Loans, MSME Loans, Subsidy Loans, ROC Compliance & Company Registration. Founded by Yugant Rahele. Call +91-8928895195.';
+    const metaDesc = description || 'FinTaxVers Consultancy Services provides GST, income-tax, audit, accounting, business-registration, loan-documentation and compliance support in Nagpur and across India. Call +91-8928895195.';
     const metaKeywords = keywords ? `${keywords}, ${DEFAULT_KEYWORDS}` : DEFAULT_KEYWORDS;
     const canonicalUrl = canonical || 'https://fintaxvers.com/';
 
