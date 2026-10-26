@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
@@ -16,8 +15,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-export { app, analytics, auth, db };
+// Analytics is optional and loaded after the essentials so it does not delay
+// authentication, Firestore, or the first visible page.
+export let analytics = null;
+if (typeof window !== 'undefined' && firebaseConfig.measurementId) {
+    import('firebase/analytics')
+        .then(({ getAnalytics }) => {
+            analytics = getAnalytics(app);
+        })
+        .catch(() => {
+            // Analytics must never prevent the client portal from loading.
+        });
+}
+
+export { app, auth, db };

@@ -69,7 +69,7 @@ function BlogPost() {
                 keywords={post.keywords}
                 canonical={`https://fintaxvers.com/blog/${post.slug}`}
                 articleSchema={articleSchema}
-                schema={faqSchema}
+                faqSchema={faqSchema}
             />
             <Navbar />
 

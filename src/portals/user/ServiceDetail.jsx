@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getServiceById, servicesData } from '../../data/servicesData';
 import Navbar from '../../components/common/Navbar';
@@ -12,17 +12,15 @@ import './ServiceDetail.css';
 const ServiceDetail = () => {
     const { serviceId } = useParams();
     const navigate = useNavigate();
-    const [service, setService] = useState(null);
+    const service = getServiceById(serviceId);
 
     useEffect(() => {
-        const serviceData = getServiceById(serviceId);
-        if (serviceData) {
-            setService(serviceData);
+        if (service) {
             window.scrollTo(0, 0);
         } else {
             navigate('/');
         }
-    }, [serviceId, navigate]);
+    }, [service, navigate]);
 
     if (!service) {
         return (
@@ -65,7 +63,7 @@ const ServiceDetail = () => {
                 description={seoDesc}
                 keywords={seoKeywords}
                 canonical={`https://fintaxvers.com/services/${canonicalSlug}`}
-                serviceSchema={serviceSchema}
+                schema={serviceSchema}
                 faqSchema={faqSchema}
                 breadcrumbSchema={breadcrumbSchema}
             />

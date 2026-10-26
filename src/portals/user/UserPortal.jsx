@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useApp } from '../../context/AppContext';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { 
     Briefcase, FileText, Landmark, Shield, FileCheck, Building2, 
     Calculator, ArrowRight, Phone, ChevronDown, CheckCircle, Quote,
@@ -151,6 +151,9 @@ const newServicesData = [
     }
 ];
 
+const MotionArticle = motion.article;
+const DSC_KEY_NOTICE_STORAGE_KEY = 'fintaxvers_dsc_key_notice_seen_v1';
+
 const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
@@ -189,13 +192,29 @@ function UserPortal() {
     const [showDscPopup, setShowDscPopup] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+    const shouldReduceMotion = useReducedMotion();
+
+    const scrollToSection = useCallback((id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }, []);
 
     useEffect(() => {
+        if (window.localStorage.getItem(DSC_KEY_NOTICE_STORAGE_KEY)) return undefined;
+
         const timer = setTimeout(() => {
+            window.localStorage.setItem(DSC_KEY_NOTICE_STORAGE_KEY, 'true');
             setShowDscPopup(true);
-        }, 3000);
+        }, 1200);
         return () => clearTimeout(timer);
     }, []);
+
+    const dismissDscKeyNotice = () => {
+        window.localStorage.setItem(DSC_KEY_NOTICE_STORAGE_KEY, 'true');
+        setShowDscPopup(false);
+    };
 
     useEffect(() => {
         if (location.state?.scrollTo) {
@@ -208,6 +227,8 @@ function UserPortal() {
         const msg = params.get('message');
         const type = params.get('type');
         if (msg || type) {
+            // This deliberately synchronizes a service-page referral URL with the inquiry form.
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setFormData(prev => ({
                 ...prev,
                 message: msg ? decodeURIComponent(msg) : prev.message,
@@ -215,14 +236,7 @@ function UserPortal() {
             }));
             scrollToSection('contact');
         }
-    }, [location]);
-
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    };
+    }, [location, scrollToSection]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -237,6 +251,19 @@ function UserPortal() {
             setTimeout(() => setShowSuccess(false), 5000);
         }
         setIsSubmitting(false);
+    };
+
+    const visibleServices = newServicesData.filter(service => activeFilter === 'all' || service.cat === activeFilter);
+
+    const openService = (service) => {
+        if (service.link !== '#') navigate(service.link);
+    };
+
+    const handleServiceKeyDown = (event, service) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openService(service);
+        }
     };
 
 
@@ -269,16 +296,29 @@ function UserPortal() {
                 <h2 className="section-title-new">Our Services</h2>
                 <p className="section-sub">Comprehensive financial consultancy tailored for businesses, MSMEs and individuals across Nagpur.</p>
 
-                <div className="services-grid-new">
-                    {newServicesData
-                        .filter(service => activeFilter === 'all' || service.cat === activeFilter)
-                        .map(service => (
-                            <div 
-                                key={service.id} 
-                                className="service-card-new" 
-                                onClick={() => service.link !== '#' && navigate(service.link)}
+                <div className="services-grid-new" aria-live="polite">
+                    <AnimatePresence mode="popLayout" initial={false}>
+                        {visibleServices.map((service, index) => (
+                            <MotionArticle
+                                key={service.id}
+                                layout={!shouldReduceMotion}
+                                initial={shouldReduceMotion ? false : { opacity: 0, y: 32, x: index % 3 === 0 ? -18 : index % 3 === 2 ? 18 : 0 }}
+                                animate={{ opacity: 1, y: 0, x: 0 }}
+                                exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -12, scale: 0.98 }}
+                                transition={{ duration: shouldReduceMotion ? 0.01 : 0.42, delay: shouldReduceMotion ? 0 : Math.min(index * 0.045, 0.3), ease: [0.22, 1, 0.36, 1] }}
+                                whileHover={shouldReduceMotion ? undefined : { y: -10 }}
+                                whileTap={{ scale: 0.99 }}
+                                className="service-card-new"
+                                role="link"
+                                tabIndex={0}
+                                aria-label={`Learn more about ${service.title}`}
+                                onClick={() => openService(service)}
+                                onKeyDown={(event) => handleServiceKeyDown(event, service)}
                             >
-                                <img src={service.img} alt={service.title} className="card-img" />
+                                <div className="card-visual">
+                                    <img src={service.img} alt={service.title} className="card-img" loading="lazy" />
+                                    <span className="card-visual-glow" aria-hidden="true" />
+                                </div>
                                 <div className="card-body">
                                     <span className={`card-category ${service.categoryClass}`}>{service.categoryName}</span>
                                     <h3 className="card-title-new">{service.title}</h3>
@@ -289,16 +329,14 @@ function UserPortal() {
                                         ))}
                                     </ul>
                                     <div className="card-footer">
-                                        <div className="card-link" style={{ width: '100%', justifyContent: 'center' }} onClick={(e) => {
-                                            e.stopPropagation();
-                                            if (service.link !== '#') navigate(service.link);
-                                        }}>
+                                        <span className="card-link" style={{ width: '100%', justifyContent: 'center' }}>
                                             Know More →
-                                        </div>
+                                        </span>
                                     </div>
                                 </div>
-                            </div>
+                            </MotionArticle>
                         ))}
+                    </AnimatePresence>
                 </div>
             </section>
 
@@ -530,26 +568,38 @@ function UserPortal() {
             {/* AI Assistant Chat Widget */}
             <FintaxversAIChatWidget />
 
-            {/* Big Landscape Image Ad Modal for DSC */}
+            {/* First-visit DSC key-generation notice */}
             <AnimatePresence>
                 {showDscPopup && (
-                    <div className="dsc-ad-overlay" onClick={() => setShowDscPopup(false)}>
+                    <div className="dsc-key-notice-overlay" onClick={dismissDscKeyNotice}>
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.8 }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                            className="dsc-ad-modal landscape-only"
+                            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 20, scale: 0.96 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.98 }}
+                            transition={{ type: 'spring', damping: 24, stiffness: 300 }}
+                            className="dsc-key-notice"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="dsc-key-notice-title"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button className="dsc-ad-close" onClick={() => setShowDscPopup(false)}>
+                            <button className="dsc-key-notice-close" type="button" aria-label="Dismiss DSC key generation notice" onClick={dismissDscKeyNotice}>
                                 <X size={24} />
                             </button>
-                            <div className="dsc-ad-image-container landscape" onClick={() => {
-                                setShowDscPopup(false);
-                                navigate('/services/digital-signature-certificate');
-                            }}>
-                                <img src="/services/dsc_landscape_ad_poster.jpg" alt="Digital Signature Certificate & Consultancy Services Advertisement" className="dsc-ad-image" />
+                            <div className="dsc-key-notice-copy">
+                                <div className="dsc-key-notice-badge"><FileSignature size={16} /> Digital Signature Certificate</div>
+                                <h2 id="dsc-key-notice-title"><strong>DSC Key</strong><br />Generation</h2>
+                                <p>Fast. Secure. Paperless.</p>
+                                <button className="dsc-key-notice-cta" type="button" onClick={() => {
+                                    dismissDscKeyNotice();
+                                    navigate('/services/digital-signature-certificate');
+                                }}>
+                                    Get Your DSC <span aria-hidden="true">→</span>
+                                </button>
+                                <span className="dsc-key-notice-once">Shown once — you can always find DSC under Services.</span>
+                            </div>
+                            <div className="dsc-key-notice-image-wrap" aria-hidden="true">
+                                <img src="/images/dsc-key-generation-notice.jpg" alt="" className="dsc-key-notice-image" />
                             </div>
                         </motion.div>
                     </div>

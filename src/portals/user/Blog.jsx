@@ -13,7 +13,7 @@ const categoryColors = {
     'Financial Planning Tips': '#0284C7',
 };
 
-const API_KEY = 'b26983256a7643a7be726cf5552527dc';
+const MARKET_NEWS_ENDPOINT = '/api/market-news';
 
 const SAMPLE_ARTICLES = [
   {
@@ -84,38 +84,20 @@ function Blog() {
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState(null);
     const [activeNewsFilter, setActiveNewsFilter] = useState('all');
-    const [liveTime, setLiveTime] = useState('');
+    const [newsMeta, setNewsMeta] = useState(null);
 
     const navigate = useNavigate();
     const filtered = activeCategory ? blogPosts.filter(p => p.category === activeCategory) : blogPosts;
 
-    // Live clock
-    useEffect(() => {
-        const updateClock = () => {
-            setLiveTime(new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' IST');
-        };
-        updateClock();
-        const interval = setInterval(updateClock, 1000);
-        return () => clearInterval(interval);
-    }, []);
-
-    // News API fetching
+    // Fetch through the server so provider credentials never enter the browser bundle.
     const loadNews = async () => {
         setIsLoading(true);
         setErrorMsg(null);
 
-        if (!API_KEY || API_KEY === 'YOUR_API_KEY') {
-            setLiveNews(SAMPLE_ARTICLES);
-            setIsLoading(false);
-            return;
-        }
-
         try {
-            const res = await fetch(
-                `https://newsapi.org/v2/top-headlines?category=business&language=en&pageSize=20&apiKey=${API_KEY}`
-            );
+            const res = await fetch(MARKET_NEWS_ENDPOINT);
             const data = await res.json();
-            if (data.status !== 'ok') throw new Error(data.message || 'Failed to fetch');
+            if (!res.ok) throw new Error(data.error || 'Live market news is unavailable.');
 
             const classifyArticle = (title, description, index) => {
                 const text = `${title} ${description || ''}`.toLowerCase();
@@ -138,10 +120,12 @@ function Blog() {
             }));
 
             setLiveNews(mapped);
+            setNewsMeta(data);
         } catch (err) {
             console.error(err);
             setErrorMsg(err.message);
-            setLiveNews(SAMPLE_ARTICLES); // Fallback
+            setLiveNews([]);
+            setNewsMeta(null);
         } finally {
             setIsLoading(false);
         }
@@ -151,7 +135,7 @@ function Blog() {
         if (activeTab === 'news' && liveNews.length === 0) {
             loadNews();
         }
-    }, [activeTab]);
+    }, [activeTab, liveNews.length]);
 
     // Helpers
     const timeAgo = (isoString) => {
@@ -236,6 +220,11 @@ function Blog() {
                                 <span style={{ width: '4px', height: '24px', background: '#16a34a', borderRadius: '2px' }}></span>
                                 Real-time Financial Feeds
                             </h2>
+                            {newsMeta && (
+                                <p style={{ color: '#64748b', fontSize: '0.78rem', margin: 0 }}>
+                                    Source: {newsMeta.source} · Updated {new Date(newsMeta.fetchedAt).toLocaleString('en-IN')} {newsMeta.cached ? '· cached for up to 10 minutes' : ''}
+                                </p>
+                            )}
                             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
                                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                                     {['all', 'markets', 'earnings', 'crypto', 'economy', 'fed'].map(cat => (
@@ -262,8 +251,13 @@ function Blog() {
                             </div>
                         ) : errorMsg && liveNews.length === 0 ? (
                             <div className="terminal-loading" style={{ flexDirection: 'column', gap: '8px' }}>
-                                <div style={{ color: '#ef4444' }}>⚠ Could not load live news: {errorMsg}</div>
-                                <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>Check network connection or API limit.</div>
+                                <div style={{ color: '#ef4444' }}>Live market news is unavailable: {errorMsg}</div>
+                                <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>No substitute headlines are shown when a verified source is unavailable.</div>
+                            </div>
+                        ) : liveNews.length === 0 ? (
+                            <div className="terminal-loading" style={{ flexDirection: 'column', gap: '8px' }}>
+                                <div>No live market headlines are available right now.</div>
+                                <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>Please refresh later or browse our expert guides below.</div>
                             </div>
                         ) : (
                             <div className="terminal-news-grid">
@@ -312,12 +306,27 @@ function Blog() {
             {/* EXPERT GUIDES & TIPS TAB */}
             {activeTab === 'guides' && (
                 <section className="section">
-                    <div className="container" style={{ textAlign: 'center', padding: '100px 20px', background: 'white', borderRadius: '16px', border: '1px solid #e2e8f0' }}>
-                        <div style={{ fontSize: '4rem', marginBottom: '20px' }}>🚧</div>
-                        <h2 style={{ fontSize: '2rem', color: '#0B1F3A', marginBottom: '16px' }}>Coming Soon</h2>
-                        <p style={{ color: '#64748b', fontSize: '1.1rem', maxWidth: '500px', margin: '0 auto' }}>
-                            We are working hard on bringing you expert financial guides, tax saving tips, and insightful articles. Stay tuned!
-                        </p>
+                    <div className="container" style={{ padding: '56px 20px' }}>
+                        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+                            <h2 style={{ fontSize: '2rem', color: '#0B1F3A', marginBottom: '10px' }}>Expert Guides & Tips</h2>
+                            <p style={{ color: '#64748b', margin: 0 }}>Browse the published FinTaxVers guides by topic.</p>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginBottom: '28px' }}>
+                            <button className={`terminal-filter-btn ${!activeCategory ? 'active' : ''}`} onClick={() => setActiveCategory('')}>All guides</button>
+                            {blogCategories.map((category) => (
+                                <button key={category} className={`terminal-filter-btn ${activeCategory === category ? 'active' : ''}`} onClick={() => setActiveCategory(category)}>{category}</button>
+                            ))}
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '20px' }}>
+                            {filtered.map((post) => (
+                                <article key={post.slug} style={{ background: 'white', border: '1px solid #e2e8f0', borderRadius: '14px', padding: '24px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                                    <span style={{ color: categoryColors[post.category] || '#16A34A', fontSize: '0.78rem', fontWeight: 700 }}>{post.category}</span>
+                                    <h3 style={{ color: '#0B1F3A', fontSize: '1.1rem', lineHeight: 1.45, margin: '10px 0' }}>{post.title}</h3>
+                                    <p style={{ color: '#64748b', lineHeight: 1.6, fontSize: '0.92rem', flex: 1 }}>{post.excerpt}</p>
+                                    <button onClick={() => navigate(`/blog/${post.slug}`)} style={{ background: 'none', border: 'none', color: '#16A34A', fontWeight: 700, cursor: 'pointer', padding: 0 }}>Read guide →</button>
+                                </article>
+                            ))}
+                        </div>
                     </div>
                 </section>
             )}

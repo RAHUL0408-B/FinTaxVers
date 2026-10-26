@@ -45,6 +45,9 @@ export const config = {
     siteUrl: process.env.VITE_SITE_URL || 'https://fintaxvers.com',
     firebaseProjectId: process.env.VITE_FIREBASE_PROJECT_ID || '',
 
+    // NewsAPI is server-side only. Never expose this key in the browser bundle.
+    newsApiKey: process.env.NEWS_API_KEY || '',
+
     // Handoff token expiry
     handoffTokenExpirySeconds: parseInt(process.env.HANDOFF_TOKEN_EXPIRY_SECONDS || '3600', 10),
 

@@ -87,7 +87,7 @@
 
 /* Slide 7 – Business Development */
 .hero-slide-7 .hero-slide-bg {
-    background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80');
+    background-image: url('/images/business-growth-consulting-hero.jpg');
 }
 
 /* Slide 8 – Home & Car Loan */
@@ -257,6 +257,24 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.07em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide,
+    .hero-slide-bg,
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        transition: none;
+    }
+
+    .hero-slide-bg,
+    .hero-slide.active .hero-slide-bg {
+        transform: none;
+    }
+
+    .hero-slide-badge-dot {
+        animation: none;
+    }
 }
 
 .hero-trust-divider {

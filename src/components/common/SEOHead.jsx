@@ -31,8 +31,8 @@ const SEOHead = ({
     breadcrumbSchema = null,
     noIndex = false,
 }) => {
-    const fullTitle = title 
-        ? `${title} | FinTaxVers Consultancy – Nagpur & Pan-India` 
+    const fullTitle = title
+        ? (title.includes('FinTaxVers') ? title : `${title} | FinTaxVers Consultancy – Nagpur & Pan-India`)
         : 'FinTaxVers | GST, Income Tax, Tax Audit, Internal Audit, Accounting, Business & MSME Loans, ROC Compliance, Company Registration | Nagpur & Pan-India';
     
     const metaDesc = description || 'FinTaxVers Consultancy Services – Top financial & tax consultant in Nagpur & Pan-India. Expert GST, Income Tax filing, Tax Audit, Internal Audit, Accounting, Business Registration, Business Loans, MSME Loans, Subsidy Loans, ROC Compliance & Company Registration. Founded by Yugant Rahele. Call +91-8928895195.';
@@ -85,6 +85,7 @@ const SEOHead = ({
             <meta property="og:description" content={metaDesc} />
             <meta property="og:url" content={canonicalUrl} />
             <meta property="og:image" content={ogImage} />
+            <meta property="og:image:alt" content={fullTitle} />
             <meta property="og:type" content={articleSchema ? 'article' : 'website'} />
             <meta property="og:site_name" content="FinTaxVers Consultancy Services" />
             <meta property="og:locale" content="en_IN" />
@@ -94,6 +95,7 @@ const SEOHead = ({
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={metaDesc} />
             <meta name="twitter:image" content={ogImage} />
+            <meta name="twitter:image:alt" content={fullTitle} />
 
             {/* JSON-LD — Organization + Website always present on public pages */}
             {!noIndex && <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>}

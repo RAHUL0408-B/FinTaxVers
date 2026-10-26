@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import './HeroSlider.css';
 
@@ -95,6 +95,7 @@ const slides = [
 ];
 
 const AUTOPLAY_INTERVAL = 5500;
+const MotionDiv = motion.div;
 
 const contentVariants = {
     hidden: { opacity: 0, y: 28 },
@@ -105,15 +106,16 @@ const contentVariants = {
 const HeroSlider = () => {
     const [current, setCurrent] = useState(0);
     const [paused, setPaused] = useState(false);
+    const shouldReduceMotion = useReducedMotion();
 
     const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), []);
     const prev = useCallback(() => setCurrent(c => (c - 1 + slides.length) % slides.length), []);
 
     useEffect(() => {
-        if (paused) return;
+        if (paused || shouldReduceMotion) return;
         const timer = setInterval(next, AUTOPLAY_INTERVAL);
         return () => clearInterval(timer);
-    }, [paused, next]);
+    }, [paused, next, shouldReduceMotion]);
 
     return (
         <section
@@ -136,13 +138,13 @@ const HeroSlider = () => {
                     <div className="hero-slide-content">
                         <AnimatePresence mode="wait">
                             {idx === current && (
-                                <motion.div
+                                <MotionDiv
                                     key={`slide-content-${slide.id}`}
                                     className="hero-slide-inner"
                                     initial="hidden"
                                     animate="visible"
                                     exit="exit"
-                                    variants={contentVariants}
+                                    variants={shouldReduceMotion ? undefined : contentVariants}
                                 >
                                     {/* Badge */}
                                     <div className="hero-slide-badge">
@@ -183,7 +185,7 @@ const HeroSlider = () => {
                                             </React.Fragment>
                                         ))}
                                     </div>
-                                </motion.div>
+                                </MotionDiv>
                             )}
                         </AnimatePresence>
                     </div>

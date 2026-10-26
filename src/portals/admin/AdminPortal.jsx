@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import './Admin.css';
+import SEOGrowth from './SEOGrowth';
 
 import logo from '../../assets/fintaxverslogo.png';
 
@@ -56,6 +57,8 @@ function AdminPortal() {
                 return <InquiriesSection />;
             case 'services':
                 return <ServicesManagement />;
+            case 'seo-growth':
+                return <SEOGrowth />;
             case 'settings':
                 return <AdminSettings />;
             default:
@@ -167,6 +170,15 @@ function AdminPortal() {
                             onClick={() => handleNavClick('services')}
                         >
                             Services
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            className={activeTab === 'seo-growth' ? 'active' : ''}
+                            onClick={() => handleNavClick('seo-growth')}
+                        >
+                            SEO Growth
                         </a>
                     </li>
                     <li>

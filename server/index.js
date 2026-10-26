@@ -21,6 +21,7 @@ import { config } from './config/env.js';
 import chatRoutes from './routes/chatRoutes.js';
 import whatsappRoutes from './routes/whatsappRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import marketNewsRoutes from './routes/marketNewsRoutes.js';
 import { buildIndex } from './services/vectorStore.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -78,6 +79,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/chat', chatRoutes);
 app.use('/api/whatsapp/webhook', whatsappRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/market-news', marketNewsRoutes);
 
 // 404 for unknown /api routes
 app.all('/api/*', (req, res) => {
