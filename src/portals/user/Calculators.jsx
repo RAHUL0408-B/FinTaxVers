@@ -170,7 +170,6 @@ function Calculators() {
                             All calculators
                         </button>
                         <div className="calculator-active-heading">
-                            <span className="calculator-eyebrow"><Sparkles size={14} aria-hidden="true" /> FinTaxVers financial tools</span>
                             <h1 id="active-calculator-title">{selectedCalculator.title}</h1>
                             <p>{selectedCalculator.desc}</p>
                         </div>
