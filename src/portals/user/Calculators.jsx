@@ -10,7 +10,6 @@ import {
     Landmark,
     ReceiptText,
     ShieldCheck,
-    Sparkles,
     TrendingUp,
     WalletCards,
 } from 'lucide-react';
@@ -193,7 +192,6 @@ function Calculators() {
                     <>
                         <section className="calculator-hero" aria-labelledby="calculator-page-title">
                             <div className="calculator-hero-copy">
-                                <span className="calculator-eyebrow"><Sparkles size={14} aria-hidden="true" /> Free planning tools</span>
                                 <h1 id="calculator-page-title">Make the next money decision clearer.</h1>
                                 <p>Explore simple, private calculators for investing, loans, tax and life goals—built to turn a few inputs into a useful starting point.</p>
                                 <div className="calculator-hero-metrics" aria-label="Calculator highlights">

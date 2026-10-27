@@ -25,7 +25,8 @@
 .calculators-shell {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 124px 0 84px;
+  /* The service ticker is fixed and its position changes with the navbar. */
+  padding: calc(var(--site-fixed-header-offset, 94px) + 30px) 0 84px;
 }
 
 .calculator-eyebrow,
@@ -883,7 +884,7 @@
 }
 
 @media (max-width: 720px) {
-  .calculators-shell { width: min(100% - 28px, 1180px); padding: 102px 0 56px; }
+  .calculators-shell { width: min(100% - 28px, 1180px); padding: calc(var(--site-fixed-header-offset, 78px) + 24px) 0 56px; }
   .calculator-hero { gap: 20px; min-height: auto; padding: 30px 24px; border-radius: 23px; }
   .calculator-hero h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
   .calculator-hero-art { min-height: 180px; }

@@ -228,6 +228,10 @@ function TickerBar() {
             if (navbar) {
                 const bottom = navbar.getBoundingClientRect().bottom;
                 wrapper.style.top = `${bottom}px`;
+                document.documentElement.style.setProperty(
+                    '--site-fixed-header-offset',
+                    `${Math.ceil(bottom + wrapper.offsetHeight)}px`,
+                );
             }
         };
         positionTicker();
@@ -256,6 +260,7 @@ function TickerBar() {
             clearTimeout(rafTimer);
             window.removeEventListener('resize', positionTicker);
             if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            document.documentElement.style.removeProperty('--site-fixed-header-offset');
         };
     }, []);
 
