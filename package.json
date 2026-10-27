@@ -9,6 +9,7 @@
     "dev:all": "npx concurrently \"npm run dev\" \"npm run dev:server\"",
     "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "vite build",
+    "postbuild": "node scripts/generate-static-seo.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server/index.js"
