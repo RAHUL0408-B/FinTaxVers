@@ -1231,6 +1231,165 @@ export const servicesData = {
         ]
     },
 
+    "import-export-business-establishment": {
+        id: "import-export-business-establishment",
+        title: "Import–Export Business Establishment",
+        category: "Import–Export & Tenders",
+        icon: "🌐",
+        shortDesc: "Start and organise an import–export business with IEC application support, business-setup guidance, and document readiness.",
+        image: "/service-images/trade/import-export-logistics.jpg",
+        overview: "Build a clear foundation for your import–export venture. We help you organise the business setup, prepare for Importer Exporter Code (IEC) application, and understand the documents and practical steps involved before you begin trading internationally.",
+        detailedDescription: `
+            <p>Starting an import–export business involves choosing an appropriate business setup, organising the relevant registrations and preparing the records needed for international trade. Our service helps you understand the process and prepare an accurate application file.</p>
+            <h3>How we help</h3>
+            <ul>
+                <li><strong>Business setup review:</strong> Discuss a suitable business structure and basic registration readiness for your proposed activity.</li>
+                <li><strong>IEC application support:</strong> Help organise the information and documents needed for an IEC application on the DGFT portal.</li>
+                <li><strong>Document readiness:</strong> Review common KYC, address, bank and business documents before you start the process.</li>
+                <li><strong>Next-step guidance:</strong> Explain practical registrations and compliance points relevant to your product, market and transaction model.</li>
+            </ul>
+            <p>IEC eligibility, documentation and approval are determined by the relevant authorities under the applicable rules. Requirements may differ by business activity and product.</p>
+        `,
+        keyFeatures: [
+            { title: "IEC Application Readiness", description: "Organise the information and supporting documents required before applying through DGFT." },
+            { title: "Business Setup Guidance", description: "Understand the basic business-registration and banking groundwork for your trade plan." },
+            { title: "Document Checklist", description: "Get a practical list of the KYC, business, address and bank records to keep ready." },
+            { title: "Trade Process Orientation", description: "Discuss the operational steps you may need to verify for your particular product and market." }
+        ],
+        process: [
+            { step: 1, title: "Business Discussion", description: "Understand your proposed products, markets, business structure and trade plan." },
+            { step: 2, title: "Document Review", description: "Review the available business, KYC, address and bank documents." },
+            { step: 3, title: "IEC Application Preparation", description: "Prepare the details and supporting records for the applicable DGFT portal process." },
+            { step: 4, title: "Submission Guidance", description: "Guide you through the next steps and address any portal or document queries." }
+        ],
+        benefits: [
+            "Clearer import–export business setup path",
+            "Better-organised application documents",
+            "Guidance before starting the DGFT process",
+            "Practical support tailored to your trade plan"
+        ],
+        idealFor: [
+            "New importers and exporters",
+            "Manufacturers and traders entering overseas markets",
+            "MSMEs expanding into international trade",
+            "Businesses preparing to apply for an IEC"
+        ],
+        pricing: { starting: "Custom", note: "Based on business structure, documentation and scope of assistance" },
+        faq: [
+            { question: "Do I need an IEC for an import–export business?", answer: "An IEC is generally required for import or export activity, subject to the exemptions and conditions prescribed under the applicable foreign-trade rules. We can help you review the current process for your business before you apply." },
+            { question: "Can you help set up a new import–export business?", answer: "Yes. We can help you organise the business-setup and IEC-application requirements. Product-specific licences, customs requirements and trade approvals should be checked separately for the goods and markets you plan to serve." }
+        ],
+        seoTitle: "Import–Export Business Establishment in Nagpur | IEC Support | FinTaxVers",
+        metaDescription: "Start an import–export business in Nagpur with FinTaxVers. Get IEC application readiness, business-setup guidance and document support.",
+        seoKeywords: "import export business registration Nagpur, IEC registration Nagpur, DGFT IEC application, export business setup, FinTaxVers"
+    },
+
+    "gem-portal-registration": {
+        id: "gem-portal-registration",
+        title: "GeM Portal Registration",
+        category: "Import–Export & Tenders",
+        icon: "🏛️",
+        shortDesc: "Guided support for GeM seller registration, profile readiness, catalogue preparation, and understanding the portal workflow.",
+        image: "/service-images/trade/gem-official.png",
+        overview: "Prepare your business to sell through the Government e-Marketplace (GeM) with guided support for seller-profile registration, business-document readiness and catalogue preparation. We help you work through the process with clarity; GeM determines registration and account access under its current portal requirements.",
+        detailedDescription: `
+            <p>GeM is the Government e-Marketplace used for public procurement. A seller profile needs accurate business information, relevant documentation and an organised catalogue before the business can pursue suitable opportunities on the platform.</p>
+            <h3>Our GeM registration support includes</h3>
+            <ul>
+                <li><strong>Seller profile readiness:</strong> Organising the details and documents needed to begin the appropriate GeM seller-registration workflow.</li>
+                <li><strong>Business-document review:</strong> Helping you prepare the records that may be relevant to your organisation and offerings.</li>
+                <li><strong>Catalogue preparation:</strong> Structuring product or service information for catalogue creation and review.</li>
+                <li><strong>Portal orientation:</strong> Explaining the practical workflow for maintaining the seller profile and evaluating opportunities.</li>
+            </ul>
+            <p>GeM portal requirements, verification and account activation are controlled by GeM and can change. Registration or access is not guaranteed.</p>
+        `,
+        keyFeatures: [
+            { title: "Seller Registration Support", description: "Prepare to follow the correct seller-registration workflow for your entity." },
+            { title: "Document Readiness", description: "Organise business details and supporting records before entering information on the portal." },
+            { title: "Catalogue Preparation", description: "Structure clear product or service information for your proposed catalogue." },
+            { title: "Portal Workflow Guidance", description: "Understand the key seller-profile and opportunity-management steps." }
+        ],
+        process: [
+            { step: 1, title: "Eligibility & Offering Review", description: "Discuss your entity type, offerings and the intended seller profile." },
+            { step: 2, title: "Document Checklist", description: "Identify and organise the applicable business details and supporting documents." },
+            { step: 3, title: "Profile & Catalogue Preparation", description: "Prepare accurate seller-profile and catalogue information for portal entry." },
+            { step: 4, title: "Registration Guidance", description: "Support your understanding of the portal steps and follow-up actions." }
+        ],
+        benefits: [
+            "Structured preparation for GeM seller registration",
+            "Clearer product or service catalogue information",
+            "Better-organised business documents",
+            "Practical understanding of the GeM workflow"
+        ],
+        idealFor: [
+            "MSMEs and manufacturers",
+            "Service providers seeking public-sector opportunities",
+            "Traders and authorised sellers",
+            "Businesses preparing their first GeM seller profile"
+        ],
+        pricing: { starting: "Custom", note: "Based on seller type, catalogue scope and documentation support required" },
+        faq: [
+            { question: "Can you register my business on the GeM portal?", answer: "We provide guided support to prepare the profile, information and documents needed for the applicable portal process. GeM controls verification, registration and account activation." },
+            { question: "Can you guarantee GeM seller approval or government orders?", answer: "No. Seller approval, catalogue acceptance, bid eligibility and purchase orders are determined independently by GeM and the relevant buyers. Our role is to help you prepare and navigate the process." }
+        ],
+        seoTitle: "GeM Portal Registration in Nagpur | Seller Profile Support | FinTaxVers",
+        metaDescription: "Get GeM portal seller-registration guidance in Nagpur from FinTaxVers. Prepare your business profile, documents and catalogue information.",
+        seoKeywords: "GeM registration Nagpur, GeM seller registration, Government e Marketplace seller, GeM catalogue support, FinTaxVers"
+    },
+
+    "government-tenders-bid-support": {
+        id: "government-tenders-bid-support",
+        title: "Government Tenders & Bid Support",
+        category: "Import–Export & Tenders",
+        icon: "📋",
+        shortDesc: "Prepare to participate in government tenders with eligibility review, document coordination, bid-readiness guidance, and submission support.",
+        image: "/service-images/trade/tender-document-review.jpg",
+        overview: "Approach government tenders with a more organised bid file. We help businesses review tender requirements, prepare a document checklist and coordinate the information needed for a compliant submission. Bid evaluation and award decisions remain with the procuring authority.",
+        detailedDescription: `
+            <p>Government-tender participation requires close reading of eligibility conditions, technical specifications, timelines and submission requirements. Our support focuses on helping you organise the information and documents needed to respond to a suitable opportunity.</p>
+            <h3>Our bid-support scope</h3>
+            <ul>
+                <li><strong>Tender review:</strong> Identify the key eligibility, documentation and timeline points in the tender document.</li>
+                <li><strong>Bid-readiness checklist:</strong> Organise the technical, commercial and compliance information that needs to be collected.</li>
+                <li><strong>Document coordination:</strong> Help keep certificates, declarations and supporting records organised for the bid.</li>
+                <li><strong>Submission guidance:</strong> Assist with the portal-readiness and final submission workflow within the stated deadline.</li>
+            </ul>
+            <p>Each tender has its own conditions. We do not determine eligibility, influence procurement decisions or guarantee a bid award.</p>
+        `,
+        keyFeatures: [
+            { title: "Eligibility Review", description: "Highlight the qualification, experience and document conditions to verify before bidding." },
+            { title: "Bid Checklist", description: "Create an organised list of technical, commercial and compliance inputs." },
+            { title: "Document Coordination", description: "Keep the supporting certificates, declarations and records ready for submission." },
+            { title: "Submission Readiness", description: "Prepare for the relevant e-tender portal and deadline-based submission process." }
+        ],
+        process: [
+            { step: 1, title: "Opportunity Review", description: "Review the tender notice, scope, eligibility criteria and submission deadline." },
+            { step: 2, title: "Bid Planning", description: "Create a tailored checklist for the information, documents and internal approvals needed." },
+            { step: 3, title: "Document Preparation", description: "Coordinate the available technical, financial and compliance records for the bid file." },
+            { step: 4, title: "Final Readiness Check", description: "Review completeness and portal readiness before submission within the tender timeline." }
+        ],
+        benefits: [
+            "More organised tender participation",
+            "Clearer view of bid eligibility and document requirements",
+            "Reduced risk of missing routine bid inputs",
+            "Deadline-focused submission preparation"
+        ],
+        idealFor: [
+            "MSMEs bidding for government work",
+            "Manufacturers and suppliers",
+            "Service providers responding to public tenders",
+            "Businesses new to e-tender participation"
+        ],
+        pricing: { starting: "Custom", note: "Based on tender complexity, documentation and submission-support scope" },
+        faq: [
+            { question: "Can you help me decide whether I am eligible for a government tender?", answer: "We can help review the published eligibility conditions against the information you provide. Final eligibility and evaluation are decided by the procuring authority under the tender terms." },
+            { question: "Do you guarantee a government tender award?", answer: "No. Awards are made independently by the procuring authority. Our support is limited to bid-readiness, document coordination and guidance for a complete submission." }
+        ],
+        seoTitle: "Government Tender & Bid Support in Nagpur | FinTaxVers",
+        metaDescription: "Prepare for government tenders in Nagpur with FinTaxVers. Get tender eligibility review, bid-document coordination and submission-readiness support.",
+        seoKeywords: "government tender consultant Nagpur, tender filing support, e tender bid support, government bid documents, FinTaxVers"
+    },
+
     "digital-signature-certificate": {
         id: "digital-signature-certificate",
         title: "Digital Signature Certificate (DSC)",

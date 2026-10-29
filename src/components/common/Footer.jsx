@@ -59,6 +59,9 @@ const Footer = () => {
                             <li><Link to="/services/cma-data-project-financing">MSME Loans &amp; CMA Reports</Link></li>
                             <li><Link to="/services/govt-subsidy-consulting">Subsidy Loans (PMEGP/CMEGP)</Link></li>
                             <li><Link to="/services/roc-annual-compliance">ROC Annual Compliance</Link></li>
+                            <li><Link to="/services/import-export-business-establishment">Import–Export Business Setup</Link></li>
+                            <li><Link to="/services/gem-portal-registration">GeM Portal Registration</Link></li>
+                            <li><Link to="/services/government-tenders-bid-support">Government Tenders &amp; Bid Support</Link></li>
                         </ul>
                     </div>
 
@@ -93,6 +96,9 @@ const Footer = () => {
                         <Link to="/services/govt-subsidy-consulting">Subsidy Loan Nagpur</Link><span className="sep">|</span>
                         <Link to="/services/roc-annual-compliance">ROC Compliance Nagpur</Link><span className="sep">|</span>
                         <Link to="/services/company-llp-formation">Company Registration Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/import-export-business-establishment">Import Export Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/gem-portal-registration">GeM Registration Nagpur</Link><span className="sep">|</span>
+                        <Link to="/services/government-tenders-bid-support">Government Tenders Nagpur</Link><span className="sep">|</span>
                         <Link to="/">Yugant Rahele</Link>
                     </div>
                 </div>

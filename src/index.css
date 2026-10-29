@@ -356,6 +356,18 @@ button {
   background: white;
 }
 
+.services-mega-menu {
+  min-width: min(1080px, calc(100vw - 32px));
+}
+
+.services-mega-menu .calc-group {
+  min-width: 0;
+}
+
+.services-mega-menu .dropdown-item {
+  white-space: normal;
+}
+
 .calc-group {
   flex: 1;
   min-width: 220px;

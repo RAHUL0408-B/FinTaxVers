@@ -148,6 +148,40 @@ const newServicesData = [
       desc: 'Fast paperless Class 3 Digital Signature Certificate (DSC) for Income Tax, GST, MCA ROC filing, and e-tendering.',
       features: ['Paperless Class 3 DSC', 'Quick Aadhar OTP issuance', 'Minimal documentation'],
       link: '/services/digital-signature-certificate'
+    },
+    {
+      id: 13,
+      cat: 'trade',
+      img: '/service-images/trade/import-export-logistics.jpg',
+      categoryClass: 'cat-trade',
+      categoryName: 'Import–Export & Tenders',
+      title: 'Import–Export Business Establishment',
+      desc: 'Set up your import–export business with IEC application support, business-setup guidance, and document readiness for international trade.',
+      features: ['IEC application & DGFT profile support', 'Business setup & document checklist', 'Export-import compliance guidance'],
+      link: '/services/import-export-business-establishment'
+    },
+    {
+      id: 14,
+      cat: 'trade',
+      img: '/service-images/trade/gem-official.png',
+      imageFit: 'contain',
+      categoryClass: 'cat-trade',
+      categoryName: 'Import–Export & Tenders',
+      title: 'GeM Portal Registration',
+      desc: 'Get guided support for GeM seller registration, profile readiness, catalogue preparation, and understanding the portal workflow.',
+      features: ['Seller profile registration support', 'Catalogue & document readiness', 'GeM portal workflow guidance'],
+      link: '/services/gem-portal-registration'
+    },
+    {
+      id: 15,
+      cat: 'trade',
+      img: '/service-images/trade/tender-document-review.jpg',
+      categoryClass: 'cat-trade',
+      categoryName: 'Import–Export & Tenders',
+      title: 'Government Tenders & Bid Support',
+      desc: 'Prepare to participate in government tenders with eligibility review, document coordination, bid-readiness guidance, and submission support.',
+      features: ['Tender eligibility & checklist review', 'Bid document coordination', 'E-tender submission readiness'],
+      link: '/services/government-tenders-bid-support'
     }
 ];
 
@@ -288,6 +322,7 @@ function UserPortal() {
                 <button className={`filter-btn ${activeFilter === 'compliance' ? 'active' : ''}`} onClick={() => setActiveFilter('compliance')}>Compliance</button>
                 <button className={`filter-btn ${activeFilter === 'finance' ? 'active' : ''}`} onClick={() => setActiveFilter('finance')}>Finance & Loans</button>
                 <button className={`filter-btn ${activeFilter === 'registration' ? 'active' : ''}`} onClick={() => setActiveFilter('registration')}>Registration</button>
+                <button className={`filter-btn ${activeFilter === 'trade' ? 'active' : ''}`} onClick={() => setActiveFilter('trade')}>Import–Export & Tenders</button>
             </div>
 
             {/* SERVICES GRID */}
@@ -315,7 +350,7 @@ function UserPortal() {
                                 onClick={() => openService(service)}
                                 onKeyDown={(event) => handleServiceKeyDown(event, service)}
                             >
-                                <div className="card-visual">
+                                <div className={`card-visual${service.imageFit === 'contain' ? ' card-visual--contain' : ''}`}>
                                     <img src={service.img} alt={service.title} className="card-img" loading="lazy" />
                                     <span className="card-visual-glow" aria-hidden="true" />
                                 </div>

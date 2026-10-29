@@ -51,6 +51,9 @@ export const generateOrganizationSchema = () => ({
         'Subsidy Loan & Government Grants',
         'ROC Compliance & Annual Filings',
         'Company Registration (Pvt Ltd & LLP)',
+        'Import–Export Business Establishment',
+        'GeM Portal Registration',
+        'Government Tenders & Bid Support',
     ],
     sameAs: [
         SITE_URL,

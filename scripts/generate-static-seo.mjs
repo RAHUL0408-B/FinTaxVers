@@ -8,7 +8,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { servicesData } from '../src/data/servicesData.js';
-import { localServiceContent } from '../src/data/localServiceContent.js';
+import { getLocalServiceContent } from '../src/data/localServiceContent.js';
 import { blogPosts } from '../src/data/blogData.js';
 import {
     generateArticleSchema,
@@ -143,7 +143,7 @@ ${staticNavigation}
 </main>`;
 
 const makeServicePage = (service) => {
-    const localGuide = localServiceContent[service.id];
+    const localGuide = getLocalServiceContent(service.id, service.title);
     const canonical = `${siteUrl}/services/${service.id}`;
     const title = service.seoTitle || localGuide.seo.title;
     const description = service.metaDescription || localGuide.seo.description;

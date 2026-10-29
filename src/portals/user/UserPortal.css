@@ -130,12 +130,19 @@
   background: var(--gray-bg);
   border-bottom: 1px solid var(--gray-border);
 }
+.card-visual--contain {
+  background: #fff;
+}
 .card-img {
   width: 100%; height: 100%;
   display: block;
   object-fit: cover;
   transform: scale(1.001);
   transition: transform .7s cubic-bezier(.22, 1, .36, 1), filter .45s ease;
+}
+.card-visual--contain .card-img {
+  object-fit: contain;
+  padding: 18px 26px;
 }
 .card-visual::after {
   content: '';
@@ -158,8 +165,12 @@
 }
 .service-card-new:hover .card-img,
 .service-card-new:focus-visible .card-img { transform: scale(1.075); filter: saturate(1.08); }
+.service-card-new:hover .card-visual--contain .card-img,
+.service-card-new:focus-visible .card-visual--contain .card-img { transform: none; filter: none; }
 .service-card-new:hover .card-visual-glow,
 .service-card-new:focus-visible .card-visual-glow { transform: translate3d(-38px, 34px, 0); }
+.card-visual--contain::after,
+.card-visual--contain .card-visual-glow { display: none; }
 
 .card-body { padding: 22px 24px 20px; flex: 1; display: flex; flex-direction: column; }
 
@@ -175,6 +186,7 @@
 .cat-compliance { background: #f3e5f5; color: #7b1fa2; }
 .cat-finance { background: #fff8e1; color: #f57f17; }
 .cat-registration { background: #e0f2f1; color: #00695c; }
+.cat-trade { background: #ede9fe; color: #5b21b6; }
 
 .card-title-new {
   font-size: 17px; font-weight: 700;

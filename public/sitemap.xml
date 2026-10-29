@@ -91,6 +91,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://fintaxvers.com/services/import-export-business-establishment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/services/gem-portal-registration</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/services/government-tenders-bid-support</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://fintaxvers.com/services/digital-signature-certificate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

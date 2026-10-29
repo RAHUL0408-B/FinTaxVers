@@ -132,6 +132,12 @@ const Navbar = () => {
                                     <a href="/services/roc-annual-compliance" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/roc-annual-compliance'); }}>ROC & Annual Compliance</a>
                                 </div>
                                 <div className="calc-group">
+                                    <h4>Import–Export &amp; Tenders</h4>
+                                    <a href="/services/import-export-business-establishment" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/import-export-business-establishment'); }}>Import–Export Business Establishment</a>
+                                    <a href="/services/gem-portal-registration" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/gem-portal-registration'); }}>GeM Portal Registration</a>
+                                    <a href="/services/government-tenders-bid-support" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/government-tenders-bid-support'); }}>Government Tenders &amp; Bid Support</a>
+                                </div>
+                                <div className="calc-group">
                                     <h4>Tax &amp; Ops</h4>
                                     <a href="/services/gst-returns-solutions" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/gst-returns-solutions'); }}>GST Returns &amp; Solutions</a>
                                     <a href="/services/income-tax-planning" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/income-tax-planning'); }}>Income Tax &amp; Planning</a>
