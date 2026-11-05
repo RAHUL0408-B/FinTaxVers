@@ -28,10 +28,30 @@
 
 /* ---- top grid: brand+about | links | links ---- */
 .f-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
   padding-bottom: 22px;
+}
+.f-brand {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 12px 48px;
+  align-items: start;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--border-footer);
+}
+.f-brand {
+  grid-template-areas: "name name" "about contact" "social contact";
+}
+.f-brand-name { grid-area: name; }
+.f-about { grid-area: about; margin: 0; }
+.f-contact { grid-area: contact; }
+.f-social { grid-area: social; }
+.f-links {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px 24px;
 }
 
 .f-brand img {
@@ -174,4 +194,15 @@
     grid-template-columns: 1fr;
     gap: 26px;
   }
+}
+
+@media (max-width: 1000px) {
+  .f-links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 880px) {
+  .f-brand { grid-template-columns: 1fr; grid-template-areas: "name" "about" "contact" "social"; }
+}
+@media (max-width: 560px) {
+  .f-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+  .f-col ul li a { font-size: 12.5px; }
 }

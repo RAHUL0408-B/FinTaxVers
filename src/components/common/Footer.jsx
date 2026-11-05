@@ -2,6 +2,62 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
+const footerColumns = [
+    {
+        title: 'Tax & Compliance',
+        links: [
+            { label: 'GST Registration & Filing', to: '/services/gst-returns-solutions' },
+            { label: 'Income Tax Return (ITR)', to: '/services/income-tax-planning' },
+            { label: 'TDS / TCS Filing', to: '/services/tds-tcs-return-filing' },
+            { label: 'Tax Audit (Sec 44AB)', to: '/services/tax-audit-services' },
+            { label: 'Internal Audit & Controls', to: '/services/internal-audit' },
+            { label: 'Accounting & Bookkeeping', to: '/services/financial-reporting' },
+        ],
+    },
+    {
+        title: 'Loans & Finance',
+        links: [
+            { label: 'Business Loan Assistance', to: '/services/business-loan-assistance' },
+            { label: 'MSME & Working Capital Loan', to: '/services/msme-business-loan' },
+            { label: 'CMA Data & Project Reports', to: '/services/cma-data-project-financing' },
+            { label: 'Loan Against Property', to: '/services/loan-against-property' },
+            { label: 'Home Loan', to: '/services/home-loan' },
+            { label: 'Car Loan', to: '/services/car-loan' },
+            { label: 'Subsidy (PMEGP/CMEGP)', to: '/services/govt-subsidy-consulting' },
+        ],
+    },
+    {
+        title: 'Registration & Business',
+        links: [
+            { label: 'Company / LLP Registration', to: '/services/company-llp-formation' },
+            { label: 'Shop Act & MSME (Udyam)', to: '/services/shop-act-msme' },
+            { label: 'ROC Annual Compliance', to: '/services/roc-annual-compliance' },
+            { label: 'Business Development', to: '/services/business-development' },
+            { label: 'Digital Signature (DSC)', to: '/services/digital-signature-certificate' },
+        ],
+    },
+    {
+        title: 'Global & Trade',
+        links: [
+            { label: 'Foreign & International Accounting', to: '/services/international-accounting-services' },
+            { label: 'NRI Tax & FEMA', to: '/services/nri-tax-fema-services' },
+            { label: 'Import–Export Setup', to: '/services/import-export-business-establishment' },
+            { label: 'GeM Portal Registration', to: '/services/gem-portal-registration' },
+            { label: 'Government Tenders', to: '/services/government-tenders-bid-support' },
+        ],
+    },
+    {
+        title: 'Resources',
+        links: [
+            { label: 'Financial Calculators', to: '/calculators' },
+            { label: 'Income Tax Calculator', to: '/calculators' },
+            { label: 'Financial Guides (Blog)', to: '/blog' },
+            { label: 'Useful Govt & Tax Links', to: '/links' },
+            { label: 'Chat on WhatsApp', to: 'https://wa.me/918928895195', external: true },
+        ],
+    },
+];
+
 const Footer = () => {
     return (
         <footer className="f-footer">
@@ -43,46 +99,23 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Our Services */}
-                    <div className="f-col">
-                        <h5>Our Services</h5>
-                        <ul>
-                            <li><Link to="/services/gst-returns-solutions">GST Registration &amp; Filing</Link></li>
-                            <li><Link to="/services/income-tax-planning">Income Tax Return (ITR)</Link></li>
-                            <li><Link to="/services/tax-audit-services">Tax Audit (Sec 44AB)</Link></li>
-                            <li><Link to="/services/internal-audit">Internal Audit &amp; Controls</Link></li>
-                            <li><Link to="/services/financial-reporting">Accounting &amp; Bookkeeping</Link></li>
-                            <li><Link to="/services/company-llp-formation">Company Registration (Pvt Ltd)</Link></li>
-                            <li><Link to="/services/shop-act-msme">Business &amp; MSME Registration</Link></li>
-                            <li><Link to="/services/business-loan-assistance">Business Loan Assistance</Link></li>
-                            <li><Link to="/services/msme-business-loan">MSME &amp; Working Capital Loan</Link></li>
-                            <li><Link to="/services/loan-against-property">Loan Against Property</Link></li>
-                            <li><Link to="/services/home-loan">Home Loan</Link></li>
-                            <li><Link to="/services/car-loan">Car Loan</Link></li>
-                            <li><Link to="/services/international-accounting-services">Foreign &amp; International Accounting</Link></li>
-                            <li><Link to="/services/nri-tax-fema-services">NRI Tax &amp; FEMA</Link></li>
-                            <li><Link to="/services/tds-tcs-return-filing">TDS / TCS Filing</Link></li>
-                            <li><Link to="/services/cma-data-project-financing">MSME Loans &amp; CMA Reports</Link></li>
-                            <li><Link to="/services/govt-subsidy-consulting">Subsidy Loans (PMEGP/CMEGP)</Link></li>
-                            <li><Link to="/services/roc-annual-compliance">ROC Annual Compliance</Link></li>
-                            <li><Link to="/services/import-export-business-establishment">Import–Export Business Setup</Link></li>
-                            <li><Link to="/services/gem-portal-registration">GeM Portal Registration</Link></li>
-                            <li><Link to="/services/government-tenders-bid-support">Government Tenders &amp; Bid Support</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div className="f-col">
-                        <h5>Quick Links</h5>
-                        <ul>
-                            <li><Link to="/calculators">GST &amp; EMI Calculators</Link></li>
-                            <li><Link to="/calculators">SIP Calculator</Link></li>
-                            <li><Link to="/calculators">Income Tax Calculator</Link></li>
-                            <li><Link to="/links">Useful Govt &amp; Tax Links</Link></li>
-                            <li><Link to="/blog">Financial Insights Blog</Link></li>
-                            <li><a href={`https://wa.me/918928895195`} target="_blank" rel="noreferrer">Chat on WhatsApp</a></li>
-                        </ul>
-                    </div>
+                    {/* Link columns */}
+                    <nav className="f-links" aria-label="Footer">
+                        {footerColumns.map((col) => (
+                            <div className="f-col" key={col.title}>
+                                <h5>{col.title}</h5>
+                                <ul>
+                                    {col.links.map((l) => (
+                                        <li key={l.label}>
+                                            {l.external
+                                                ? <a href={l.to} target="_blank" rel="noreferrer">{l.label}</a>
+                                                : <Link to={l.to}>{l.label}</Link>}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </nav>
 
                 </div>
 
