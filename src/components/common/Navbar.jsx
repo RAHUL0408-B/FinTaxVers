@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import logo from '../../assets/fintaxverslogo.png';
+import emblem from '../../assets/fintaxvers-emblem.png';
 
 
 
@@ -90,13 +90,17 @@ const Navbar = () => {
                     }}>
                         <img
                             className="navbar-logo-img"
-                            src={logo}
+                            src={emblem}
                             alt="FinTaxVers Logo"
                             style={{
                                 objectFit: 'contain',
                                 transition: 'transform 0.3s ease'
                             }}
                         />
+                        <div className="logo-wordmark">
+                            <span className="logo-name">FinTax<span>Vers</span></span>
+                            <span className="logo-tagline">Global Finance, Tax, Accounts &amp; Growth Solutions</span>
+                        </div>
                     </div>
 
 

@@ -2057,3 +2057,216 @@ textarea:focus-visible {
         padding: 14px 16px;
     }
 }
+
+
+/* ==========================================================
+   NAVBAR REFRESH — colourful mega menus + reliable mobile UI
+   (kept last so it wins over earlier navbar rules)
+   ========================================================== */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* ---------- Desktop mega menus ---------- */
+.services-mega-menu,
+.calculator-menu {
+  background: linear-gradient(135deg, #eef2ff 0%, #fdf2f8 45%, #ecfeff 100%) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(30, 41, 99, 0.22);
+  gap: 18px;
+  padding: 22px;
+}
+
+.services-mega-menu .calc-group,
+.calculator-menu .calc-group {
+  --accent: #6366f1;
+  --accent-soft: rgba(99, 102, 241, 0.1);
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 12px 12px;
+  border-top: 4px solid var(--accent);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+}
+.services-mega-menu .calc-group:nth-child(2),
+.calculator-menu .calc-group:nth-child(2) { --accent: #10b981; --accent-soft: rgba(16, 185, 129, 0.12); }
+.services-mega-menu .calc-group:nth-child(3),
+.calculator-menu .calc-group:nth-child(3) { --accent: #f59e0b; --accent-soft: rgba(245, 158, 11, 0.14); }
+.services-mega-menu .calc-group:nth-child(4) { --accent: #ec4899; --accent-soft: rgba(236, 72, 153, 0.12); }
+
+.services-mega-menu .calc-group h4,
+.calculator-menu .calc-group h4 {
+  color: var(--accent) !important;
+  border-bottom: 1px dashed var(--accent-soft);
+  margin: 0 4px 10px;
+  padding-bottom: 8px;
+}
+
+.services-mega-menu .dropdown-item,
+.calculator-menu .dropdown-item {
+  padding: 9px 12px;
+  border-radius: 10px;
+}
+.services-mega-menu .dropdown-item:hover,
+.calculator-menu .dropdown-item:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 992px) {
+  /* single compact top bar: fixed 30px, never wraps */
+  .top-header { padding: 0; height: 30px; display: flex; align-items: center; }
+  .top-header .container { padding: 0 12px; width: 100%; }
+  .top-header-content { flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 8px; }
+  .top-header-left, .top-header-right { width: auto; flex-wrap: nowrap; gap: 8px; order: 0; }
+  .top-header-left .top-header-item:nth-child(2),   /* email */
+  .top-header-right > span { display: none; }       /* hours + divider */
+  .top-header-item { font-size: 0.72rem; white-space: nowrap; }
+
+  .navbar { top: 30px; padding: 6px 0; }
+  .nav-container { height: 56px; padding: 0 14px; }
+  .navbar-logo-img, .logo img { height: 40px !important; max-width: 160px !important; }
+
+  /* nav-links must be positioned against the navbar (backdrop-filter makes
+     it the containing block for fixed children, which broke the old offsets) */
+  .nav-links {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: calc(100dvh - 100px);
+    padding: 12px 16px 24px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f5f3ff 100%) !important;
+    transform: translateY(-8px) !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease, visibility .25s;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0 0 20px 20px;
+    box-sizing: border-box;
+  }
+  .nav-links.active {
+    opacity: 1; visibility: visible; pointer-events: auto;
+    transform: none !important;
+  }
+  .nav-links li { border-bottom: 1px solid rgba(99, 102, 241, 0.12); }
+  .nav-links a { padding: 14px 10px !important; font-size: 1rem !important; }
+
+  /* accordion panels */
+  .services-mega-menu, .calculator-menu {
+    background: transparent !important;
+    border: none; box-shadow: none !important; border-radius: 0;
+    padding: 4px 0 10px !important;
+    gap: 12px !important;
+  }
+  .services-mega-menu .calc-group, .calculator-menu .calc-group {
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 12px 10px 8px !important;
+    border-top: none;
+    border-left: 4px solid var(--accent);
+    background: var(--accent-soft);
+    box-shadow: none;
+  }
+  .services-mega-menu .calc-group h4, .calculator-menu .calc-group h4 {
+    border: none !important; margin-bottom: 4px !important;
+    color: var(--accent) !important;
+  }
+  .dropdown-item { padding: 10px 8px !important; color: var(--text-secondary) !important; }
+  .dropdown-item:hover { transform: none; }
+
+  /* Book Consultation CTA inside the open menu is hidden elsewhere; keep it reachable */
+  .menu-toggle { left: 14px !important; padding: 10px !important; gap: 5px !important; }
+  .menu-toggle .bar { width: 24px !important; height: 3px !important; }
+  .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+@media (max-width: 480px) {
+  .navbar { top: 30px !important; }
+  .nav-container { height: 56px !important; }
+  .navbar-logo-img { height: 40px !important; max-width: 170px !important; }
+  .nav-links { top: 100% !important; height: auto !important; }
+  .top-header { padding: 0 !important; }
+}
+
+/* Coloured background on every menu item */
+.services-mega-menu .dropdown-item,
+.calculator-menu .dropdown-item {
+  background: var(--accent-soft);
+  color: #1e293b;
+  margin-bottom: 6px;
+  border-left: 3px solid var(--accent);
+}
+.services-mega-menu .dropdown-item:hover,
+.calculator-menu .dropdown-item:hover {
+  background: var(--accent);
+  color: #fff;
+}
+@media (max-width: 992px) {
+  .services-mega-menu .dropdown-item,
+  .calculator-menu .dropdown-item {
+    background: rgba(255, 255, 255, 0.75);
+    color: #1e293b !important;
+  }
+  .services-mega-menu .dropdown-item:hover,
+  .calculator-menu .dropdown-item:hover {
+    background: var(--accent) !important;
+    color: #fff !important;
+  }
+}
+
+/* New square-ish logo needs more height to stay readable */
+.navbar-logo-img, .logo img { height: 64px !important; max-width: 90px !important; }
+@media (max-width: 992px) {
+  .navbar-logo-img, .logo img { height: 50px !important; max-width: 70px !important; }
+  .nav-container { height: 58px !important; }
+}
+
+/* ---------- Horizontal logo: emblem left, big company name right ---------- */
+.logo { gap: 10px; }
+.navbar-logo-img, .logo img { height: 56px !important; width: auto !important; max-width: 64px !important; }
+.logo-wordmark { display: flex; flex-direction: column; line-height: 1; text-align: left; }
+.logo-name {
+  font-family: 'Poppins', 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; color: #1a3c6e;
+}
+.logo-name span { color: #1e8a4c; }
+.logo-tagline {
+  margin-top: 4px; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.3px;
+  text-transform: uppercase; color: #475569; white-space: nowrap;
+}
+.logo::after { display: none; }
+
+@media (max-width: 1150px) and (min-width: 993px) {
+  .logo-name { font-size: 1.6rem; }
+  .logo-tagline { display: none; }
+}
+@media (max-width: 992px) {
+  .navbar-logo-img, .logo img { height: 42px !important; max-width: 48px !important; }
+  .logo { gap: 8px; }
+  .logo-name { font-size: 1.5rem; }
+  .logo-tagline { font-size: 0.4rem; letter-spacing: 0.1px; }
+}
+@media (max-width: 400px) {
+  .logo-name { font-size: 1.3rem; }
+  .logo-tagline { display: none; }
+  .navbar-logo-img, .logo img { height: 38px !important; }
+}
+
+/* Desktop: centre the menu in the free space between logo and CTA */
+@media (min-width: 993px) {
+  .nav-container { gap: 24px; }
+  .nav-links {
+    position: static;
+    transform: none;
+    left: auto;
+    margin: 0 auto;
+    padding-left: 24px;
+    flex: 0 1 auto;
+  }
+  .nav-links a { padding: 6px 14px; }
+}
