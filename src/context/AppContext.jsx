@@ -113,6 +113,8 @@ export const AppProvider = ({ children }) => {
                         publicKey
                     );
                     console.log('Notification email sent successfully!');
+                } else {
+                    console.warn('EmailJS is not configured: set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY in .env.local, then rebuild and redeploy.');
                 }
             } catch (emailError) {
                 console.error('EmailJS error details:', {
