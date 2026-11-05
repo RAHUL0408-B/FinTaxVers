@@ -102,7 +102,7 @@ const newServicesData = [
       categoryName: 'Finance & Loans',
       title: 'Business Loan Assistance',
       desc: 'Secured and unsecured business loans, CC/OD working capital limits, term loans, and machinery financing from leading PSU and private banks.',
-      features: ['Unsecured business loans up to ₹50L+', 'Working capital (CC / OD limits)', 'Fast bank approvals with top lenders'],
+      features: ['Unsecured & secured business loans', 'Working capital (CC / OD limits)', 'Fast bank approvals with top lenders'],
       link: '/services/business-loan-assistance'
     },
     {
@@ -182,6 +182,72 @@ const newServicesData = [
       desc: 'Prepare to participate in government tenders with eligibility review, document coordination, bid-readiness guidance, and submission support.',
       features: ['Tender eligibility & checklist review', 'Bid document coordination', 'E-tender submission readiness'],
       link: '/services/government-tenders-bid-support'
+    },
+    {
+      id: 16,
+      cat: 'finance',
+      img: '/services/business_loan_1782793595395.png',
+      categoryClass: 'cat-finance',
+      categoryName: 'Finance & Loans',
+      title: 'MSME & Business Loan',
+      desc: 'Working capital (CC/OD), term loan and MSME loan assistance with project report, CMA data and complete bank documentation for businesses across India.',
+      features: ['Working capital & term loans', 'Mudra, CGTMSE & PMEGP guidance', 'Clean, bank-ready loan file'],
+      link: '/services/msme-business-loan'
+    },
+    {
+      id: 18,
+      cat: 'finance',
+      img: '/images/home_loan_hero_new.png',
+      categoryClass: 'cat-finance',
+      categoryName: 'Finance & Loans',
+      title: 'Home Loan & Loan Against Property',
+      desc: 'Home loan and loan-against-property guidance for salaried and self-employed applicants – eligibility, documents and lender comparison.',
+      features: ['Home loan & LAP assistance', 'Document checklist & review', 'Lender comparison'],
+      link: '/services/home-loan'
+    },
+    {
+      id: 19,
+      cat: 'finance',
+      img: '/images/car_loan_hero_new.png',
+      categoryClass: 'cat-finance',
+      categoryName: 'Finance & Loans',
+      title: 'Car Loan Assistance',
+      desc: 'New and used car loan support with documentation, eligibility check and lender guidance for individuals and businesses.',
+      features: ['New & used car finance', 'Commercial vehicle loans', 'Minimal paperwork'],
+      link: '/services/car-loan'
+    },
+    {
+      id: 20,
+      cat: 'global',
+      img: '/service-images/financial-reporting.png',
+      categoryClass: 'cat-trade',
+      categoryName: 'Foreign & NRI',
+      title: 'Foreign & International Accounting',
+      desc: 'Multi-currency bookkeeping, export GST (LUT), FEMA, Form 15CA/15CB and transfer-pricing support for cross-border and foreign-linked businesses.',
+      features: ['Multi-currency books & MIS', 'GST on exports & FEMA', '15CA/15CB & transfer pricing'],
+      link: '/services/international-accounting-services'
+    },
+    {
+      id: 21,
+      cat: 'global',
+      img: '/service-images/income-tax.png',
+      categoryClass: 'cat-tax',
+      categoryName: 'Foreign & NRI',
+      title: 'NRI Tax Filing & FEMA',
+      desc: 'NRI income-tax return, TDS on property sale, DTAA benefits and repatriation support – handled online from anywhere in the world.',
+      features: ['NRI ITR & lower-TDS certificate', 'DTAA, TRC & Form 10F', 'Repatriation under FEMA'],
+      link: '/services/nri-tax-fema-services'
+    },
+    {
+      id: 22,
+      cat: 'tax',
+      img: '/services/tds_filing_1782653649499.png',
+      categoryClass: 'cat-tax',
+      categoryName: 'Tax & ITR',
+      title: 'TDS / TCS Return Filing',
+      desc: 'Quarterly TDS and TCS returns (24Q, 26Q, 27Q), Form 16/16A and TRACES default notice resolution.',
+      features: ['24Q, 26Q, 27Q, 27EQ filing', 'Form 16 / 16A certificates', 'Default & notice handling'],
+      link: '/services/tds-tcs-return-filing'
     }
 ];
 
@@ -305,9 +371,9 @@ function UserPortal() {
     return (
         <div id="home" className="user-portal" style={{ background: 'var(--bg-page)' }}>
             <SEOHead
-                title="FinTaxVers | GST, Income Tax, Tax Audit, Internal Audit, Accounting, Business & MSME Loans, ROC Compliance, Company Registration in Nagpur"
-                description="FinTaxVers Consultancy Services – Nagpur & India's trusted financial consultant. Expert GST Registration & Filing, Income Tax Returns, Tax Audit 44AB, Internal Audit, Accounting, Business Registration, Business Loans, MSME Loans, Subsidy Loans, ROC Compliance & Company Registration. Founded by Yugant Rahele."
-                keywords="FinTaxVers, FinTaxVers Nagpur, GST Nagpur, Income Tax Nagpur, Tax Audit Nagpur, Internal Audit Nagpur, Accounting Nagpur, Business Registration Nagpur, Business Loan Nagpur, MSME Loan Nagpur, Subsidy Loan Nagpur, ROC Compliance Nagpur, Company Registration Nagpur, Yugant Rahele"
+                title="FinTaxVers | GST, Income Tax, Business & MSME Loan, Foreign Accounting, Tax Audit, Company Registration | India & Global"
+                description="FinTaxVers Consultancy Services – GST registration & returns, income tax & NRI tax filing, business & MSME loans, CMA data, foreign/international accounting, tax audit, ROC compliance, company registration, import-export and GeM support across India and abroad. Based in Nagpur."
+                keywords="FinTaxVers, business loan, MSME loan, working capital loan, home loan, car loan, loan against property, foreign accounting services, international accounting, NRI tax filing, GST registration, income tax return, tax audit 44AB, internal audit, company registration, ROC compliance, import export, GeM registration, financial consultant Nagpur, CA services Nagpur, GST consultant Nagpur, business loan Nagpur, Yugant Rahele"
                 canonical="https://fintaxvers.com/"
             />
             <Navbar />
@@ -323,13 +389,14 @@ function UserPortal() {
                 <button className={`filter-btn ${activeFilter === 'finance' ? 'active' : ''}`} onClick={() => setActiveFilter('finance')}>Finance & Loans</button>
                 <button className={`filter-btn ${activeFilter === 'registration' ? 'active' : ''}`} onClick={() => setActiveFilter('registration')}>Registration</button>
                 <button className={`filter-btn ${activeFilter === 'trade' ? 'active' : ''}`} onClick={() => setActiveFilter('trade')}>Import–Export & Tenders</button>
+                <button className={`filter-btn ${activeFilter === 'global' ? 'active' : ''}`} onClick={() => setActiveFilter('global')}>Foreign & NRI</button>
             </div>
 
             {/* SERVICES GRID */}
             <section id="services" className="services-section-new">
                 <div className="section-label">What We Offer</div>
                 <h2 className="section-title-new">Our Services</h2>
-                <p className="section-sub">Comprehensive financial consultancy tailored for businesses, MSMEs and individuals across Nagpur.</p>
+                <p className="section-sub">Comprehensive financial consultancy tailored for businesses, MSMEs and individuals across India and abroad.</p>
 
                 <div className="services-grid-new" aria-live="polite">
                     <AnimatePresence mode="popLayout" initial={false}>
@@ -402,15 +469,15 @@ function UserPortal() {
                         {/* Left: Bio */}
                         <div style={{ flex: '1 1 380px', padding: 'clamp(20px, 4vw, 36px)' }}>
                             <span style={{ color: 'var(--accent)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.75rem' }}>About the Founder</span>
-                            <h3 style={{ color: 'white', marginTop: '6px', marginBottom: '10px', fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', lineHeight: 1.3 }}>Your Trusted Finance Advisor in Nagpur</h3>
+                            <h3 style={{ color: 'white', marginTop: '6px', marginBottom: '10px', fontSize: 'clamp(1.1rem, 2vw, 1.4rem)', lineHeight: 1.3 }}>Your Trusted Finance Advisor – India &amp; Global</h3>
                             <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '14px' }}>
-                                <strong style={{ color: 'white' }}>Yugant Rahele</strong> is the founder of <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong>, a leading <strong style={{ color: '#4ade80' }}>financial consultancy in Nagpur, Maharashtra</strong>. With an MBA in Finance and 8+ years of experience, he is a trusted name for GST registration, income tax filing, business loan project reports, CMA data, MSME registration and company formation — serving 500+ clients across Nagpur.
+                                <strong style={{ color: 'white' }}>Yugant Rahele</strong> is the founder of <strong style={{ color: 'white' }}>FinTaxVers Consultancy Services</strong>, a leading <strong style={{ color: '#4ade80' }}>financial consultancy serving clients across India and overseas</strong>. With an MBA in Finance and 8+ years of experience, he is a trusted name for GST registration, income tax filing, business loan project reports, CMA data, MSME registration and company formation — serving 500+ clients across India.
                             </p>
                             <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
                                 <img src={logo} alt="FinTaxVers Logo" style={{ width: '56px', filter: 'brightness(0) invert(1)' }} />
                                 <div>
                                     <h4 style={{ margin: 0, color: 'white', fontSize: '0.95rem' }}>Yugant Rahele</h4>
-                                    <p style={{ margin: 0, color: 'rgba(255,255,255,0.55)', fontSize: '0.8rem' }}>Founder, MBA Finance | Financial Consultant Nagpur</p>
+                                    <p style={{ margin: 0, color: 'rgba(255,255,255,0.55)', fontSize: '0.8rem' }}>Founder, MBA Finance | Financial Consultant</p>
                                 </div>
                             </div>
                         </div>
@@ -434,17 +501,18 @@ function UserPortal() {
                 <div className="container" style={{ maxWidth: '800px' }}>
                     <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                         <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.75rem' }}>Quick Answers</span>
-                        <h2 style={{ marginTop: '6px', fontSize: '1.4rem', lineHeight: 1.3 }}>Frequently Asked Questions – Financial Consultancy in Nagpur</h2>
+                        <h2 style={{ marginTop: '6px', fontSize: '1.4rem', lineHeight: 1.3 }}>Frequently Asked Questions – Financial Consultancy</h2>
                     </div>
                     <div>
-                        <FAQItem question="What is CMA Data and why do I need it for a bank loan?" answer="CMA (Credit Monitoring Arrangement) Data is a detailed financial report required by banks to evaluate your business's financial health before approving term loans or working capital limits. FinTaxVers prepares bank-ready CMA reports in Nagpur." />
-                        <FAQItem question="How long does GST registration take in Nagpur?" answer="GST registration typically takes 3-7 working days after submitting all correct documents. FinTaxVers handles end-to-end GST registration in Nagpur, Maharashtra." />
-                        <FAQItem question="What is the income tax filing deadline in India for FY 2024-25?" answer="The ITR filing deadline is 31st July 2025 for individuals without audit, and 31st October 2025 for businesses requiring audit. FinTaxVers provides expert income tax filing services in Nagpur." />
-                        <FAQItem question="How long does Company Registration take in Nagpur?" answer="A Private Limited Company or LLP can be registered within 7-10 working days, provided all documents (PAN, Aadhaar, address proof) are in order. We handle all MCA filings for you." />
-                        <FAQItem question="Can you help me get a Mudra Loan or business loan in Nagpur?" answer="Yes, we assist in preparing project reports, CMA data, financial projections, and compliance documents required for Mudra Loans, MSME loans, and all business loans from banks in Nagpur." />
-                        <FAQItem question="Do you provide monthly GST return filing services?" answer="Absolutely. We offer end-to-end GST solutions including new registrations, monthly/quarterly GSTR-1 and GSTR-3B filings, ITC reconciliation, and annual GSTR-9 filing." />
-                        <FAQItem question="What is MSME / Udyam Registration and what are its benefits?" answer="Udyam Registration is free government certification for micro, small, and medium enterprises. Benefits include priority loans, government subsidies, protection from delayed payments, and tax benefits. FinTaxVers completes Udyam registration in 1-2 days." />
-                        <FAQItem question="How can I contact FinTaxVers Consultancy Services in Nagpur?" answer="Call us at +91-8928895195 / +91-9011424236, email contact@fintaxvers.com, or WhatsApp us anytime. Our office is in Nagpur, Maharashtra. We serve clients across Nagpur, Vidarbha, and all of Maharashtra." />
+                        <FAQItem question="What is CMA Data and why do I need it for a bank loan?" answer="CMA (Credit Monitoring Arrangement) data is a financial report with past figures and projections that banks use to assess working-capital and term-loan proposals. FinTaxVers prepares bank-ready CMA data and project reports." />
+                        <FAQItem question="What types of business loans do you help with?" answer="We assist with MSME loans, working capital (cash credit/overdraft), term loans, Mudra loans, loan against property, home loans and car loans. Sanction and interest rate are decided by the lender." />
+                        <FAQItem question="How long does GST registration take?" answer="GST registration usually takes about 3-7 working days after correct documents are submitted, subject to departmental verification. FinTaxVers handles the complete process online." />
+                        <FAQItem question="What are the new tax regime slabs for FY 2025-26?" answer="Nil up to ₹4 lakh, 5% for ₹4-8 lakh, 10% for ₹8-12 lakh, 15% for ₹12-16 lakh, 20% for ₹16-20 lakh, 25% for ₹20-24 lakh and 30% above ₹24 lakh. Rebate under Section 87A makes tax nil up to ₹12 lakh of taxable income." />
+                        <FAQItem question="What is the ITR due date?" answer="For individuals without audit the usual due date is 31 July, and 31 October for audit cases, unless extended by the CBDT. Belated returns can be filed up to 31 December with a late fee under Section 234F." />
+                        <FAQItem question="Do you provide foreign and NRI accounting and tax services?" answer="Yes. We support exporters, foreign-linked companies and NRIs with international bookkeeping, GST on exports (LUT), FEMA, Form 15CA/15CB, DTAA and NRI income-tax return filing." />
+                        <FAQItem question="How long does Company Registration take?" answer="A Private Limited Company or LLP is typically incorporated in about 7-10 working days when documents are in order. We handle MCA filings, PAN, TAN and post-incorporation compliance." />
+                        <FAQItem question="What is MSME / Udyam Registration and what are its benefits?" answer="Udyam is the free government registration for micro, small and medium enterprises. Benefits include priority-sector lending, collateral-free credit through CGTMSE, subsidy eligibility and protection against delayed payments." />
+                        <FAQItem question="How can I contact FinTaxVers Consultancy Services?" answer="Call +91-8928895195 / +91-9011424236, email contact@fintaxvers.com or WhatsApp us anytime. We work online with clients across India and abroad." />
                     </div>
                 </div>
             </section>
@@ -538,39 +606,39 @@ function UserPortal() {
                         faqs={[
                             {
                                 question: 'What services does FinTaxVers offer?',
-                                answer: 'FinTaxVers Consultancy Services, Nagpur offers GST Registration & Return Filing (GSTR-1, 3B, 9, 9C), Income Tax Return (ITR-1 to ITR-7) filing, Tax Audit under Section 44AB, Company & LLP Registration, MSME/Udyam Registration, Business Loans (CMA Data & Project Reports), Government Subsidy assistance (PMEGP, CMEGP), Internal Audit & IFC, Accounting, Bookkeeping, and Digital Signature Certificate (DSC) services.'
+                                answer: 'FinTaxVers Consultancy Services offers GST registration and return filing, income-tax return filing, NRI tax and FEMA services, foreign and international accounting, tax audit under Section 44AB, internal audit, company and LLP registration, MSME/Udyam registration, ROC compliance, business and MSME loans (CMA data and project reports), home, car and property loans, government subsidy assistance, import-export setup, GeM registration and tender support, and Digital Signature Certificates.'
                             },
                             {
                                 question: 'Who is the founder of FinTaxVers?',
-                                answer: 'FinTaxVers Consultancy Services was founded by Yugant V. Rahele, a qualified financial and tax consultant based in Nagpur, Maharashtra. The firm serves clients across Nagpur, Vidarbha, Maharashtra, and Pan-India.'
+                                answer: 'FinTaxVers Consultancy Services was founded by Yugant V. Rahele, a financial and tax consultant. The firm works online with clients across India and abroad.'
                             },
                             {
                                 question: 'What is GST registration and when is it mandatory?',
-                                answer: 'GST (Goods and Services Tax) registration is mandatory for businesses with annual turnover exceeding ₹40 lakhs (goods) or ₹20 lakhs (services). It is also mandatory for inter-state suppliers, e-commerce operators, and businesses under the Reverse Charge Mechanism. FinTaxVers handles complete GST Registration (Form REG-01), GSTIN generation, and post-registration compliance.'
+                                answer: 'GST registration is generally mandatory when aggregate annual turnover exceeds ₹40 lakh for goods or ₹20 lakh for services (lower limits apply in some special-category states). It is also required for inter-state suppliers of services, e-commerce operators and businesses under reverse charge. FinTaxVers handles registration, GSTIN generation and ongoing return filing.'
                             },
                             {
                                 question: 'How do I file an Income Tax Return (ITR)?',
-                                answer: 'Income Tax Returns are filed on the Income Tax e-filing portal (incometax.gov.in). Select the correct ITR form based on your income source: ITR-1 (salaried, income up to ₹50L), ITR-2 (capital gains, multiple properties), ITR-3 (business/profession), ITR-4 (presumptive income). FinTaxVers provides accurate, error-free ITR filing with maximum deduction planning under Sections 80C, 80D, HRA, and more.'
+                                answer: 'Returns are filed on the income-tax e-filing portal. ITR-1 suits resident individuals with salary, one house property and income up to ₹50 lakh; ITR-2 covers capital gains and higher income; ITR-3 and ITR-4 are for business or professional income (ITR-4 for presumptive taxation). FinTaxVers prepares and files accurate returns and compares the old and new tax regimes for you.'
                             },
                             {
                                 question: 'What is a Tax Audit under Section 44AB?',
-                                answer: 'A Tax Audit under Section 44AB of the Income Tax Act is mandatory for businesses with turnover exceeding ₹1 crore (₹10 crore if 95% transactions are digital) and professionals with gross receipts above ₹50 lakhs. The audit report is filed in Form 3CA/3CB along with Form 3CD. FinTaxVers provides full Tax Audit, ledger review, and audit report submission services.'
+                                answer: 'A tax audit is mandatory for businesses with turnover above ₹1 crore (₹10 crore if cash receipts and payments are each within 5%) and for professionals with gross receipts above ₹50 lakh. The audit report in Form 3CA/3CB with 3CD is due by 30 September, and the return by 31 October. Failure can attract a penalty of 0.5% of turnover up to ₹1.5 lakh under Section 271B.'
                             },
                             {
                                 question: 'How can I register a Private Limited Company in India?',
-                                answer: 'To register a Private Limited Company, you need: minimum 2 directors and 2 shareholders, Digital Signature Certificates (DSC) for directors, Director Identification Numbers (DIN), approval for company name via RUN (Reserve Unique Name) on MCA portal, drafting of MOA & AOA, and filing SPICe+ form. FinTaxVers handles the complete incorporation process including post-registration compliances like PAN, TAN, bank account setup, and first-year MCA filings.'
+                                answer: 'You need at least two directors and two shareholders, DSC and DIN for directors, name approval, MOA and AOA, and the SPICe+ incorporation form on the MCA portal. FinTaxVers manages incorporation along with PAN, TAN, bank-account support and first-year compliance.'
                             },
                             {
-                                question: 'What government subsidy schemes are available for new businesses in Maharashtra?',
-                                answer: 'Key government subsidy schemes include: PMEGP (Prime Minister Employment Generation Programme) — up to 35% margin subsidy for manufacturing (max project ₹25L) and 25% for service (max ₹10L); CMEGP (Chief Minister Employment Generation Programme) — Maharashtra state scheme for entrepreneurs; MUDRA Loan — collateral-free loans up to ₹10L under Shishu, Kishor, and Tarun categories; CGTMSE — credit guarantee for MSMEs up to ₹2 crore without collateral. FinTaxVers assists with project reports, DPR preparation, and complete subsidy application.'
+                                question: 'Which government subsidy and loan schemes can help new businesses?',
+                                answer: 'PMEGP gives a subsidy of 15% to 35% of project cost (maximum project cost ₹50 lakh for manufacturing and ₹20 lakh for service units). PM Mudra Yojana offers collateral-free loans up to ₹20 lakh. CGTMSE provides credit-guarantee cover for eligible MSME loans. State schemes such as CMEGP in Maharashtra have their own rules. FinTaxVers prepares project reports and applications.'
                             },
                             {
                                 question: 'What is CMA Data and when is it needed?',
-                                answer: 'CMA (Credit Monitoring Arrangement) Data is a financial report required by banks and NBFCs when processing business loan applications above ₹10 lakhs. It includes past 3 years financial statements, projected balance sheets, P&L, cash flow statements, and fund flow analysis. FinTaxVers prepares bank-compliant CMA Data Reports and Detailed Project Reports (DPR) for Working Capital (CC/OD), Term Loans, and government-backed schemes.'
+                                answer: 'CMA (Credit Monitoring Arrangement) data contains historical financials and projected balance sheets, profit and loss, cash-flow and fund-flow statements. Banks usually ask for it for working-capital and term-loan proposals above a threshold decided by the bank. FinTaxVers prepares bank-ready CMA data and detailed project reports.'
                             },
                             {
-                                question: 'Where is FinTaxVers located and do they serve clients outside Nagpur?',
-                                answer: 'FinTaxVers Consultancy Services is headquartered in Nagpur, Maharashtra, India. The firm serves clients across Nagpur city, Vidarbha region, and Pan-India through online/digital consultancy. Contact: +91-8928895195 | +91-9011424236 | contact@fintaxvers.com | Website: fintaxvers.com'
+                                question: 'Do you serve clients outside India or NRIs?',
+                                answer: 'Yes. FinTaxVers works online with exporters, foreign-linked companies and NRIs for international accounting, GST on exports, FEMA, Form 15CA/15CB and NRI tax filing. Contact: +91-8928895195 | +91-9011424236 | contact@fintaxvers.com'
                             }
                         ]}
                     />

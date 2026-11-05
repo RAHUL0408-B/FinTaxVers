@@ -139,7 +139,7 @@ ${staticNavigation}
   <div class="seo-breadcrumb">${breadcrumb}</div>
   ${hero}
   ${content}
-  <footer class="seo-footer">FinTaxVers Consultancy Services · Nagpur &amp; Pan-India</footer>
+  <footer class="seo-footer">FinTaxVers Consultancy Services · India &amp; Global</footer>
 </main>`;
 
 const makeServicePage = (service) => {

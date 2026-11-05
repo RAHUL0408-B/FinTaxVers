@@ -129,6 +129,8 @@ const Navbar = () => {
                                     <a href="/services/govt-subsidy-consulting" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/govt-subsidy-consulting'); }}>Govt. Subsidy Consulting</a>
                                     <a href="/services/home-loan" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/home-loan'); }}>Home Loan Services</a>
                                     <a href="/services/car-loan" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/car-loan'); }}>Car Loan Services</a>
+                                    <a href="/services/msme-business-loan" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/msme-business-loan'); }}>MSME &amp; Business Loan</a>
+                                    <a href="/services/loan-against-property" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/loan-against-property'); }}>Loan Against Property</a>
                                 </div>
                                 <div className="calc-group">
                                     <h4>Registration</h4>
@@ -150,6 +152,9 @@ const Navbar = () => {
                                     <a href="/services/financial-reporting" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/financial-reporting'); }}>Accounting &amp; Reporting</a>
                                     <a href="/services/internal-audit" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/internal-audit'); }}>Internal Audit</a>
                                     <a href="/services/business-development" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/business-development'); }}>Business Development</a>
+                                    <a href="/services/international-accounting-services" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/international-accounting-services'); }}>Foreign &amp; International Accounting</a>
+                                    <a href="/services/nri-tax-fema-services" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/nri-tax-fema-services'); }}>NRI Tax &amp; FEMA</a>
+                                    <a href="/services/tds-tcs-return-filing" className="dropdown-item" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/services/tds-tcs-return-filing'); }}>TDS / TCS Filing</a>
                                 </div>
                             </div>
                         </li>

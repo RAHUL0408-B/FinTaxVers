@@ -111,38 +111,75 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://fintaxvers.com/services/msme-business-loan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/services/loan-against-property</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/services/international-accounting-services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/services/nri-tax-fema-services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/services/tds-tcs-return-filing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://fintaxvers.com/blog/gst-updates-2026-new-rules-nagpur</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fintaxvers.com/blog/income-tax-filing-ay-2026-27-guide</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fintaxvers.com/blog/business-loan-nagpur-2026-msme-schemes</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fintaxvers.com/blog/tax-saving-strategies-business-owners-2026</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fintaxvers.com/blog/msme-registration-udyam-2026</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fintaxvers.com/blog/financial-planning-tips-india-2026</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/blog/foreign-international-accounting-services-india</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fintaxvers.com/blog/nri-income-tax-india-guide</loc>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

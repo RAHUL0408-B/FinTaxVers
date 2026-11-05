@@ -49,7 +49,7 @@ function Blog() {
                         Expert Financial Guides & Tips
                     </h1>
                     <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
-                        GST updates, tax saving strategies, loan documentation guides, and insights from Nagpur experts.
+                        GST updates, tax saving strategies, loan documentation guides, and insights from our experts.
                     </p>
                 </div>
             </section>
@@ -83,8 +83,8 @@ function Blog() {
             {/* CTA */}
             <div className="container" style={{ paddingBottom: '60px' }}>
                 <div style={{ textAlign: 'center', padding: '50px', background: 'white', border: '1px solid #e2e8f0', borderRadius: '20px' }}>
-                    <h2 style={{ color: '#0B1F3A', marginBottom: '12px' }}>Need Expert Financial Advice in Nagpur?</h2>
-                    <p style={{ color: '#64748b', marginBottom: '24px' }}>Consult with Yugant Rahele – Trusted Financial Consultant in Nagpur</p>
+                    <h2 style={{ color: '#0B1F3A', marginBottom: '12px' }}>Need Expert Financial Advice?</h2>
+                    <p style={{ color: '#64748b', marginBottom: '24px' }}>Consult with Yugant Rahele – Trusted Financial Consultant for India and Global Clients</p>
                     <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <a href="tel:+918928895195" className="btn btn-primary" style={{ background: '#16A34A', color: 'white', padding: '12px 28px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none' }}>📞 Call: 8928895195</a>
                         <a href="tel:+919011424236" className="btn btn-primary" style={{ background: '#16A34A', color: 'white', padding: '12px 28px', borderRadius: '8px', fontWeight: 600, textDecoration: 'none' }}>📞 Call: 9011424236</a>

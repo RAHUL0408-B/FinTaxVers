@@ -33,6 +33,7 @@ export const generateOrganizationSchema = () => ({
         { '@type': 'AdministrativeArea', name: 'Vidarbha' },
         { '@type': 'AdministrativeArea', name: 'Maharashtra' },
         { '@type': 'Country', name: 'India' },
+        { '@type': 'Place', name: 'Worldwide (online services for NRIs, exporters and foreign companies)' },
     ],
     founder: {
         '@type': 'Person',
@@ -54,6 +55,11 @@ export const generateOrganizationSchema = () => ({
         'Import–Export Business Establishment',
         'GeM Portal Registration',
         'Government Tenders & Bid Support',
+        'MSME & Working Capital Business Loan',
+        'Home Loan, Car Loan & Loan Against Property',
+        'Foreign & International Accounting Services',
+        'NRI Tax Filing & FEMA Services',
+        'TDS / TCS Return Filing',
     ],
     sameAs: [
         SITE_URL,
@@ -89,6 +95,7 @@ export const generateServiceSchema = ({ name, description, url, image, category 
     areaServed: [
         { '@type': 'City', name: 'Nagpur' },
         { '@type': 'Country', name: 'India' },
+        { '@type': 'Place', name: 'Worldwide (online)' },
     ],
 });
 

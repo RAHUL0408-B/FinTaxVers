@@ -2,12 +2,12 @@
  * Helpful, service-specific local guidance for FinTaxVers service pages.
  *
  * This is deliberately not a city-name template. Each entry answers the
- * practical question a Nagpur visitor is likely to have before a consultation,
+ * practical question a visitor is likely to have before a consultation,
  * and is rendered visibly on its matching public service page.
  */
 export const localServiceContent = {
     'cma-data-project-financing': {
-        heading: 'Need a CMA report or project-finance file in Nagpur?',
+        heading: 'Need a CMA report or project-finance file in India?',
         intro: 'FinTaxVers helps business owners organise the financial story behind a funding proposal: the project plan, historical numbers and realistic projections. Bring the lender’s checklist if you have one so the discussion can begin with the right requirements.',
         checklistTitle: 'Useful for the first CMA discussion',
         checklist: [
@@ -18,7 +18,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'Can FinTaxVers prepare CMA data for a Nagpur manufacturing or service business?',
+                question: 'Can FinTaxVers prepare CMA data for an Indian manufacturing or service business?',
                 answer: 'Yes. The team can review the business inputs, prepare the required financial projections and explain the information normally requested for a lender file. A lender makes its own credit decision, so preparation is not a promise of approval.',
             },
             {
@@ -33,7 +33,7 @@ export const localServiceContent = {
         },
     },
     'business-loan-assistance': {
-        heading: 'Looking for business-loan guidance in Nagpur?',
+        heading: 'Looking for business-loan guidance in India?',
         intro: 'A useful loan discussion starts with the business need rather than a generic product. FinTaxVers helps organise the documents and financial information a lender may ask for, whether the need is working capital, equipment or expansion funding.',
         checklistTitle: 'Before you discuss a business loan',
         checklist: [
@@ -44,7 +44,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'Which business-loan documents should I keep ready in Nagpur?',
+                question: 'Which business-loan documents should I keep ready in India?',
                 answer: 'Keep KYC, business registration, bank statements, available GST and income-tax records, and details of the funding purpose ready. A particular lender may need additional documents, which should be confirmed before applying.',
             },
             {
@@ -59,7 +59,7 @@ export const localServiceContent = {
         },
     },
     'govt-subsidy-consulting': {
-        heading: 'Need help understanding business-subsidy options in Nagpur?',
+        heading: 'Need help understanding business-subsidy options in India?',
         intro: 'Government schemes can have different eligibility, documents and application windows. FinTaxVers helps you review the business plan and available information before deciding whether a scheme application is worth pursuing.',
         checklistTitle: 'Bring these details to a subsidy consultation',
         checklist: [
@@ -74,7 +74,7 @@ export const localServiceContent = {
                 answer: 'The team can help review the published requirements and your facts, but eligibility and approvals are decided by the relevant authority under the current scheme rules. Scheme terms can change, so they should be checked at the time of application.',
             },
             {
-                question: 'What should a Nagpur entrepreneur bring for a subsidy consultation?',
+                question: 'What should an Indian entrepreneur bring for a subsidy consultation?',
                 answer: 'Bring a short business plan, cost estimates, registration and KYC details, and any scheme correspondence. This helps identify the questions that need to be verified before an application is prepared.',
             },
         ],
@@ -85,7 +85,7 @@ export const localServiceContent = {
         },
     },
     'company-llp-formation': {
-        heading: 'Company or LLP registration help for Nagpur founders',
+        heading: 'Company or LLP registration help for Indian founders',
         intro: 'Choosing a business structure affects ownership, compliance and future plans. FinTaxVers can help you compare the practical documentation and filing path for a proprietorship, LLP or company before you begin.',
         checklistTitle: 'What to keep ready for business setup',
         checklist: [
@@ -100,7 +100,7 @@ export const localServiceContent = {
                 answer: 'The right structure depends on ownership, liability, funding and compliance needs. FinTaxVers can explain the documentation and compliance implications of each option; a decision should be made on your specific circumstances.',
             },
             {
-                question: 'Can company or LLP registration work be coordinated remotely from Nagpur?',
+                question: 'Can company or LLP registration work be coordinated remotely from India?',
                 answer: 'Many document-review and filing steps can be coordinated remotely, subject to the identity-verification and signing requirements that apply to the filing. The team can explain what must be completed for your case.',
             },
         ],
@@ -111,7 +111,7 @@ export const localServiceContent = {
         },
     },
     'shop-act-msme': {
-        heading: 'Need Shop Act or Udyam registration guidance in Nagpur?',
+        heading: 'Need Shop Act or Udyam registration guidance in India?',
         intro: 'Local registrations often depend on the business activity, location and the latest government requirements. FinTaxVers helps proprietors and MSMEs organise the facts and documents needed to understand the relevant registration path.',
         checklistTitle: 'Prepare for a Shop Act or Udyam discussion',
         checklist: [
@@ -122,7 +122,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'Do I need Shop Act and Udyam registration for my Nagpur business?',
+                question: 'Do I need Shop Act and Udyam registration for my business?',
                 answer: 'The registrations that apply depend on your activity, entity type and local requirements. FinTaxVers can help you understand the current process, but the relevant authority’s rules should be confirmed for the specific business.',
             },
             {
@@ -137,7 +137,7 @@ export const localServiceContent = {
         },
     },
     'roc-annual-compliance': {
-        heading: 'ROC annual-compliance support for Nagpur companies and LLPs',
+        heading: 'ROC annual-compliance support for Indian companies and LLPs',
         intro: 'Annual compliance is easier when records and timelines are reviewed before a filing deadline. FinTaxVers can help directors and partners organise the information needed for company or LLP filings and resolve open questions early.',
         checklistTitle: 'Useful records for an ROC-compliance review',
         checklist: [
@@ -148,7 +148,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'What should a Nagpur LLP or company keep ready for annual ROC filings?',
+                question: 'What should an Indian LLP or company keep ready for annual ROC filings?',
                 answer: 'Previous filing details, current financial statements, director or partner information and any MCA correspondence are a useful starting point. The exact forms and requirements vary by entity and year.',
             },
             {
@@ -163,8 +163,8 @@ export const localServiceContent = {
         },
     },
     'gst-returns-solutions': {
-        heading: 'Looking for GST registration or return-filing help in Nagpur?',
-        intro: 'GST work is easier when the return period, invoices and portal records are reviewed together. FinTaxVers helps Nagpur businesses prepare the information needed for registration, routine returns, reconciliations and compliance questions.',
+        heading: 'Looking for GST registration or return-filing help in India?',
+        intro: 'GST work is easier when the return period, invoices and portal records are reviewed together. FinTaxVers helps Indian businesses prepare the information needed for registration, routine returns, reconciliations and compliance questions.',
         checklistTitle: 'Bring these records to a GST consultation',
         checklist: [
             'GSTIN and the relevant return period, if already registered',
@@ -174,7 +174,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'Do I need GST registration for my shop, freelance work or online business in Nagpur?',
+                question: 'Do I need GST registration for my shop, freelance work or online business in India?',
                 answer: 'Registration requirements depend on the nature of supplies, turnover, location and other facts. FinTaxVers can help you identify the questions to check, but eligibility should be confirmed against the current GST rules before applying.',
             },
             {
@@ -189,7 +189,7 @@ export const localServiceContent = {
         },
     },
     'income-tax-planning': {
-        heading: 'Need ITR filing or income-tax guidance in Nagpur?',
+        heading: 'Need ITR filing or income-tax guidance in India?',
         intro: 'A focused tax consultation begins with the source documents that explain your income and taxes already paid. FinTaxVers helps individuals and business owners organise the information needed to review an ITR filing or a tax-related question.',
         checklistTitle: 'Useful documents for an ITR discussion',
         checklist: [
@@ -200,7 +200,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'What should I bring to an ITR filing consultation in Nagpur?',
+                question: 'What should I bring to an ITR filing consultation in India?',
                 answer: 'Bring PAN, income records such as Form 16 where applicable, tax-credit information, investment or deduction proofs, and the prior-year return if available. The document list changes with the type of income.',
             },
             {
@@ -215,7 +215,7 @@ export const localServiceContent = {
         },
     },
     'financial-reporting': {
-        heading: 'Financial reporting and bookkeeping support for Nagpur businesses',
+        heading: 'Financial reporting and bookkeeping support for Indian businesses',
         intro: 'Clear books make it easier to understand performance, meet compliance obligations and speak with lenders or advisers. FinTaxVers helps businesses review their records and build a reporting routine that fits the way they operate.',
         checklistTitle: 'Useful records for a reporting review',
         checklist: [
@@ -226,7 +226,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'What records should a Nagpur business keep ready for bookkeeping support?',
+                question: 'What records should an Indian business keep ready for bookkeeping support?',
                 answer: 'Bank records, invoices, expense proofs, existing ledgers and any GST, TDS or payroll information are useful. The exact process depends on the business volume and the systems already in use.',
             },
             {
@@ -241,7 +241,7 @@ export const localServiceContent = {
         },
     },
     'internal-audit': {
-        heading: 'Internal-audit and controls support for Nagpur businesses',
+        heading: 'Internal-audit and controls support for Indian businesses',
         intro: 'An internal audit should help management understand processes, controls and areas that need follow-up. FinTaxVers can discuss an audit scope that reflects the organisation’s operations, records and risk priorities.',
         checklistTitle: 'Prepare for an internal-audit conversation',
         checklist: [
@@ -252,7 +252,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'Can a Nagpur MSME use internal audit to review its processes?',
+                question: 'Can an Indian MSME use internal audit to review its processes?',
                 answer: 'Yes. An internal-audit scope can be tailored to practical concerns such as approvals, records, cash handling or reporting. The areas reviewed should be agreed after understanding the business and its priorities.',
             },
             {
@@ -267,7 +267,7 @@ export const localServiceContent = {
         },
     },
     'tax-audit-services': {
-        heading: 'Tax-audit preparation support in Nagpur',
+        heading: 'Tax-audit preparation support in India',
         intro: 'Tax-audit work depends on the entity’s records, turnover, receipts and the rules applicable for the year. FinTaxVers can help you organise the available documents and identify the information that needs review before an audit filing.',
         checklistTitle: 'Useful for a tax-audit review',
         checklist: [
@@ -282,7 +282,7 @@ export const localServiceContent = {
                 answer: 'Tax-audit applicability depends on facts such as the nature of activity, receipts, turnover, cash transactions and the rules for the relevant year. FinTaxVers can review the situation with you; do not rely on a generic threshold alone.',
             },
             {
-                question: 'What documents should I organise for a tax audit in Nagpur?',
+                question: 'What documents should I organise for a tax audit in India?',
                 answer: 'Start with financial statements, ledgers, vouchers, bank records and relevant GST, TDS and income-tax information. The final list depends on the entity and the audit requirements for the year.',
             },
         ],
@@ -293,7 +293,7 @@ export const localServiceContent = {
         },
     },
     'home-loan': {
-        heading: 'Home-loan documentation guidance for Nagpur buyers',
+        heading: 'Home-loan documentation guidance for Indian buyers',
         intro: 'A home-loan application normally involves a close review of income, property and lender documents. FinTaxVers can help you prepare the information for a clearer conversation with a lender; the lender decides eligibility and terms.',
         checklistTitle: 'Before a home-loan discussion',
         checklist: [
@@ -304,7 +304,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'What should I carry for a home-loan consultation in Nagpur?',
+                question: 'What should I carry for a home-loan consultation in India?',
                 answer: 'Bring your income and KYC documents, bank statements, available tax records and the property information you have received. A lender may request additional documents after reviewing the specific property and applicant profile.',
             },
             {
@@ -319,7 +319,7 @@ export const localServiceContent = {
         },
     },
     'car-loan': {
-        heading: 'Car-loan documentation help for Nagpur buyers',
+        heading: 'Car-loan documentation help for Indian buyers',
         intro: 'Vehicle finance can involve income documents, banking records and dealer or lender paperwork. FinTaxVers can help you understand what to organise for a loan conversation, while the lender remains responsible for the approval decision.',
         checklistTitle: 'Useful for a vehicle-finance discussion',
         checklist: [
@@ -330,7 +330,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'What documents are useful for a car-loan consultation in Nagpur?',
+                question: 'What documents are useful for a car-loan consultation in India?',
                 answer: 'Keep KYC, income proof, bank statements and the vehicle quotation ready. A lender may ask for different or additional records based on the applicant, vehicle and finance product.',
             },
             {
@@ -345,7 +345,7 @@ export const localServiceContent = {
         },
     },
     'business-development': {
-        heading: 'Business-development support for growing Nagpur enterprises',
+        heading: 'Business-development support for growing Indian enterprises',
         intro: 'Growth often needs clearer roles, routines and information—not only a bigger sales target. FinTaxVers can help business owners examine their current operating model and identify practical areas to make work more structured.',
         checklistTitle: 'Start a business-development discussion with',
         checklist: [
@@ -356,7 +356,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'Can FinTaxVers help a Nagpur family business become more organised?',
+                question: 'Can FinTaxVers help an Indian family business become more organised?',
                 answer: 'Yes. The conversation can focus on practical areas such as process ownership, reporting routines and documented ways of working. The best approach depends on the business’s current stage and the change it is ready to implement.',
             },
             {
@@ -371,7 +371,7 @@ export const localServiceContent = {
         },
     },
     'digital-signature-certificate': {
-        heading: 'Need a Digital Signature Certificate (DSC) in Nagpur?',
+        heading: 'Need a Digital Signature Certificate (DSC) in India?',
         intro: 'A DSC request usually starts with confirming the intended use, the applicant’s details and the applicable verification steps. FinTaxVers can explain the documents and process for the certificate type you need.',
         checklistTitle: 'Before you request a DSC',
         checklist: [
@@ -382,7 +382,7 @@ export const localServiceContent = {
         ],
         faqs: [
             {
-                question: 'Which documents are useful when applying for a DSC in Nagpur?',
+                question: 'Which documents are useful when applying for a DSC in India?',
                 answer: 'Keep PAN, identity details and the intended use of the certificate ready. The exact verification and document requirements depend on the certificate type and the certifying authority’s current process.',
             },
             {
@@ -400,7 +400,7 @@ export const localServiceContent = {
 
 export const getLocalServiceContent = (serviceId, serviceTitle) => (
     localServiceContent[serviceId] || {
-        heading: `${serviceTitle} support in Nagpur`,
+        heading: `${serviceTitle} support in India`,
         intro: 'FinTaxVers can help you understand the documents and practical next steps for this service. Share the details of your situation for a case-specific consultation.',
         checklistTitle: 'Prepare for your consultation',
         checklist: ['Relevant identity and contact details', 'Available records for the service', 'Any official notice, portal message or document checklist'],

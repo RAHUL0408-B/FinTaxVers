@@ -126,7 +126,7 @@ export const servicesData = {
             
             <h3>Types of Loans We Assist With</h3>
             <ul>
-                <li><strong>Mudra Loans:</strong> Up to ₹10 lakhs for micro and small businesses</li>
+                <li><strong>Mudra Loans:</strong> Collateral-free loans up to ₹20 lakhs (Shishu, Kishore, Tarun and Tarun Plus) for micro and small businesses</li>
                 <li><strong>Secured Business Loans:</strong> Loans against property or assets</li>
                 <li><strong>Unsecured Business Loans:</strong> Loans based on business performance</li>
                 <li><strong>Working Capital Loans:</strong> For day-to-day business operations</li>
@@ -205,7 +205,7 @@ export const servicesData = {
         faq: [
             {
                 question: "What is the minimum loan amount you assist with?",
-                answer: "We assist with loans starting from ₹50,000 (Mudra Shishu) to several crores for large projects."
+                answer: "We assist with loans starting from ₹50,000 (Mudra Shishu) up to several crores for larger MSME and project proposals. The lender decides the final sanction."
             },
             {
                 question: "How long does the loan approval process take?",
@@ -313,7 +313,7 @@ export const servicesData = {
         faq: [
             {
                 question: "What is the typical subsidy amount available?",
-                answer: "Subsidies can range from 15% to 35% of project cost, depending on the scheme, location, and business category. Some schemes offer up to ₹25 lakhs."
+                answer: "Subsidy depends on the scheme, location and applicant category. For example, PMEGP gives 15% to 35% of the project cost (maximum project cost ₹50 lakh for manufacturing and ₹20 lakh for service units). State schemes have their own rules."
             },
             {
                 question: "How long does it take to receive the subsidy?",
@@ -632,7 +632,7 @@ export const servicesData = {
         faq: [
             {
                 question: "What happens if I miss the filing deadline?",
-                answer: "Late filing attracts penalties ranging from ₹100 per day to ₹100,000 depending on the form and delay period. Directors may also face prosecution."
+                answer: "Late filing of ROC forms attracts an additional fee of ₹100 per day of delay (no upper cap for most annual forms), and continued default can lead to penalties on the company and officers in default."
             },
             {
                 question: "When is the due date for annual filing?",
@@ -1121,7 +1121,7 @@ export const servicesData = {
         pricing: { starting: "₹10,000", note: "Based on business turnover, transaction volume, and entity type" },
         faq: [
             { question: "What is the penalty for not completing a Tax Audit?", answer: "Under Section 271B, failure to get accounts audited can attract a penalty of 0.5% of total sales/turnover, up to ₹1,50,000." },
-            { question: "What is the due date for Tax Audit filing?", answer: "The due date is typically September 30th of the assessment year (or October 31st for corporate tax return filers)." }
+            { question: "What is the due date for Tax Audit filing?", answer: "The tax audit report (Form 3CA/3CB with 3CD) is due by 30 September of the assessment year. The income-tax return for audit cases is due by 31 October (30 November for transfer-pricing cases)." }
         ],
         seoTitle: "Tax Audit Services in Nagpur & Pan India | Section 44AB | FinTaxVers",
         metaDescription: "Expert Tax Audit services under Section 44AB in Nagpur and India. Form 3CA, 3CB, 3CD preparation and e-filing by FinTaxVers.",
@@ -1160,8 +1160,13 @@ export const servicesData = {
         idealFor: ["Salaried individuals", "Self-employed professionals", "First-time home buyers"],
         pricing: { starting: "Processing fee applies", note: "Depends on loan amount and bank" },
         faq: [
-            { question: "What is the maximum loan tenure?", answer: "Usually up to 30 years depending on your age and eligibility." }
-        ]
+            { question: "What is the maximum loan tenure?", answer: "Usually up to 30 years depending on your age and eligibility." },
+            { question: "Which documents are needed for a home loan?", answer: "KYC (PAN, Aadhaar), address proof, income proof (salary slips or ITR with computation), last 6 months bank statements and the property documents. Requirements vary by bank." },
+            { question: "Does FinTaxVers help self-employed borrowers in India?", answer: "Yes. We help self-employed professionals and business owners organise ITR, GST and bank records so the home-loan file is complete before submission." }
+        ],
+        seoTitle: "Home Loan Assistance in Nagpur | Eligibility & Documents | FinTaxVers",
+        metaDescription: "Home loan assistance in Nagpur for salaried and self-employed applicants. Eligibility check, documents, lender comparison and file preparation by FinTaxVers.",
+        seoKeywords: "home loan Nagpur, home loan consultant Nagpur, housing loan documents, home loan eligibility, FinTaxVers"
     },
     "car-loan": {
         id: "car-loan",
@@ -1193,8 +1198,12 @@ export const servicesData = {
         idealFor: ["Individuals buying personal vehicles", "Businesses buying commercial vehicles"],
         pricing: { starting: "Processing fee applies", note: "Depends on the bank and loan scheme" },
         faq: [
-            { question: "Can I get 100% financing?", answer: "Yes, 100% financing on the on-road price is available for eligible profiles." }
-        ]
+            { question: "Can I get 100% financing?", answer: "Some lenders offer high funding on the on-road price for eligible profiles on select models. The loan-to-value depends on the lender, your credit profile and the vehicle." },
+            { question: "Do you help with commercial vehicle loans?", answer: "Yes. We assist businesses with commercial vehicle and equipment finance documentation along with GST, ITR and bank records." }
+        ],
+        seoTitle: "Car Loan Assistance in Nagpur | New & Used Car Finance | FinTaxVers",
+        metaDescription: "Car loan assistance in Nagpur for new and used cars. Documents, eligibility and lender guidance from FinTaxVers, along with business and MSME loan support.",
+        seoKeywords: "car loan Nagpur, new car loan, used car loan, vehicle finance Nagpur, FinTaxVers"
     },
     "business-development": {
         id: "business-development",
@@ -1427,6 +1436,230 @@ export const servicesData = {
             { question: "What documents are required?", answer: "With Aadhar-based eKYC, only your Aadhar number and PAN are required." },
             { question: "How long is the DSC valid?", answer: "DSCs are typically issued with a validity of 1, 2, or 3 years." }
         ]
+    },
+
+    "msme-business-loan": {
+        id: "msme-business-loan",
+        title: "MSME & Business Loan (Working Capital, Term Loan, CC/OD)",
+        category: "Business Finance",
+        icon: "🏦",
+        shortDesc: "MSME loan, working capital, cash credit, overdraft and term loan assistance with CMA data and project reports.",
+        image: "/services/business_loan_1782793595395.png",
+        overview: "FinTaxVers helps proprietors, partnership firms, LLPs and companies across India apply for MSME loans, working capital limits (CC/OD) and term loans with bank-ready documentation, project reports and CMA data.",
+        detailedDescription: `
+            <p>Choosing the wrong loan product or submitting an inconsistent file is the most common reason for delay or rejection. We study your business, select the suitable facility and prepare the complete application.</p>
+            <h3>Facilities We Assist With</h3>
+            <ul>
+                <li><strong>Working capital loans:</strong> cash credit (CC), overdraft (OD) and working-capital term loans</li>
+                <li><strong>Term loans:</strong> machinery, equipment, factory, shop or expansion</li>
+                <li><strong>MSME loans:</strong> Udyam-registered units, with CGTMSE guarantee cover where applicable</li>
+                <li><strong>Mudra loans:</strong> up to ₹20 lakh for micro and small businesses</li>
+                <li><strong>Project finance:</strong> detailed project report and CMA data for larger proposals</li>
+                <li><strong>Subsidy-linked loans:</strong> PMEGP and other state or central schemes</li>
+            </ul>
+            <h3>Documents Usually Required</h3>
+            <ul>
+                <li>KYC of owners, business registration and Udyam / GST registration</li>
+                <li>Last 2-3 years ITR, balance sheet and profit &amp; loss account</li>
+                <li>6-12 months bank statements and GST returns</li>
+                <li>Project report, CMA data and details of security or collateral</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "Right Product Selection", description: "Match your need to CC/OD, term loan, Mudra, LAP or subsidy-linked finance" },
+            { title: "CMA Data & Project Report", description: "Banker-ready projections, working-capital assessment and ratios" },
+            { title: "Document Check", description: "Reconcile ITR, GST and bank data before the lender finds a mismatch" },
+            { title: "Lender Coordination", description: "Support during query handling, sanction and documentation" }
+        ],
+        process: [
+            { step: 1, title: "Requirement Study", description: "Understand purpose, amount, turnover and existing liabilities" },
+            { step: 2, title: "Product & Lender Selection", description: "Shortlist suitable products and banks or NBFCs" },
+            { step: 3, title: "File Preparation", description: "Project report, CMA data, KYC and financial documents" },
+            { step: 4, title: "Submission & Follow-up", description: "Application, bank queries and sanction support" }
+        ],
+        benefits: ["Clean, consistent loan file", "Faster query resolution", "Better presentation of cash flows", "Guidance on schemes and guarantee cover"],
+        idealFor: ["Manufacturers and traders", "Service providers and professionals", "Startups and new MSMEs", "Businesses needing working capital or expansion funds"],
+        pricing: { starting: "Quote on request", note: "Depends on loan size and the documents required" },
+        faq: [
+            { question: "What types of business loans do you arrange in India?", answer: "We assist with MSME loans, working capital (CC/OD), term loans, Mudra, loan against property and project finance. The lender decides sanction and interest rate." },
+            { question: "What is the maximum Mudra loan?", answer: "Up to ₹20 lakh under the Tarun Plus category (Shishu up to ₹50,000, Kishore up to ₹5 lakh, Tarun up to ₹10 lakh)." },
+            { question: "Do I need collateral for an MSME loan?", answer: "Not always. Eligible micro and small units may get collateral-free loans under the CGTMSE guarantee scheme, subject to the bank's policy." },
+            { question: "Can you guarantee loan approval?", answer: "No. We prepare a complete, accurate file; the bank or NBFC decides eligibility and terms." }
+        ],
+        seoTitle: "MSME & Business Loan in Nagpur | Working Capital, Term Loan | FinTaxVers",
+        metaDescription: "Business loan and MSME loan help in Nagpur: working capital (CC/OD), term loan, Mudra, CGTMSE, project report and CMA data by FinTaxVers. Call 8928895195.",
+        seoKeywords: "business loan Nagpur, MSME loan Nagpur, working capital loan, term loan, CC OD limit, Mudra loan, CMA data, project report, FinTaxVers"
+    },
+    "loan-against-property": {
+        id: "loan-against-property",
+        title: "Loan Against Property (LAP) Assistance",
+        category: "Business Finance",
+        icon: "🏢",
+        shortDesc: "Raise funds against residential, commercial or industrial property for business expansion or working capital.",
+        image: "/images/home_loan_hero_new.png",
+        overview: "A loan against property lets you raise larger funds at lower rates than most unsecured loans. FinTaxVers helps you check property documents, income eligibility and prepare the file for banks and NBFCs.",
+        detailedDescription: `
+            <p>Loan against property (LAP) is commonly used by business owners for working capital, expansion, debt consolidation or large personal needs. Lenders assess your income, credit score and the legal and market value of the property.</p>
+            <h3>What We Help With</h3>
+            <ul>
+                <li>Eligibility estimate based on income, existing EMIs and property value</li>
+                <li>Title-document checklist: sale deed, 7/12 or property card, approved plan, tax receipts</li>
+                <li>Income documents for salaried and self-employed (ITR, financials, bank statements)</li>
+                <li>Balance-transfer and top-up options on existing loans</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "Higher Limits", description: "Funding against property value subject to lender policy" },
+            { title: "Document Readiness", description: "Property and income paperwork checked before submission" },
+            { title: "Business-Friendly", description: "Suitable for working capital and expansion needs" }
+        ],
+        process: [
+            { step: 1, title: "Property & Income Review", description: "Check ownership documents and repayment capacity" },
+            { step: 2, title: "Lender Shortlisting", description: "Compare banks and NBFCs for the profile" },
+            { step: 3, title: "Application & Valuation", description: "File submission, legal and technical valuation" },
+            { step: 4, title: "Sanction & Disbursal", description: "Documentation and fund release" }
+        ],
+        benefits: ["Larger loan amount", "Longer tenure", "Use for business or personal needs", "Clear documentation guidance"],
+        idealFor: ["Business owners needing working capital", "Self-employed professionals", "Property owners planning expansion"],
+        pricing: { starting: "Quote on request", note: "Processing fees are charged by the lender" },
+        faq: [
+            { question: "What properties are accepted for LAP?", answer: "Self-occupied or rented residential, commercial and some industrial properties with clear title are commonly accepted. Each lender has its own policy." },
+            { question: "Can I take LAP for business use?", answer: "Yes. Many borrowers use LAP for working capital, machinery or expansion." }
+        ],
+        seoTitle: "Loan Against Property in Nagpur | LAP for Business | FinTaxVers",
+        metaDescription: "Loan against property assistance in Nagpur: eligibility, property documents, balance transfer and top-up for business and personal needs. FinTaxVers.",
+        seoKeywords: "loan against property Nagpur, LAP loan, mortgage loan Nagpur, property loan for business, FinTaxVers"
+    },
+    "international-accounting-services": {
+        id: "international-accounting-services",
+        title: "Foreign & International Accounting Services",
+        category: "Tax & Operations",
+        icon: "🌍",
+        shortDesc: "Bookkeeping, reporting, GST on exports, FEMA and transfer-pricing support for cross-border businesses.",
+        image: "/service-images/financial-reporting.png",
+        overview: "FinTaxVers provides foreign and international accounting services for exporters, Indian companies with overseas customers or subsidiaries, and foreign businesses that outsource accounting to India.",
+        detailedDescription: `
+            <p>Cross-border business needs accurate multi-currency books and compliance with both Indian and overseas requirements. We keep your accounts audit-ready and your filings on time.</p>
+            <h3>Our International Accounting Services</h3>
+            <ul>
+                <li>Multi-currency bookkeeping, bank and payment-gateway reconciliation</li>
+                <li>Monthly MIS and financial statements (Indian GAAP / Ind AS; IFRS or US GAAP reporting packs on request)</li>
+                <li>Accounts payable, receivable and payroll support</li>
+                <li>GST on export of goods and services – LUT filing and refund support</li>
+                <li>FEMA compliance, FIRC/FIRA tracking, Form 15CA / 15CB for remittances</li>
+                <li>Transfer-pricing documentation and Form 3CEB</li>
+                <li>Group reporting for Indian parents with overseas subsidiaries</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "Multi-Currency Books", description: "Foreign-exchange gain and loss, revaluation and reconciliation" },
+            { title: "Export GST Compliance", description: "LUT, zero-rated supplies and refund claims" },
+            { title: "FEMA & Remittances", description: "15CA/15CB, FIRC and RBI-related documentation" },
+            { title: "Transfer Pricing", description: "Documentation and 3CEB for associated-enterprise transactions" }
+        ],
+        process: [
+            { step: 1, title: "Scoping", description: "Understand entities, currencies, reporting needs and software" },
+            { step: 2, title: "Onboarding", description: "Set up chart of accounts, access and monthly calendar" },
+            { step: 3, title: "Monthly Accounting", description: "Bookkeeping, reconciliations and MIS" },
+            { step: 4, title: "Compliance", description: "GST, TDS, FEMA, income-tax and ROC filings" }
+        ],
+        benefits: ["One team for books and Indian compliance", "Audit-ready records", "Lower cost than in-house", "Clear monthly reporting"],
+        idealFor: ["Exporters and IT/service exporters", "Startups with US, UK or UAE customers", "Foreign companies with an Indian entity", "NRIs with Indian business interests"],
+        pricing: { starting: "Quote on request", note: "Based on transaction volume, currencies and reporting scope" },
+        faq: [
+            { question: "Do you provide accounting for foreign companies?", answer: "Yes. We support foreign businesses and their Indian entities with bookkeeping, MIS and Indian statutory compliance. Local-country filings are handled with your overseas advisors." },
+            { question: "Is GST payable on export of services?", answer: "Exports are zero-rated. You can export under an LUT without paying IGST and claim a refund of unutilised ITC, subject to conditions such as receipt in convertible foreign exchange." },
+            { question: "When are Form 15CA and 15CB required?", answer: "For most remittances to non-residents. A CA certificate in Form 15CB is needed where the payment is taxable in India and exceeds the prescribed limit." }
+        ],
+        seoTitle: "Foreign & International Accounting Services India | FEMA, Export GST | FinTaxVers",
+        metaDescription: "International accounting and bookkeeping from India: multi-currency books, export GST (LUT), FEMA, 15CA/15CB and transfer pricing for cross-border businesses. FinTaxVers.",
+        seoKeywords: "foreign accounting services, international accounting India, offshore bookkeeping, export GST LUT, FEMA compliance, 15CA 15CB, transfer pricing, FinTaxVers"
+    },
+    "nri-tax-fema-services": {
+        id: "nri-tax-fema-services",
+        title: "NRI Tax Filing & FEMA Services",
+        category: "Tax & Operations",
+        icon: "✈️",
+        shortDesc: "NRI income-tax return, DTAA, lower-TDS certificate, property sale tax and repatriation support.",
+        image: "/service-images/income-tax.png",
+        overview: "Non-resident Indians need to handle Indian tax, TDS and FEMA rules from abroad. FinTaxVers files NRI returns, helps reduce excess TDS and supports repatriation of funds.",
+        detailedDescription: `
+            <p>NRIs with rent, interest, capital gains or business income in India must report it correctly and manage TDS. We handle everything online so you do not need to visit India.</p>
+            <h3>Services for NRIs</h3>
+            <ul>
+                <li>Residential-status check and ITR filing for India-sourced income</li>
+                <li>Lower-deduction certificate (Form 13) for property sale and other income</li>
+                <li>DTAA benefit support – TRC and Form 10F</li>
+                <li>Capital gains planning on property, shares and mutual funds</li>
+                <li>Form 15CA / 15CB and repatriation from NRO accounts under FEMA</li>
+                <li>NRE / NRO / FCNR account guidance</li>
+            </ul>
+        `,
+        keyFeatures: [
+            { title: "Online NRI ITR Filing", description: "Return preparation and e-verification support" },
+            { title: "TDS Optimisation", description: "Lower-deduction certificate and refund claims" },
+            { title: "FEMA & Repatriation", description: "15CA/15CB and RBI-compliant remittance" },
+            { title: "DTAA Support", description: "Avoid double taxation with TRC and Form 10F" }
+        ],
+        process: [
+            { step: 1, title: "Residency & Income Review", description: "Determine status and Indian income" },
+            { step: 2, title: "Document Collection", description: "Passport, PAN, bank, rent, sale and TDS records" },
+            { step: 3, title: "Computation & Filing", description: "Prepare and file the return" },
+            { step: 4, title: "Refund / Remittance", description: "Refund follow-up and repatriation paperwork" }
+        ],
+        benefits: ["No need to travel to India", "Avoid excess TDS", "Correct treaty claims", "FEMA-compliant remittance"],
+        idealFor: ["NRIs with Indian property or rent", "NRIs selling Indian assets", "Returning NRIs", "Foreign-resident business owners with Indian income"],
+        pricing: { starting: "Quote on request", note: "Based on income sources and transactions" },
+        faq: [
+            { question: "Do NRIs need to file an income-tax return in India?", answer: "Yes if Indian taxable income exceeds the basic exemption limit, if you have capital gains, or if you want to claim a TDS refund." },
+            { question: "How much can an NRI repatriate from India?", answer: "Up to USD 1 million per financial year from NRO balances after paying taxes, with Form 15CA/15CB. NRE and FCNR balances are freely repatriable." },
+            { question: "Is NRE interest taxable in India?", answer: "No. Interest on NRE and FCNR deposits is exempt for an NRI. NRO interest is taxable with TDS." }
+        ],
+        seoTitle: "NRI Tax Filing & FEMA Services in India | Property Sale TDS, DTAA | FinTaxVers",
+        metaDescription: "NRI income-tax return filing, TDS on property sale, DTAA, Form 15CA/15CB and repatriation under FEMA. Online NRI tax services by FinTaxVers.",
+        seoKeywords: "NRI tax filing India, NRI ITR, TDS on property sale NRI, DTAA Form 10F, FEMA repatriation, NRO NRE account tax, FinTaxVers"
+    },
+    "tds-tcs-return-filing": {
+        id: "tds-tcs-return-filing",
+        title: "TDS / TCS Return Filing & Compliance",
+        category: "Tax & Operations",
+        icon: "🧾",
+        shortDesc: "Quarterly TDS and TCS returns (24Q, 26Q, 27Q), challans, certificates and notice handling.",
+        image: "/services/tds_filing_1782653649499.png",
+        overview: "FinTaxVers prepares and files quarterly TDS and TCS returns, issues Form 16/16A and resolves default notices so deductors stay compliant.",
+        detailedDescription: `
+            <p>Late or incorrect TDS returns attract interest, late fees and disallowance of expenses. We manage the full TDS cycle for businesses, firms and companies.</p>
+            <h3>Included</h3>
+            <ul>
+                <li>TAN registration and monthly TDS calculation</li>
+                <li>Quarterly returns: 24Q (salary), 26Q (resident non-salary), 27Q (non-resident), 27EQ (TCS)</li>
+                <li>Challan payment support (TDS is deposited by the 7th of the next month; March by 30 April)</li>
+                <li>Form 16 / 16A generation and correction statements</li>
+                <li>Response to TRACES default notices</li>
+            </ul>
+            <p>Quarterly return due dates are 31 July, 31 October, 31 January and 31 May. Late filing fee under Section 234E is ₹200 per day, limited to the TDS amount.</p>
+        `,
+        keyFeatures: [
+            { title: "Quarterly Return Filing", description: "24Q, 26Q, 27Q and 27EQ filed accurately" },
+            { title: "Form 16 / 16A", description: "Certificates issued on time" },
+            { title: "Default Resolution", description: "Short-deduction and late-fee notices handled" }
+        ],
+        process: [
+            { step: 1, title: "Data Collection", description: "Payment, deduction and challan details" },
+            { step: 2, title: "Return Preparation", description: "Prepare statements and validate" },
+            { step: 3, title: "Filing", description: "File on TRACES / IT portal and track processing" },
+            { step: 4, title: "Certificates & Corrections", description: "Issue Form 16/16A and file corrections" }
+        ],
+        benefits: ["No late fee or interest", "Expense deductions protected", "Employees and vendors get credit", "Single compliance calendar"],
+        idealFor: ["Employers", "Companies, LLPs and firms", "Contractors and landlords", "Businesses paying professionals or vendors"],
+        pricing: { starting: "Quote on request", note: "Depends on number of deductees and returns" },
+        faq: [
+            { question: "What are the TDS return due dates?", answer: "31 July (Q1), 31 October (Q2), 31 January (Q3) and 31 May (Q4) for the financial year." },
+            { question: "What is the late fee for TDS return?", answer: "₹200 per day under Section 234E until filing, limited to the amount of TDS, plus interest on late deposit." }
+        ],
+        seoTitle: "TDS Return Filing in Nagpur | 24Q, 26Q, 27Q, Form 16 | FinTaxVers",
+        metaDescription: "TDS and TCS return filing in Nagpur and across India: 24Q, 26Q, 27Q, Form 16/16A, challans and TRACES notice handling by FinTaxVers.",
+        seoKeywords: "TDS return filing Nagpur, 24Q 26Q filing, Form 16 16A, TDS consultant, TCS return, FinTaxVers"
     }
 };
 

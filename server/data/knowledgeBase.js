@@ -88,6 +88,40 @@ export const knowledgeBase = [
         tags: ['nagpur', 'business loan consultant', 'business loan near me', 'cma report nagpur', 'project report nagpur', 'loan documentation', 'working capital'],
     },
 
+    // ==================== INTERNATIONAL / NRI / LOANS ====================
+    {
+        id: 'intl-accounting-001',
+        type: 'service',
+        title: 'Foreign & International Accounting Services',
+        content: `FinTaxVers provides foreign and international accounting for exporters, Indian companies with overseas customers or subsidiaries, and foreign businesses that outsource accounting to India.
+
+        Services: multi-currency bookkeeping and reconciliation, monthly MIS and financial statements (Indian GAAP / Ind AS; IFRS or US GAAP reporting packs on request), accounts payable/receivable, payroll support, GST on exports (zero-rated; export under LUT and claim refund of unutilised ITC), FEMA compliance and FIRC/FIRA tracking, Form 15CA/15CB for foreign remittances, transfer pricing documentation and Form 3CEB, group reporting support.
+
+        Page: https://fintaxvers.com/services/international-accounting-services. Contact +91-8928895195.`,
+        source: 'https://fintaxvers.com/services/international-accounting-services',
+        tags: ['foreign accounting', 'international accounting', 'export gst', 'lut', 'fema', '15ca 15cb', 'transfer pricing', 'offshore bookkeeping'],
+    },
+    {
+        id: 'nri-tax-001',
+        type: 'service',
+        title: 'NRI Tax Filing & FEMA Services',
+        content: `NRI taxation: a person is resident if they stay in India 182 days or more in the year, or 60 days or more in the year and 365 days or more in the preceding four years (relaxed day limits apply to Indian citizens or persons of Indian origin visiting India). NRIs are taxed only on income earned or received in India. NRE and FCNR interest is exempt; NRO interest is taxable with 30% TDS (treaty rate may apply). TDS on sale of property by an NRI is deducted under Section 195; a lower-deduction certificate (Form 13) can reduce it. DTAA benefits need a Tax Residency Certificate and Form 10F. Up to USD 1 million per financial year can be repatriated from NRO balances after taxes with Form 15CA/15CB.
+
+        FinTaxVers files NRI returns online. Page: https://fintaxvers.com/services/nri-tax-fema-services.`,
+        source: 'https://www.incometax.gov.in',
+        tags: ['nri', 'nri tax', 'nre nro', 'dtaa', 'form 10f', 'fema', 'repatriation', 'tds property sale'],
+    },
+    {
+        id: 'msme-loan-001',
+        type: 'service',
+        title: 'MSME & Business Loan Assistance',
+        content: `FinTaxVers assists with MSME loans, working capital (cash credit/overdraft), term loans, Mudra loans (up to ₹20 lakh), loan against property, home loans and car loans. Documents usually required: KYC, business registration (Udyam/GST), last 2-3 years ITR and financials, 6-12 months bank statements, GST returns, project report and CMA data. Approval, interest rate and security are decided by the lender; FinTaxVers prepares and presents the file but cannot guarantee approval.
+
+        Pages: https://fintaxvers.com/services/msme-business-loan, /services/business-loan-assistance, /services/loan-against-property, /services/home-loan, /services/car-loan.`,
+        source: 'https://fintaxvers.com/services/msme-business-loan',
+        tags: ['business loan', 'msme loan', 'working capital', 'cc od', 'term loan', 'mudra', 'loan against property', 'home loan', 'car loan'],
+    },
+
     // ==================== GST ====================
     {
         id: 'gst-001',
@@ -183,7 +217,7 @@ export const knowledgeBase = [
         content: `Income Tax Return (ITR) filing is the process of reporting income, deductions, and tax liability to the Income Tax Department of India.
 
         Who must file ITR:
-        - Individuals with gross income exceeding the basic exemption limit (₹3 lakhs for new regime, ₹2.5 lakhs for old regime for individuals below 60 years as of AY 2025-26)
+        - Individuals with gross income exceeding the basic exemption limit (₹4 lakhs under the new regime for FY 2025-26, ₹2.5 lakhs under the old regime for individuals below 60 years; income up to ₹12 lakhs is rebated to nil tax in the new regime)
         - Companies and firms (mandatory regardless of profit/loss)
         - Individuals claiming refunds
         - Individuals with foreign assets or foreign income
@@ -285,9 +319,9 @@ export const knowledgeBase = [
         content: `Udyam Registration (previously Udyog Aadhaar) is the official government registration for Micro, Small, and Medium Enterprises (MSMEs) in India.
 
         MSME classification (Revised):
-        - Micro Enterprise: Investment in plant & machinery/equipment ≤ ₹1 crore AND Turnover ≤ ₹5 crores
-        - Small Enterprise: Investment ≤ ₹10 crores AND Turnover ≤ ₹50 crores
-        - Medium Enterprise: Investment ≤ ₹50 crores AND Turnover ≤ ₹250 crores
+        - Micro Enterprise: Investment ≤ ₹2.5 crore AND Turnover ≤ ₹10 crore (effective 1 April 2025)
+        - Small Enterprise: Investment ≤ ₹25 crore AND Turnover ≤ ₹100 crore
+        - Medium Enterprise: Investment ≤ ₹125 crore AND Turnover ≤ ₹500 crore
 
         Benefits of Udyam Registration:
         - Priority sector lending from banks
@@ -322,11 +356,12 @@ export const knowledgeBase = [
         Types of business loans:
         - Term Loan: Fixed amount for capital expenditure or project. Repaid in fixed installments.
         - Working Capital (CC/OD): Cash Credit (CC) or Overdraft (OD) for day-to-day operations.
-        - MUDRA Loan (Pradhan Mantri MUDRA Yojana - PMMY): Collateral-free loans up to ₹10 lakhs for non-corporate, non-farm micro enterprises.
+        - MUDRA Loan (Pradhan Mantri MUDRA Yojana - PMMY): Collateral-free loans up to ₹20 lakhs for non-corporate, non-farm micro enterprises.
           * Shishu: Up to ₹50,000
           * Kishore: ₹50,001 to ₹5 lakhs
           * Tarun: ₹5 lakhs to ₹10 lakhs
-        - CGTMSE: Credit Guarantee Scheme providing collateral-free loans up to ₹5 crore for MSMEs.
+          * Tarun Plus: ₹10 lakhs to ₹20 lakhs
+        - CGTMSE: Credit Guarantee Scheme providing collateral-free credit guarantee cover for eligible micro and small enterprises (limits are revised by the government).
         - Project Finance: Loans for new manufacturing/service projects based on CMA data.
         
         CMA (Credit Monitoring Arrangement) Data:
@@ -387,7 +422,7 @@ export const knowledgeBase = [
         content: `Government subsidy consulting involves identifying eligible government schemes and assisting businesses in claiming subsidies, grants, and financial assistance.
 
         Key government schemes:
-        - PMEGP (Prime Minister's Employment Generation Programme): Subsidy up to 35% for setting up new micro-enterprises. Administered by KVIC, KVIB, and District Industries Centre (DIC). Loan amount: ₹10 lakhs to ₹50 lakhs for service, up to ₹2 crore for manufacturing.
+        - PMEGP (Prime Minister's Employment Generation Programme): Subsidy up to 35% for setting up new micro-enterprises. Administered by KVIC, KVIB, and District Industries Centre (DIC). Maximum project cost: ₹50 lakhs for manufacturing and ₹20 lakhs for service units; subsidy 15% to 35%.
         - CMEGP (Chief Minister's Employment Generation Programme - Maharashtra): State scheme similar to PMEGP for Maharashtra.
         - PSI (Package Scheme of Incentives - Maharashtra): Industrial subsidies for new and expansion units including electricity tariff subsidy, interest subsidy, stamp duty exemption.
         - Interest Subvention on MUDRA Loans.

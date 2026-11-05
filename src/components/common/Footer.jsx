@@ -14,11 +14,10 @@ const Footer = () => {
                         <div className="f-brand-name"><span className="dot"></span>FinTaxVers</div>
                         <p className="f-about">
                             <strong>FinTaxVers Consultancy Services</strong> is a trusted{' '}
-                            <span className="accent">financial consultant in Nagpur, Maharashtra</span>,
-                            founded by <strong>Yugant Rahele</strong>. We help individuals, MSMEs, and businesses with
-                            GST registration &amp; filing, income tax returns, business loan project reports (CMA data),
-                            MSME/Udyam registration, company incorporation, and year-round financial planning
-                            across Nagpur and Maharashtra.
+                            <span className="accent">financial consultant for clients across India and abroad</span>,
+                            founded by <strong>Yugant Rahele</strong>. We help individuals, MSMEs, NRIs and businesses with
+                            GST registration &amp; filing, income tax returns, business &amp; MSME loans, foreign accounting,
+                            company incorporation, import-export and year-round financial planning.
                         </p>
 
                         <div className="f-contact">
@@ -56,6 +55,13 @@ const Footer = () => {
                             <li><Link to="/services/company-llp-formation">Company Registration (Pvt Ltd)</Link></li>
                             <li><Link to="/services/shop-act-msme">Business &amp; MSME Registration</Link></li>
                             <li><Link to="/services/business-loan-assistance">Business Loan Assistance</Link></li>
+                            <li><Link to="/services/msme-business-loan">MSME &amp; Working Capital Loan</Link></li>
+                            <li><Link to="/services/loan-against-property">Loan Against Property</Link></li>
+                            <li><Link to="/services/home-loan">Home Loan</Link></li>
+                            <li><Link to="/services/car-loan">Car Loan</Link></li>
+                            <li><Link to="/services/international-accounting-services">Foreign &amp; International Accounting</Link></li>
+                            <li><Link to="/services/nri-tax-fema-services">NRI Tax &amp; FEMA</Link></li>
+                            <li><Link to="/services/tds-tcs-return-filing">TDS / TCS Filing</Link></li>
                             <li><Link to="/services/cma-data-project-financing">MSME Loans &amp; CMA Reports</Link></li>
                             <li><Link to="/services/govt-subsidy-consulting">Subsidy Loans (PMEGP/CMEGP)</Link></li>
                             <li><Link to="/services/roc-annual-compliance">ROC Annual Compliance</Link></li>
@@ -82,25 +88,8 @@ const Footer = () => {
 
                 {/* Bottom strip */}
                 <div className="f-bottom">
-                    <div className="f-copy">© {new Date().getFullYear()} <strong>FinTaxVers Consultancy Services</strong> — Nagpur, Maharashtra, India. All rights reserved.</div>
-                    <div className="f-seo-links">
-                        <Link to="/">FinTaxVers</Link><span className="sep">|</span>
-                        <Link to="/services/gst-returns-solutions">GST Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/income-tax-planning">Income Tax Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/tax-audit-services">Tax Audit Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/internal-audit">Internal Audit Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/financial-reporting">Accounting Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/shop-act-msme">Business Registration Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/business-loan-assistance">Business Loan Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/cma-data-project-financing">MSME Loan Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/govt-subsidy-consulting">Subsidy Loan Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/roc-annual-compliance">ROC Compliance Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/company-llp-formation">Company Registration Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/import-export-business-establishment">Import Export Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/gem-portal-registration">GeM Registration Nagpur</Link><span className="sep">|</span>
-                        <Link to="/services/government-tenders-bid-support">Government Tenders Nagpur</Link><span className="sep">|</span>
-                        <Link to="/">Yugant Rahele</Link>
-                    </div>
+                    <div className="f-copy">© {new Date().getFullYear()} <strong>FinTaxVers Consultancy Services</strong> — India. All rights reserved.</div>
+                    
                 </div>
 
             </div>

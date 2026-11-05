@@ -1,444 +1,547 @@
-// SEO-Optimized Blog Data for fintaxvers.com – Updated June 2026
+// SEO blog data for fintaxvers.com – facts reviewed against FY 2025-26 / AY 2026-27 rules (Union Budget 2025, GST rate rationalisation Sept 2025).
+// Tax law changes often: every article ends with a "verify before you act" note.
 export const blogPosts = [
     {
         slug: 'gst-updates-2026-new-rules-nagpur',
-        title: 'GST Updates 2026 – New Rules Every Business in Nagpur Must Know',
-        metaTitle: 'GST Updates 2026 – Latest Rules & Changes | FinTaxVers Nagpur',
-        metaDescription: 'Stay ahead with the latest GST updates for 2026. New invoice management system, ITC rules, and GST rate changes explained by expert consultants in Nagpur.',
+        title: 'GST Updates 2026 – Rate Changes, IMS, E-Invoicing & ITC Rules for Indian Businesses',
+        metaTitle: 'GST Updates 2026 – New Rates, IMS, E-Invoice & ITC Rules | FinTaxVers',
+        metaDescription: 'Latest GST updates for 2026: two-rate structure (5% and 18%), Invoice Management System, e-invoicing limits, Rule 86B and return due dates explained by GST consultants in Nagpur.',
         category: 'GST Updates',
-        date: '2026-06-10',
+        date: '2026-11-05',
         author: 'Yugant Rahele',
-        readTime: '8 min read',
-        keywords: 'GST updates 2026 Nagpur, new GST rules 2026, IMS GST portal, GST rate changes 2026, GST consultant Nagpur',
-        excerpt: 'Major GST changes are in effect in 2026 – from the new Invoice Management System (IMS) to stricter ITC matching rules. Here is what every Nagpur business must know to stay compliant.',
+        readTime: '7 min read',
+        keywords: 'GST updates 2026, GST rate change 5% 18%, IMS GST portal, e-invoicing limit, GST consultant Nagpur, GST return filing',
+        excerpt: 'GST now runs on a simpler two-rate structure, recipients manage invoices through the Invoice Management System and e-invoicing rules are stricter. Here is what Indian businesses should check in 2026.',
         content: `
-## GST in 2026 – What Has Changed?
+## GST in 2026 – What Businesses Should Check
 
-The GST landscape has undergone significant changes in 2026. From the mandatory **Invoice Management System (IMS)** to revised return filing workflows, businesses in Nagpur and across India must update their compliance processes immediately.
+GST compliance has become more data-driven: invoices flow from your supplier's GSTR-1 into your GSTR-2B, and mismatches can block Input Tax Credit (ITC). Use this checklist to keep your GST registration and returns clean.
 
-## 1. Invoice Management System (IMS) – Now Mandatory
+## 1. GST Rate Rationalisation (effective 22 September 2025)
 
-The GSTN has made the **Invoice Management System (IMS)** mandatory for all businesses. Under IMS:
+The GST Council simplified the structure to **two main rates – 5% and 18%** – with a special **40% rate** on a short list of sin and luxury goods. The earlier 12% and 28% slabs were largely merged into these rates.
 
-- Suppliers' invoices are pushed directly to the buyer's GSTR-2B
-- Buyers must **Accept, Reject, or Keep Pending** each invoice in the IMS dashboard
-- Only accepted invoices qualify for **Input Tax Credit (ITC)**
-- Rejected or pending invoices are reversed automatically in GSTR-3B
+- Many daily-use goods moved to 5%
+- Individual life and health insurance premiums became GST-exempt
+- Always check the **HSN/SAC-wise rate** on the CBIC / GST portal before invoicing, because exceptions exist
 
-**Action Required:** Log in to gst.gov.in → IMS Dashboard → Review all pending invoices before the 14th of each month.
+## 2. Invoice Management System (IMS)
 
-## 2. New ITC Reversal Rules (Rule 86B Tightened)
+IMS is a dashboard on the GST portal where a buyer can **accept, reject or keep pending** each invoice uploaded by suppliers. Your decision flows into the ITC shown in GSTR-2B, so review IMS **before filing GSTR-3B** every month.
 
-Rule 86B now restricts ITC usage to **99% of the output tax liability** for businesses with turnover above ₹50 lakhs in a month if:
-- Supplier has not filed GSTR-1
-- Invoice is unmatched in GSTR-2B
+## 3. E-Invoicing
 
-## 3. E-Invoicing Threshold Reduced to ₹5 Crore
+- E-invoicing is mandatory for taxpayers whose **aggregate annual turnover exceeds ₹5 crore** (threshold in force since 1 August 2023)
+- Taxpayers with turnover of **₹10 crore and above** must upload invoices to the Invoice Registration Portal within **30 days** of the invoice date
+- Without a valid IRN the buyer cannot claim ITC on that invoice
 
-As of April 2026, **e-invoicing is mandatory for all businesses with annual turnover above ₹5 crore**. Previously this was ₹10 crore. If you haven't set up your IRN (Invoice Reference Number) system, do it immediately.
+## 4. Rule 86B – ITC Utilisation Limit
 
-## 4. GST Rate Changes – Key Updates
+If your **taxable supplies (excluding exempt and zero-rated) exceed ₹50 lakh in a month**, you generally cannot use more than **99% of output tax** from the electronic credit ledger – at least 1% must be paid in cash – unless an exception applies (for example, income-tax paid above a prescribed limit or large refunds).
 
-| Item/Category | Old Rate | New Rate (2026) |
-|---|---|---|
-| Insurance Premiums (term plans) | 18% | 12% |
-| Online Gaming Platforms | 28% | 28% (confirmed) |
-| EV Spare Parts | 18% | 12% |
-| Packaged Drinking Water (>20L) | 12% | 5% |
+## 5. Return Due Dates and Late Fees
 
-## 5. GSTR-1A – New Amendment Return
+| Return | Usual due date |
+|---|---|
+| GSTR-1 (monthly) | 11th of next month |
+| GSTR-3B (monthly) | 20th of next month |
+| GSTR-9 (annual) | 31st December after the financial year |
 
-A new return **GSTR-1A** has been introduced to allow suppliers to amend invoices reported in GSTR-1 before GSTR-3B is filed. This provides a correction window and helps avoid mismatches.
+Late fee is **₹50 per day (₹25 CGST + ₹25 SGST)**, or **₹20 per day for nil returns**, subject to the caps notified by the government, plus **18% interest** on late-paid tax. Returns can no longer be filed after **three years** from the due date.
 
-## Stay GST Compliant with FinTaxVers Nagpur
+## 6. GST Registration Limits
 
-**FinTaxVers Consultancy Services**, led by **Yugant Rahele**, manages end-to-end GST compliance for businesses in Nagpur and Maharashtra – including IMS management, e-invoicing setup, and GSTR filings.
+Registration is mandatory above **₹40 lakh** turnover for goods (₹20 lakh for services; ₹10 lakh in some special-category states). Interstate suppliers of services and e-commerce sellers need registration irrespective of turnover.
+
+## Stay GST Compliant with FinTaxVers
+
+**FinTaxVers Consultancy Services**, led by **Yugant Rahele**, manages GST registration, monthly return filing, IMS reconciliation and e-invoicing support for businesses across India.
 
 **Call:** +91-8928895195 | **Email:** contact@fintaxvers.com
+
+*Note: GST rates, limits and due dates are revised by notifications. Confirm the current position with a professional before acting.*
         `,
         relatedServices: ['gst-returns-solutions'],
         relatedPosts: ['income-tax-filing-ay-2026-27-guide'],
         faq: [
-            { q: 'Is the Invoice Management System (IMS) mandatory for all GST taxpayers in 2026?', a: 'Yes, IMS is now mandatory. Buyers must accept invoices in the IMS dashboard by the 14th of each month to claim ITC.' },
-            { q: 'What is the e-invoicing threshold in 2026?', a: 'From April 2026, e-invoicing is mandatory for businesses with turnover above ₹5 crore.' },
-            { q: 'Can FinTaxVers help with GST compliance in Nagpur?', a: 'Yes, we handle all GST services including IMS, e-invoicing, and GSTR filings. Call +91-8928895195.' }
+            { q: 'What are the GST rates after the 2025 rationalisation?', a: 'Most goods and services now fall under 5% or 18%, with a 40% rate for a short list of sin and luxury items. Check the HSN or SAC-wise notification for your product.' },
+            { q: 'What is the e-invoicing threshold?', a: 'E-invoicing applies to taxpayers whose aggregate annual turnover exceeds ₹5 crore in any financial year since 2017-18.' },
+            { q: 'What is the late fee for GST returns?', a: '₹50 per day (₹20 per day for nil returns), subject to the maximum caps, plus 18% interest on the unpaid tax.' },
+            { q: 'Can FinTaxVers handle GST registration and returns in India?', a: 'Yes. We handle GST registration, GSTR-1, GSTR-3B, annual returns and notice replies. Call +91-8928895195.' }
         ]
     },
     {
         slug: 'income-tax-filing-ay-2026-27-guide',
-        title: 'Income Tax Filing Guide AY 2026-27 – New ITR Forms, Deadlines & Key Changes',
-        metaTitle: 'ITR Filing AY 2026-27 – New Forms & Deadlines | FinTaxVers Nagpur',
-        metaDescription: 'Complete income tax filing guide for AY 2026-27 (FY 2025-26). New ITR forms, updated tax slabs under new regime, deadlines, and tips from expert tax consultants in Nagpur.',
+        title: 'Income Tax Return Filing AY 2026-27 (FY 2025-26) – Slabs, Due Dates & Rebate Explained',
+        metaTitle: 'ITR Filing AY 2026-27 – New Regime Slabs, Due Date, Rebate | FinTaxVers',
+        metaDescription: 'ITR filing guide for AY 2026-27 (FY 2025-26): new regime slabs up to ₹24 lakh, ₹12 lakh rebate, standard deduction, due dates, late fee and capital gains rates by tax consultants in Nagpur.',
         category: 'Tax Saving Tips',
-        date: '2026-06-15',
+        date: '2026-11-05',
         author: 'Yugant Rahele',
         readTime: '7 min read',
-        keywords: 'ITR filing AY 2026-27, income tax return 2026, new tax regime 2026, ITR due date 2026, tax consultant Nagpur',
-        excerpt: 'AY 2026-27 brings updated ITR forms, revised tax slabs under the new tax regime, and new reporting requirements. Here is everything you need to file your income tax return correctly this year.',
+        keywords: 'ITR filing AY 2026-27, income tax slabs FY 2025-26, new tax regime 12 lakh rebate, ITR due date, income tax return Nagpur, tax consultant Nagpur',
+        excerpt: 'New regime slabs, the ₹12 lakh rebate, ITR due dates, late fee and capital gains rates for FY 2025-26 (AY 2026-27) in one clear guide.',
         content: `
 ## Income Tax Filing for AY 2026-27 (FY 2025-26)
 
-The Income Tax Department has released updated ITR forms for AY 2026-27 with several new disclosures and the new tax regime now being the default. Here is a complete breakdown of what is new and what you must do.
+Income earned between 1 April 2025 and 31 March 2026 is reported in the return for **Assessment Year 2026-27**. The **new tax regime (Section 115BAC)** is the default unless you opt for the old regime.
 
-## New Tax Slabs – New Tax Regime (Default) AY 2026-27
+## New Tax Regime Slabs – FY 2025-26
 
-The new tax regime is now the **default regime** for all taxpayers. You must actively opt out to choose the old regime.
-
-| Annual Income | Tax Rate (New Regime) |
+| Total Income | Tax Rate |
 |---|---|
-| Up to ₹3 lakhs | Nil |
-| ₹3 – ₹7 lakhs | 5% |
-| ₹7 – ₹10 lakhs | 10% |
-| ₹10 – ₹12 lakhs | 15% |
-| ₹12 – ₹15 lakhs | 20% |
-| Above ₹15 lakhs | 30% |
+| Up to ₹4 lakh | Nil |
+| ₹4 – ₹8 lakh | 5% |
+| ₹8 – ₹12 lakh | 10% |
+| ₹12 – ₹16 lakh | 15% |
+| ₹16 – ₹20 lakh | 20% |
+| ₹20 – ₹24 lakh | 25% |
+| Above ₹24 lakh | 30% |
 
-**Key Benefit:** Individuals with income up to ₹12 lakhs effectively pay **zero tax** under the new regime (with rebate under Section 87A).
+- **Rebate under Section 87A:** no tax if taxable income is up to **₹12 lakh** (marginal relief applies just above it). Rebate is not available on special-rate capital gains such as equity LTCG/STCG.
+- **Standard deduction:** ₹75,000 for salaried individuals and pensioners.
+- **Health and education cess:** 4% on tax plus surcharge.
+- Salaried individuals therefore pay **no tax up to about ₹12.75 lakh of salary income**.
 
 ## ITR Due Dates – AY 2026-27
 
-| Category | Due Date |
+| Taxpayer | Due date |
 |---|---|
-| Individuals & HUFs (no audit) | **31st July 2026** |
-| Businesses requiring audit | **31st October 2026** |
-| Businesses with transfer pricing | **30th November 2026** |
-| Belated / Revised Return | **31st December 2026** |
+| Individuals / HUF (no audit) | 31 July (CBDT may extend) |
+| Businesses and professionals needing audit | 31 October |
+| Transfer-pricing cases | 30 November |
+| Belated or revised return | 31 December |
 
-## Key New Disclosures in ITR Forms 2026
+**Late fee under Section 234F:** ₹5,000 (₹1,000 if total income is up to ₹5 lakh), plus interest under 234A/234B/234C. You can also file an **updated return (ITR-U)** within the permitted window by paying additional tax.
 
-1. **Foreign Asset Reporting** – More detailed disclosure of foreign bank accounts, assets, and income
-2. **Crypto/Virtual Digital Assets (VDA)** – Schedule VDA now mandatory if you traded crypto
-3. **High-Value Transaction Matching** – AIS/TIS data is pre-filled; review carefully before filing
-4. **Capital Gains Reclassification** – STCG rate on equity is now 20%; LTCG on equity above ₹1.25 lakh taxed at 12.5%
+## Capital Gains Rates (transfers on or after 23 July 2024)
 
-## Top 5 Tax Saving Tips for AY 2026-27
+- Listed equity shares and equity mutual funds – **STCG 20%**, **LTCG 12.5%** on gains above **₹1.25 lakh** a year
+- Other long-term assets such as gold and unlisted shares – **LTCG 12.5% without indexation**
+- Land or building acquired before 23 July 2024 by a resident individual/HUF – choice between **12.5% without indexation** and **20% with indexation**
+- Crypto and other virtual digital assets – **30% flat** with 1% TDS and no deduction other than cost
 
-1. **Compare old vs new regime** before filing – use the income tax calculator
-2. **Claim HRA correctly** with landlord PAN if rent exceeds ₹1 lakh/year
-3. **Check Form 26AS, AIS & TIS** for any unreported income
-4. **File on time** – avoid ₹5,000-₹10,000 penalty for late filing
-5. **Invest in NPS** – Extra ₹50,000 deduction under 80CCD(1B) available even in old regime
+## Old Regime vs New Regime
 
-## File Your ITR with FinTaxVers Nagpur
+The old regime allows deductions such as Section 80C (₹1.5 lakh), 80D, HRA, home-loan interest and 80CCD(1B) (₹50,000 for NPS). Choose it only if your total deductions are large enough to beat the lower new-regime rates. A salaried person who must choose each year can compare both on our income-tax calculator.
 
-**FinTaxVers Consultancy Services** handles accurate, timely ITR filing for individuals, salaried employees, freelancers, and businesses in Nagpur.
+## Which ITR Form?
+
+- **ITR-1:** resident individuals with salary, one house property and other income up to ₹50 lakh
+- **ITR-2:** individuals with capital gains, foreign assets or income above ₹50 lakh
+- **ITR-3 / ITR-4:** business or professional income (ITR-4 for presumptive taxation)
+
+## File Your ITR with FinTaxVers
+
+**FinTaxVers Consultancy Services** files accurate returns for salaried people, professionals, businesses, NRIs and investors with capital gains.
 
 **Call:** +91-8928895195 | **Email:** contact@fintaxvers.com
+
+*Note: The Income-tax Act, 2025 comes into force from 1 April 2026 for future years; returns for FY 2025-26 are still filed under the Income-tax Act, 1961. Limits and dates can change by notification – verify before filing.*
         `,
-        relatedServices: ['income-tax-planning'],
+        relatedServices: ['income-tax-planning', 'nri-tax-fema-services'],
         relatedPosts: ['tax-saving-strategies-business-owners-2026'],
         faq: [
-            { q: 'What is the ITR filing deadline for AY 2026-27?', a: '31st July 2026 for individuals; 31st October 2026 for businesses requiring audit.' },
-            { q: 'Is the new tax regime better in AY 2026-27?', a: 'For most salaried individuals with income up to ₹12 lakhs, the new regime is better due to the zero tax benefit under Section 87A.' },
-            { q: 'Are crypto gains taxable in AY 2026-27?', a: 'Yes, crypto/VDA gains are taxed at 30% flat with no deductions, and Schedule VDA must be filled in the ITR.' }
+            { q: 'What are the new regime tax slabs for FY 2025-26?', a: 'Nil up to ₹4 lakh, 5% from ₹4-8 lakh, 10% from ₹8-12 lakh, 15% from ₹12-16 lakh, 20% from ₹16-20 lakh, 25% from ₹20-24 lakh and 30% above ₹24 lakh.' },
+            { q: 'Is income up to ₹12 lakh really tax-free?', a: 'Taxable income up to ₹12 lakh gets a full rebate under Section 87A in the new regime, so a salaried person with ₹75,000 standard deduction pays no tax up to about ₹12.75 lakh. The rebate does not apply to special-rate capital gains.' },
+            { q: 'What is the ITR due date for AY 2026-27?', a: '31 July for individuals who do not need an audit, 31 October for audit cases, unless the CBDT extends the date. Belated returns can be filed up to 31 December with a late fee.' },
+            { q: 'What is the late fee for filing ITR after the due date?', a: 'Section 234F late fee is ₹5,000, or ₹1,000 if your total income does not exceed ₹5 lakh, plus applicable interest.' },
+            { q: 'Are crypto gains taxable?', a: 'Yes. Gains from virtual digital assets are taxed at a flat 30% with 1% TDS on transfers and must be reported in Schedule VDA.' }
         ]
     },
     {
         slug: 'business-loan-nagpur-2026-msme-schemes',
-        title: 'Business Loans in Nagpur 2026 – Best MSME Schemes, Interest Rates & How to Apply',
-        metaTitle: 'Business Loan Nagpur 2026 – MSME Schemes & How to Apply | FinTaxVers',
-        metaDescription: 'Comprehensive guide to business loans in Nagpur for 2026. MSME loan schemes, current interest rates, CMA report requirements, and expert assistance from FinTaxVers consultants.',
+        title: 'Business Loan in India – MSME Loan Schemes, Documents & How to Apply (2026)',
+        metaTitle: 'Business Loan & MSME Loan in Nagpur – Schemes, Documents | FinTaxVers',
+        metaDescription: 'Business loan guide for Nagpur: MSME loan, Mudra, CGTMSE, PMEGP, working capital and term loan documents, CMA report and project report help from FinTaxVers.',
         category: 'Loan Documentation Guide',
-        date: '2026-05-20',
+        date: '2026-11-05',
         author: 'Yugant Rahele',
-        readTime: '9 min read',
-        keywords: 'business loan Nagpur 2026, MSME loan scheme 2026, CMA report Nagpur, project report bank loan, loan consultant Nagpur',
-        excerpt: 'Looking for a business loan in Nagpur in 2026? Here are the best MSME schemes, current interest rates, new government-backed loan programs, and exactly what documentation you need for approval.',
+        readTime: '7 min read',
+        keywords: 'business loan Nagpur, MSME loan Nagpur, working capital loan, term loan, Mudra loan, CGTMSE, CMA report, project report for bank loan, loan consultant Nagpur',
+        excerpt: 'A practical guide to business loans in India – MSME loan schemes, Mudra limits, working capital vs term loan, the documents banks ask for and why a clean CMA report matters.',
         content: `
-## Business Loans in Nagpur – 2026 Update
+## Business Loans for MSMEs and Startups
 
-Getting a business loan in 2026 has become more streamlined, but documentation quality is more critical than ever. Banks and NBFCs now use **AI-based credit scoring** and cross-verify your GST data, ITR, and bank statements before approval.
+Banks and NBFCs check **GST returns, ITR, bank statements and CIBIL/credit score** together before sanctioning a loan. A well-prepared **project report and CMA data** shows the lender that repayment is realistic.
 
-## Best MSME Loan Schemes in 2026
+## Types of Business Loan
 
-### 1. PM Vishwakarma Yojana (Artisan Loans)
-- **Loan Amount:** ₹1 lakh (Phase 1) → ₹2 lakhs (Phase 2)
-- **Interest Rate:** 5% (subsidized)
-- **For:** Traditional craftsmen and artisans
+- **Working capital loan** – cash credit (CC), overdraft (OD) or working-capital term loan for day-to-day operations
+- **Term loan** – machinery, equipment, factory or shop purchase and expansion
+- **MSME loan** – loans to registered Udyam units, often with CGTMSE guarantee cover
+- **Loan against property (LAP)** – higher limits against residential or commercial property
+- **Project finance** – larger projects supported by detailed CMA data
 
-### 2. Mudra Loan 2026 – Revised Limits
-| Category | New Limit (2026) |
+## Government-Backed Schemes
+
+| Scheme | Key points |
 |---|---|
-| Shishu | Up to ₹50,000 |
-| Kishore | ₹50,000 – ₹5 lakhs |
-| Tarun | ₹5 lakhs – ₹20 lakhs |
-| Tarun Plus (NEW) | ₹20 lakhs – ₹50 lakhs |
+| **PM Mudra Yojana** | Collateral-free loans up to **₹20 lakh** – Shishu up to ₹50,000, Kishore ₹50,000–₹5 lakh, Tarun ₹5–₹10 lakh, Tarun Plus ₹10–₹20 lakh |
+| **CGTMSE** | Credit guarantee for collateral-free loans to micro and small enterprises; limits are revised by the government |
+| **PMEGP** | Subsidy of **15% to 35%** of project cost; maximum project cost ₹50 lakh for manufacturing and ₹20 lakh for service units |
+| **Stand-Up India** | Loans between ₹10 lakh and ₹1 crore for greenfield enterprises of SC/ST and women entrepreneurs |
 
-### 3. Stand-Up India Scheme
-- SC/ST and women entrepreneurs
-- Loans from ₹10 lakhs to ₹1 crore
-- 7-year repayment tenure
+## Documents Required for a Business Loan
 
-### 4. Credit Guarantee Fund Trust for Micro & Small Enterprises (CGTMSE)
-- Collateral-free loans up to ₹5 crore (revised from ₹2 crore)
-- Available from all public sector banks
+1. KYC of proprietor/partners/directors (PAN, Aadhaar) and business address proof
+2. Udyam / GST / Shop Act / incorporation documents
+3. Last 2–3 years ITR with computation, balance sheet and profit & loss
+4. Last 6–12 months bank statements and GST returns
+5. **Project report and CMA data** (projected financials, working-capital assessment and ratios) for larger limits – the exact threshold depends on the bank
+6. Quotations of machinery or details of collateral, where applicable
 
-## Documents Required for Business Loan 2026
+## Why Loan Files Get Rejected
 
-1. **CMA Data / Credit Monitoring Arrangement Report** (mandatory for loans above ₹25 lakhs)
-2. **Detailed Project Report** with market analysis
-3. **3 years ITR** with balance sheets
-4. **GST returns** (12 months) – banks now cross-verify this
-5. **Bank statements** (12 months)
-6. **Udyam Registration Certificate**
-7. **KYC documents**
+- Mismatch between GST turnover, ITR and bank credits
+- Weak or unrealistic projections in the CMA report
+- Low credit score or over-leveraging
+- Missing documents or wrong loan product for the purpose
 
-## What Banks Check in 2026 (AI Credit Scoring)
+## How FinTaxVers Helps in India
 
-- GST turnover consistency vs bank credits
-- ITR income vs actual banking transactions
-- Existing loan EMI obligations (CIBIL)
-- Industry-specific benchmarks
+We prepare **bank-ready CMA data and project reports**, check document consistency, suggest the right product (CC/OD, term loan, LAP, Mudra, PMEGP) and coordinate with the lender. Approval and interest rate are always decided by the bank.
 
-## Why CMA Report Quality Matters More Than Ever
+**Call Now:** +91-8928895195 | **Email:** contact@fintaxvers.com
 
-A poorly prepared CMA report is the #1 reason for loan rejection in 2026. Banks use software to stress-test your projections. FinTaxVers prepares banker-ready CMA reports that withstand scrutiny.
-
-**Call Now:** +91-8928895195 – We have helped 300+ businesses in Nagpur secure loans in 2025-26.
+*Note: Scheme limits and interest rates change. Confirm current terms with the lender before applying.*
         `,
-        relatedServices: ['cma-data-project-financing', 'business-loan-assistance'],
+        relatedServices: ['business-loan-assistance', 'cma-data-project-financing', 'msme-business-loan'],
         relatedPosts: ['msme-registration-udyam-2026'],
         faq: [
-            { q: 'What is the new Mudra Loan limit in 2026?', a: 'A new Tarun Plus category has been added with loans from ₹20 lakhs to ₹50 lakhs.' },
-            { q: 'Is a CMA report mandatory for MSME loans in 2026?', a: 'Yes, for loans above ₹25 lakhs, CMA data is mandatory. FinTaxVers prepares professional CMA reports in Nagpur.' },
-            { q: 'How long does loan approval take in 2026?', a: 'With complete documentation, most MSME loans are approved within 15-30 working days.' }
+            { q: 'What is the maximum Mudra loan limit?', a: 'Up to ₹20 lakh under the Tarun Plus category (Shishu up to ₹50,000, Kishore up to ₹5 lakh, Tarun up to ₹10 lakh).' },
+            { q: 'Is a CMA report required for a business loan?', a: 'Banks usually ask for CMA data for larger working-capital and term-loan proposals. The threshold differs by bank, so confirm with your lender.' },
+            { q: 'How long does business loan approval take?', a: 'With complete and consistent documents, many banks take roughly two to four weeks. Timelines depend on the lender and the loan size.' },
+            { q: 'Can FinTaxVers help with MSME and working capital loans in India?', a: 'Yes. We prepare project reports, CMA data and documentation for MSME, working capital, term and property-backed loans. Call +91-8928895195.' }
         ]
     },
     {
         slug: 'tax-saving-strategies-business-owners-2026',
-        title: 'Top 7 Tax Saving Strategies for Business Owners in India – FY 2025-26',
-        metaTitle: 'Tax Saving Strategies for Business Owners FY 2025-26 | FinTaxVers Nagpur',
-        metaDescription: 'Discover 7 powerful and legal tax saving strategies for business owners in India for FY 2025-26. Expert income tax planning tips from FinTaxVers Consultancy in Nagpur.',
+        title: 'Tax Saving Strategies for Business Owners in India – FY 2025-26',
+        metaTitle: 'Tax Saving for Business Owners FY 2025-26 – 44AD, 43B(h), NPS | FinTaxVers',
+        metaDescription: 'Legal tax saving strategies for business owners in India for FY 2025-26: presumptive taxation limits, Section 43B(h), depreciation, NPS and advance tax dates explained.',
         category: 'Tax Saving Tips',
-        date: '2026-04-05',
+        date: '2026-11-05',
         author: 'Yugant Rahele',
-        readTime: '8 min read',
-        keywords: 'tax saving strategies 2026, business tax planning India, income tax FY 2025-26, tax consultant Nagpur, legal tax saving business',
-        excerpt: 'FY 2025-26 offers new tax saving opportunities for business owners. From the revised new tax regime to Section 43B(h) payment deadlines – here are 7 strategies to legally reduce your tax bill.',
+        readTime: '6 min read',
+        keywords: 'tax saving business owners, Section 44AD limit, Section 43B(h), advance tax due dates, depreciation, business tax planning India, tax consultant Nagpur',
+        excerpt: 'Presumptive taxation limits, MSME payment rules under Section 43B(h), depreciation, NPS and advance tax dates – legal ways to plan tax for FY 2025-26.',
         content: `
-## Tax Saving for Business Owners – FY 2025-26
+## Tax Planning for Business Owners – FY 2025-26
 
-With the new tax regime now default and several new provisions active, business owners in India have both new challenges and new opportunities for tax savings. Here are 7 powerful, legal strategies.
+Good tax planning is about choosing the right scheme, paying on time and keeping clean records – not about hiding income.
 
-## Strategy 1 – Evaluate Old vs New Regime Every Year
+## 1. Choose the Right Tax Regime
 
-**Do NOT assume the old regime is better.** With the new regime's ₹12 lakh zero-tax benefit and no requirement to invest in 80C instruments, many business owners save more under the new regime.
+Under the new regime (default) you get lower slab rates and a rebate up to ₹12 lakh of taxable income but give up most deductions. Business owners must compare both regimes; a proprietor who opts out of the new regime can switch back only once.
 
-✅ Use the Income Tax Department's free online calculator at incometax.gov.in/iec/foportal
+## 2. Presumptive Taxation – Sections 44AD and 44ADA
 
-## Strategy 2 – Maximize Presumptive Taxation (44AD/44ADA)
+- **Section 44AD (small businesses):** turnover up to **₹2 crore**, or **₹3 crore if cash receipts do not exceed 5%**
+- **Section 44ADA (specified professionals):** gross receipts up to **₹50 lakh**, or **₹75 lakh if cash receipts do not exceed 5%**
+- Declare **8% of turnover (6% for digital receipts)** under 44AD or **50% of receipts** under 44ADA as profit; detailed books and tax audit are not required
 
-For FY 2025-26, revised limits apply:
-- **Section 44AD** (Small businesses): Turnover up to **₹3 crore** (digital receipts up to ₹3 crore)
-- **Section 44ADA** (Professionals): Gross receipts up to **₹75 lakhs**
+## 3. Tax Audit Limits – Section 44AB
 
-No books of accounts required. Declare 8% (or 6% for digital receipts) of turnover as profit and file a simplified return.
+Tax audit is required when business turnover exceeds **₹1 crore** (₹10 crore if cash receipts and payments are each 5% or less) or professional receipts exceed **₹50 lakh**. The audit report is due by **30 September** and the return by **31 October**.
 
-## Strategy 3 – Pay MSME Vendors Before Year-End (Section 43B(h))
+## 4. Section 43B(h) – Pay MSME Vendors on Time
 
-**Critical 2026 Rule:** Payments to MSME (micro & small) registered vendors must be made within the credit period (or 45 days max). If not paid, the expense is **disallowed** in the current year's tax calculation.
+Amounts payable to **micro and small enterprise suppliers** are deductible only when actually paid. Pay within **15 days** if there is no written agreement, or within the agreed period, **never beyond 45 days**. Unpaid amounts at year-end are added back to income.
 
-✅ Check your vendor's MSME status on udyamregistrar.gov.in before year-end
+## 5. Depreciation
 
-## Strategy 4 – Claim New Capital Allowances
+- Plant and machinery – generally **15%** (higher rates for specific blocks)
+- Computers and software – **40%**
+- Intangibles such as patents and licences – **25%**
+- Additional depreciation can apply for new manufacturing machinery in the year of purchase
 
-- **New machinery** for manufacturing: 40% additional depreciation in the year of purchase
-- **Intangible assets** (software, patents): 25% depreciation
+## 6. Retirement Planning – NPS
 
-## Strategy 5 – NPS Corporate Contribution (Section 80CCD(2))
+Employer contribution to NPS up to **14% of salary** is deductible for the employee under Section 80CCD(2) even in the new regime (10% for private employees in the old regime). An additional ₹50,000 under 80CCD(1B) is available in the old regime only.
 
-Your company can contribute **up to 14% of employee salary to NPS** and claim it as a business expense. This is a deduction available **even under the new tax regime** – making it one of the most powerful tax tools in 2026.
+## 7. Advance Tax Due Dates
 
-## Strategy 6 – Restructure Salary with Tax-Free Components
-
-For sole proprietors and directors, restructure remuneration to include:
-- Leave Travel Allowance (LTA) – 2 trips in 4-year block
-- Meal coupons – ₹50/meal (tax-free)
-- Phone/Internet reimbursement – up to ₹24,000/year
-- Car + driver allowance for business use
-
-## Strategy 7 – Advance Tax Planning to Avoid Interest
-
-Pay advance tax by due dates to avoid 1% per month interest under Sections 234B and 234C:
-
-| Instalment | Due Date | % of Tax |
+| Instalment | Due date | Cumulative payment |
 |---|---|---|
-| 1st | 15th June 2026 | 15% |
-| 2nd | 15th September 2026 | 45% |
-| 3rd | 15th December 2026 | 75% |
-| 4th | 15th March 2027 | 100% |
+| 1st | 15 June | 15% |
+| 2nd | 15 September | 45% |
+| 3rd | 15 December | 75% |
+| 4th | 15 March | 100% |
 
-## Get Expert Tax Planning from FinTaxVers Nagpur
+Presumptive-scheme taxpayers can pay the whole advance tax by **15 March**. Interest under Sections 234B and 234C is **1% per month**.
 
-**Yugant Rahele** and the FinTaxVers team provide year-round tax planning for business owners in Nagpur, ensuring you maximize savings while staying 100% compliant.
+## Plan Your Tax with FinTaxVers
 
-**Call:** +91-8928895195 | **Email:** contact@fintaxvers.com
+**Yugant Rahele** and the FinTaxVers team provide year-round tax planning, tax audit and ITR filing for business owners across India.
+
+**Call:** +91-8928895195
+
+*Note: Limits change by Finance Act and notification. Verify the current position before acting.*
         `,
-        relatedServices: ['income-tax-planning'],
+        relatedServices: ['income-tax-planning', 'tax-audit-services'],
         relatedPosts: ['income-tax-filing-ay-2026-27-guide'],
         faq: [
-            { q: 'Is Section 43B(h) applicable to all MSME payments?', a: 'Yes, payments to micro and small enterprises must be made within the agreed credit period (max 45 days), or the deduction is disallowed.' },
-            { q: 'What is the presumptive taxation turnover limit for FY 2025-26?', a: 'Under Section 44AD, the limit is ₹3 crore for businesses and ₹75 lakhs for professionals under 44ADA.' },
-            { q: 'Can I claim NPS deduction under the new tax regime?', a: 'Yes, employer contributions to NPS under Section 80CCD(2) are deductible even under the new tax regime.' }
+            { q: 'What is the Section 44AD turnover limit for FY 2025-26?', a: '₹2 crore, extended to ₹3 crore if cash receipts do not exceed 5% of total receipts. For professionals under 44ADA the limits are ₹50 lakh and ₹75 lakh respectively.' },
+            { q: 'When is a tax audit required?', a: 'When business turnover exceeds ₹1 crore (₹10 crore if cash transactions are within 5%) or professional receipts exceed ₹50 lakh.' },
+            { q: 'What is Section 43B(h)?', a: 'It allows a deduction for payments to micro and small enterprise suppliers only when paid within the legal time limit, which is at most 45 days.' }
         ]
     },
     {
         slug: 'msme-registration-udyam-2026',
-        title: 'Udyam Registration 2026 – Updated Process, New Benefits & Common Mistakes to Avoid',
-        metaTitle: 'Udyam / MSME Registration 2026 – New Benefits & Process | FinTaxVers Nagpur',
-        metaDescription: 'Complete guide to Udyam (MSME) registration in 2026. Updated classification criteria, new government benefits, Udyam Assist portal, and registration help in Nagpur by FinTaxVers.',
+        title: 'Udyam (MSME) Registration – Classification, Benefits & Process (Updated 2026)',
+        metaTitle: 'Udyam / MSME Registration 2026 – Limits, Benefits, Process | FinTaxVers',
+        metaDescription: 'Udyam registration guide: revised MSME classification (micro, small, medium), documents, benefits, free registration process and help from FinTaxVers in Nagpur.',
         category: 'Business Registration Guide',
-        date: '2026-05-01',
+        date: '2026-11-05',
         author: 'Yugant Rahele',
-        readTime: '7 min read',
-        keywords: 'Udyam registration 2026, MSME registration Nagpur, Udyam Assist portal, MSME benefits 2026, business registration Nagpur',
-        excerpt: 'Udyam registration has been upgraded in 2026 with the new Udyam Assist Platform for informal businesses, revised investment criteria, and enhanced government benefits. Here is everything you need to know.',
+        readTime: '5 min read',
+        keywords: 'Udyam registration, MSME registration Nagpur, MSME classification 2026, Udyam certificate, MSME loan benefits, business registration Nagpur',
+        excerpt: 'MSME classification limits were revised from 1 April 2025. Learn who qualifies as micro, small or medium, what documents you need and the benefits of Udyam registration.',
         content: `
-## Udyam Registration in 2026 – What Is New?
+## What Is Udyam Registration?
 
-Udyam (MSME) registration has seen significant improvements in 2026. The government has launched the **Udyam Assist Platform (UAP)** and expanded benefits for registered MSMEs. Here is a complete updated guide.
+Udyam is the government's **free, online MSME registration** on udyamregistration.gov.in. It is based on **Aadhaar, PAN and GSTIN** and gives you a permanent Udyam Registration Number and certificate.
 
-## Revised MSME Classification Criteria 2026
+## MSME Classification (effective 1 April 2025)
 
-The government has revised the investment and turnover thresholds:
-
-| Category | Investment (Plant & Machinery) | Annual Turnover |
+| Category | Investment in plant & machinery / equipment | Annual turnover |
 |---|---|---|
-| Micro Enterprise | Up to ₹2.5 crore | Up to ₹10 crore |
-| Small Enterprise | Up to ₹25 crore | Up to ₹100 crore |
-| Medium Enterprise | Up to ₹125 crore | Up to ₹500 crore |
+| Micro enterprise | Up to ₹2.5 crore | Up to ₹10 crore |
+| Small enterprise | Up to ₹25 crore | Up to ₹100 crore |
+| Medium enterprise | Up to ₹125 crore | Up to ₹500 crore |
 
-*(Revised from previous ₹1cr/₹5cr limits for micro enterprises)*
+Both investment and turnover conditions must be met. Turnover excludes exports.
 
-## New – Udyam Assist Platform (UAP) for Informal Businesses
+## Documents Needed
 
-The **Udyam Assist Platform** (udyamassist.gov.in) now allows **informal micro enterprises** without GST or ITR to register. This is specifically designed for:
-- Street vendors and hawkers
-- Small traders without formal registration
-- Artisans and home-based workers
+- Aadhaar of the proprietor / partner / director
+- PAN and GSTIN of the business (as applicable)
+- Business address, bank account details and NIC activity code
+- Informal micro enterprises without GST can use the **Udyam Assist Platform**
 
-## Top 10 Benefits of Udyam Registration in 2026
+## Key Benefits of Udyam Registration
 
-1. **Collateral-Free Loans** – CGTMSE scheme now covers up to ₹5 crore
-2. **Priority Bank Credit** – 7.5% of bank net credit must go to MSMEs
-3. **45-Day Payment Protection** – Legal right to recover delayed payments
-4. **PM Vishwakarma Scheme Access** – Subsidized loans at 5% interest
-5. **GeM Portal Priority** – Reserved government tenders for MSMEs
-6. **Electricity Subsidy** – 25% rebate on electricity tariff in Maharashtra
-7. **ISO Certification Reimbursement** – Full ISO fee reimbursement
-8. **Patent/Trademark Fee Subsidy** – 50% reduction on filing fees
-9. **Technology Upgradation Fund** – Subsidized interest on technology loans
-10. **Zero-Cost Export Promotion** – Free stalls at government export exhibitions
+1. **Easier bank finance** – priority sector lending and access to collateral-free credit through CGTMSE
+2. **Subsidies and schemes** – eligibility for PMEGP, Mudra and various state incentives
+3. **Protection against delayed payment** – buyers must pay MSME suppliers within 45 days (Section 43B(h) also applies)
+4. **Government tenders** – exemption from earnest money deposit and tender fee in many tenders, and easy GeM onboarding
+5. **Lower fees** for certain IP and certification costs under specific schemes
 
-## Common Mistakes to Avoid in 2026
+## Common Mistakes
 
-❌ **Using outdated Aadhar-linked registration** – Update to PAN-linked Udyam  
-❌ **Wrong NIC code selection** – This affects scheme eligibility  
-❌ **Not updating turnover annually** – Required to maintain MSME status  
-❌ **Multiple registrations** – Only ONE Udyam number per PAN is allowed  
+- Wrong NIC code or activity selected
+- Not updating the certificate after turnover or investment changes
+- Treating Udyam as a licence – it is a registration, not a trade licence
 
-## Register Your MSME in Nagpur with FinTaxVers
+## Register with FinTaxVers
 
-FinTaxVers handles Udyam registration and post-registration updates for businesses across Nagpur and Maharashtra – same day service available.
+We handle Udyam registration, Shop Act, GST and business registration for new and existing businesses in India.
 
 **Call:** +91-8928895195 | **Email:** contact@fintaxvers.com
+
+*Note: Udyam registration is free on the official portal; professional charges, if any, are only for assistance.*
         `,
         relatedServices: ['shop-act-msme'],
         relatedPosts: ['business-loan-nagpur-2026-msme-schemes'],
         faq: [
-            { q: 'What are the new MSME investment limits in 2026?', a: 'Micro: up to ₹2.5 crore investment and ₹10 crore turnover. Small: up to ₹25 crore investment and ₹100 crore turnover.' },
-            { q: 'Can I register without GST on the Udyam portal?', a: 'Yes, the new Udyam Assist Platform allows informal businesses without GST or ITR to register.' },
-            { q: 'How long does Udyam registration take in Nagpur?', a: 'Same day in most cases. FinTaxVers can complete your Udyam registration within a few hours.' }
+            { q: 'What are the MSME classification limits now?', a: 'Micro: investment up to ₹2.5 crore and turnover up to ₹10 crore. Small: up to ₹25 crore and ₹100 crore. Medium: up to ₹125 crore and ₹500 crore.' },
+            { q: 'Is Udyam registration free?', a: 'Yes, registration on the official Udyam portal is free. Consultants charge only for their assistance.' },
+            { q: 'Is GST compulsory for Udyam registration?', a: 'GSTIN is required for most businesses, but informal micro enterprises not covered under GST can register through the Udyam Assist Platform.' }
         ]
     },
     {
         slug: 'financial-planning-tips-india-2026',
-        title: 'Smart Financial Planning Tips for 2026 – Build Wealth & Secure Your Future in India',
-        metaTitle: 'Financial Planning Tips India 2026 – Build Wealth | FinTaxVers Nagpur',
-        metaDescription: 'Expert financial planning tips for 2026. From NPS vs old pension to best mutual fund strategies, SIP in volatile markets, and LTCG tax on equity. Get personalized advice in Nagpur.',
+        title: 'Smart Financial Planning Tips for India – Tax, Investments & Insurance (2026)',
+        metaTitle: 'Financial Planning Tips India 2026 – SIP, NPS, Capital Gains Tax | FinTaxVers',
+        metaDescription: 'Practical financial planning tips for India: capital gains tax rates, NPS, SIP discipline, emergency fund, term and health insurance. Advice from FinTaxVers, Nagpur.',
         category: 'Financial Planning Tips',
-        date: '2026-06-01',
+        date: '2026-11-05',
         author: 'Yugant Rahele',
-        readTime: '8 min read',
-        keywords: 'financial planning tips 2026 India, investment strategy 2026, SIP vs PPF 2026, wealth building Nagpur, financial advisor Nagpur',
-        excerpt: 'Markets have been volatile in 2025-26. Here are 7 smart, updated financial planning tips for individuals and business owners in India – including the latest on LTCG tax, NPS, and best investment options for 2026.',
+        readTime: '5 min read',
+        keywords: 'financial planning tips India, capital gains tax rates, NPS tax benefit, SIP planning, emergency fund, term insurance, financial advisor Nagpur',
+        excerpt: 'Know the current capital gains rates, use NPS smartly, keep an emergency fund and review insurance – seven practical financial planning tips for Indian households and business owners.',
         content: `
-## Financial Planning in 2026 – What Has Changed?
+## Financial Planning – What Matters in 2026
 
-With equity markets volatile, interest rates easing, and new tax rules on capital gains, your 2026 financial plan needs an update. Here are 7 expert tips from our consultants at FinTaxVers Nagpur.
+Markets move up and down, but a simple plan – tax-aware investing, adequate insurance and an emergency fund – works in every cycle.
 
-## Tip 1 – Understand the New Capital Gains Tax Structure
+## Tip 1 – Know Capital Gains Tax Before You Sell
 
-From FY 2024-25 onwards (now fully in effect):
-- **STCG on equity/mutual funds**: 20% (up from 15%)
-- **LTCG on equity above ₹1.25 lakh**: 12.5% (indexation removed for equity)
-- **LTCG on property/gold**: 12.5% without indexation OR 20% with indexation (choose better)
+For transfers on or after 23 July 2024:
+- **Listed equity / equity mutual funds:** STCG **20%**, LTCG **12.5%** on gains above **₹1.25 lakh** a year
+- **Gold, unlisted shares and most other assets:** LTCG **12.5% without indexation**
+- **Land or building acquired before 23 July 2024** (resident individual/HUF): choose **12.5% without indexation or 20% with indexation**
 
-**Planning Tip:** If you are sitting on long-term equity gains, book profits strategically each year up to ₹1.25 lakh to keep LTCG tax-free.
+Booking long-term equity gains up to ₹1.25 lakh each year can keep them tax-free.
 
-## Tip 2 – NPS is the Best Tax-Free Retirement Tool in 2026
+## Tip 2 – Use NPS for Retirement
 
-Under the new tax regime:
-- Employer NPS contribution: **Deductible up to 14% of salary** (Section 80CCD(2)) – available in new regime
-- Own contribution: Deductible under 80CCD(1) – only in old regime
+- Employer contribution up to **14% of salary** is deductible under Section 80CCD(2) in the new regime
+- Additional **₹50,000** under 80CCD(1B) in the old regime
+- At retirement, up to **60% can be withdrawn tax-free**; at least 40% must buy an annuity
 
-NPS Tier-1 offers **60% tax-free withdrawal** at retirement + annuity for 40%. For business owners, ask your accountant to set up corporate NPS.
+## Tip 3 – Keep SIPs Running and Increase Them Yearly
 
-## Tip 3 – SIP Strategy for Volatile Markets
+Raise your SIP by 10% when your income rises. Use our SIP, Step-Up SIP and Goal calculators to plan the amount for each goal.
 
-In volatile markets, **SIP with step-up** is the smarter approach:
-- Increase SIP by 10-15% every April (salary/profit increment month)
-- Use **Balanced Advantage Funds** (BAF) or **Flexi-cap funds** for 2026 instead of pure equity
-- Minimum SIP horizon: 7-10 years for wealth creation
+## Tip 4 – Emergency Fund
 
-**Current Best Performing Categories (2026):**
-- Flexicap Funds
-- Mid-cap Index Funds (lower cost)
-- International Funds (for USD diversification)
+Keep **6 months of fixed expenses** (12 months if income is irregular) in a savings account, liquid fund or short-term deposit.
 
-## Tip 4 – Emergency Fund – Updated Rule for 2026
+## Tip 5 – Term Insurance
 
-The old "3 months expenses" rule is outdated. In 2026, keep:
-- **6-12 months** of fixed expenses as emergency fund
-- Park in **Liquid Mutual Funds** or **High-Yield Savings Accounts** (not FDs – lower liquidity)
-- Business owners should keep **3 months of EMI + payroll** separately
+Choose a pure term plan with cover of roughly **10–15 times annual income**. Individual life insurance premiums are GST-exempt since 22 September 2025.
 
-## Tip 5 – Review Your Term Insurance in 2026
+## Tip 6 – Health Insurance
 
-With insurance premiums on term plans reduced to 12% GST (down from 18%), this is the right time to review your cover:
-- Cover should be **minimum 15-20x your annual income**
-- Pure term plans are still the best – avoid ULIPs for pure insurance needs
-- Add critical illness rider if not already covered
+A family floater of ₹10–25 lakh (more in metros) plus a super top-up protects savings from medical inflation.
 
-## Tip 6 – Gold in 2026 – Sovereign Gold Bonds (SGB) vs Gold ETF
+## Tip 7 – Review Your Tax Regime Each Year
 
-- **Sovereign Gold Bonds** – No new tranches announced in 2026; buy from secondary market on NSE/BSE at discount
-- **Gold ETF** – Better option for 2026 due to SGB unavailability; expense ratio ~0.5%
-- **Digital Gold** – Avoid for large investments; limited regulatory protection
+Compare the old and new regime every year using the income-tax calculator, because your deductions and income change.
 
-## Tip 7 – Health Insurance – Increase Your Cover Now
+## Need Personal Advice?
 
-Medical inflation in India is 12-15% annually. Review your family floater cover:
-- Minimum recommended family cover: **₹25-50 lakhs** in metro cities
-- Add **super top-up plan** for cost-effective higher coverage
-- Check if your employer cover continues after job loss – add personal cover
+FinTaxVers helps individuals and businesses in India with tax planning, ITR filing and financial planning.
 
-## Get Personalized Financial Planning from FinTaxVers Nagpur
+**Call:** +91-8928895195
 
-**Yugant Rahele** and the FinTaxVers team help individuals and business owners in Nagpur create comprehensive, tax-efficient financial plans tailored to their goals.
-
-**Call:** +91-8928895195 | **Email:** contact@fintaxvers.com
+*Note: This article is general information, not investment advice. Investments are subject to market risk.*
         `,
-        relatedServices: ['business-loan-assistance'],
+        relatedServices: ['income-tax-planning'],
         relatedPosts: ['tax-saving-strategies-business-owners-2026'],
         faq: [
-            { q: 'What is the LTCG tax on equity mutual funds in 2026?', a: 'LTCG on equity/mutual funds above ₹1.25 lakh per year is taxed at 12.5% without indexation.' },
-            { q: 'Is NPS a good investment under the new tax regime in 2026?', a: 'Yes, employer NPS contributions up to 14% of salary are deductible even under the new tax regime, making NPS one of the best tax-saving tools.' },
-            { q: 'What is the recommended emergency fund size in 2026?', a: '6-12 months of fixed monthly expenses, parked in liquid mutual funds for quick access.' }
+            { q: 'What is the LTCG tax on equity mutual funds?', a: '12.5% on long-term gains above ₹1.25 lakh in a financial year, without indexation. Short-term gains are taxed at 20%.' },
+            { q: 'How much emergency fund should I keep?', a: 'About 6 months of fixed expenses; 12 months if your income is irregular.' },
+            { q: 'Is NPS useful under the new tax regime?', a: 'Employer NPS contribution up to 14% of salary is deductible under Section 80CCD(2) in the new regime. The extra ₹50,000 under 80CCD(1B) is available only in the old regime.' }
+        ]
+    },
+    {
+        slug: 'foreign-international-accounting-services-india',
+        title: 'Foreign & International Accounting Services – Bookkeeping for Overseas Businesses from India',
+        metaTitle: 'Foreign & International Accounting Services India | FinTaxVers',
+        metaDescription: 'International accounting, bookkeeping and tax support for foreign clients, exporters and overseas-linked businesses: US GAAP/IFRS, FEMA, GST on exports, 15CA/15CB and transfer pricing.',
+        category: 'International & NRI Services',
+        date: '2026-11-05',
+        author: 'Yugant Rahele',
+        readTime: '6 min read',
+        keywords: 'foreign accounting services, international accounting India, offshore bookkeeping, outsourced accounting for US UK UAE companies, FEMA compliance, export of services GST LUT, 15CA 15CB',
+        excerpt: 'How Indian businesses with foreign customers or overseas entities – and foreign companies outsourcing to India – manage accounting, GST on exports, FEMA and transfer pricing.',
+        content: `
+## What Are Foreign / International Accounting Services?
+
+International accounting covers **bookkeeping, financial reporting and compliance for businesses that operate across borders** – for example an Indian exporter invoicing overseas customers, an Indian company with a subsidiary abroad, or a foreign company that outsources its accounting to India.
+
+## Services Typically Included
+
+- **Bookkeeping and monthly accounts** in multi-currency, with bank and payment-gateway reconciliation
+- **Financial statements** under Indian GAAP / Ind AS, and support for **IFRS or US GAAP** reporting packs
+- **Accounts payable and receivable**, payroll support and management MIS
+- **Foreign-currency accounting** – exchange gain/loss and revaluation
+- **Group consolidation support** for Indian parents with overseas subsidiaries
+
+## India-Specific Compliance for Cross-Border Business
+
+1. **GST on exports** – export of goods and services is zero-rated. File exports under **LUT (Letter of Undertaking)** to export without paying IGST and claim refunds of unutilised ITC.
+2. **FEMA and RBI** – realise export proceeds within the prescribed time, track **FIRC/FIRA**, and report overseas investment through **FC-GPR / FLA** returns where applicable.
+3. **Form 15CA / 15CB** – required for most foreign remittances, with a CA certificate for taxable payments.
+4. **Transfer pricing** – transactions with overseas associated enterprises need documentation and **Form 3CEB**.
+5. **Income tax and DTAA** – Tax Residency Certificate and **Form 10F** help claim treaty benefits; TDS under Section 195 applies on many payments to non-residents.
+6. **Foreign Assets disclosure** – resident individuals must report foreign assets and income in the ITR.
+
+## Who Needs It?
+
+- Exporters of goods and IT/professional services
+- Indian startups with US, UK or UAE customers or entities
+- Importers paying overseas suppliers
+- Foreign companies with a liaison/branch/subsidiary in India
+- NRIs running a business or holding assets in India
+
+## Work with FinTaxVers
+
+FinTaxVers supports foreign-linked businesses with accounting, GST export compliance, FEMA documentation and remittance certificates from India, serving clients across India.
+
+**Call:** +91-8928895195 | **Email:** contact@fintaxvers.com
+
+*Note: Cross-border rules depend on facts and treaty position. Get case-specific advice before filing.*
+        `,
+        relatedServices: ['international-accounting-services', 'nri-tax-fema-services', 'import-export-business-establishment'],
+        relatedPosts: ['nri-income-tax-india-guide'],
+        faq: [
+            { q: 'What are foreign or international accounting services?', a: 'Bookkeeping, financial reporting and compliance for businesses with cross-border operations, including multi-currency accounts, FEMA, GST on exports and transfer pricing.' },
+            { q: 'Do I pay GST on export of services?', a: 'Exports are zero-rated. You can export without paying IGST under an LUT and claim a refund of unutilised input tax credit, provided export conditions such as foreign-exchange receipt are met.' },
+            { q: 'When are Form 15CA and 15CB required?', a: 'For most foreign remittances. Form 15CB, a CA certificate, is needed where the payment is taxable in India and above the prescribed limit.' }
+        ]
+    },
+    {
+        slug: 'nri-income-tax-india-guide',
+        title: 'NRI Income Tax in India – Residency Test, TDS, DTAA, ITR & Remittance (FEMA) Guide',
+        metaTitle: 'NRI Tax Filing India – Residency, TDS, DTAA, ITR, FEMA | FinTaxVers',
+        metaDescription: 'NRI tax guide: residential status (182-day test), taxable income in India, NRO/NRE interest, TDS on property sale, DTAA, Form 10F, ITR filing and repatriation under FEMA.',
+        category: 'International & NRI Services',
+        date: '2026-11-05',
+        author: 'Yugant Rahele',
+        readTime: '6 min read',
+        keywords: 'NRI tax filing India, NRI income tax, NRE NRO account tax, DTAA Form 10F, TDS on sale of property by NRI, FEMA repatriation, NRI ITR filing Nagpur',
+        excerpt: 'Residential status, which Indian income is taxable for NRIs, TDS on interest and property, treaty benefits and how to repatriate money – a clear guide for non-resident Indians.',
+        content: `
+## How Residential Status Is Decided
+
+An individual is a **Non-Resident (NRI) for tax** if they do not qualify as resident. Broadly, you are **resident** if you stay in India for **182 days or more** in the year, or **60 days or more in the year and 365 days or more in the preceding four years**. Indian citizens or persons of Indian origin visiting India get relaxed day limits (120 days, with additional conditions for high Indian income). Status is checked every year.
+
+## What Is Taxable for an NRI
+
+NRIs are taxed in India only on **income earned or received in India**, such as:
+- Rent from Indian property
+- Interest on **NRO** accounts and FDs (interest on **NRE** accounts and FCNR deposits is exempt while you remain NRI)
+- Capital gains on Indian shares, mutual funds and property
+- Salary for services rendered in India
+- Dividends from Indian companies
+
+Foreign income is not taxed in India for an NRI.
+
+## TDS to Watch
+
+- **NRO interest:** TDS at **30%** plus surcharge and cess (treaty rate may be lower)
+- **Sale of property by an NRI:** buyer deducts TDS under **Section 195** on the capital gain at 12.5% (long-term) or applicable rates – use a **lower-deduction certificate** (Form 13) to avoid excess TDS
+- **Rent paid to an NRI:** TDS at 30% under Section 195
+
+## Do NRIs Need to File an ITR?
+
+Yes, when Indian taxable income exceeds the basic exemption limit, when you want to **claim a TDS refund**, or when you have capital gains. Filing is also needed to carry forward losses.
+
+## DTAA – Avoiding Double Taxation
+
+India has Double Taxation Avoidance Agreements with many countries. To claim a lower rate you generally need:
+- **Tax Residency Certificate (TRC)** from your country of residence
+- **Form 10F** filed on the income-tax portal
+- A self-declaration for the payer
+
+## Repatriation Under FEMA
+
+- Up to **USD 1 million per financial year** can be remitted from NRO accounts (sale proceeds of assets or inherited funds) after paying taxes, with **Form 15CA/15CB**
+- Current income such as rent and dividend can be repatriated after TDS
+- NRE and FCNR balances are freely repatriable
+
+## NRI Tax Filing with FinTaxVers
+
+We handle NRI ITR filing, lower-TDS certificates, property-sale tax planning, Form 15CA/15CB and FEMA advice for NRIs with India-based income.
+
+**Call / WhatsApp:** +91-8928895195 | **Email:** contact@fintaxvers.com
+
+*Note: Treaty rates and RBI limits are revised from time to time. Verify before remitting or filing.*
+        `,
+        relatedServices: ['nri-tax-fema-services', 'income-tax-planning'],
+        relatedPosts: ['foreign-international-accounting-services-india'],
+        faq: [
+            { q: 'How is NRI status decided for tax?', a: 'You are resident if you stay in India 182 days or more in the year, or 60 days or more in the year plus 365 days in the previous four years; relaxed limits apply to Indian citizens or persons of Indian origin visiting India. Otherwise you are a non-resident.' },
+            { q: 'Is NRE account interest taxable in India?', a: 'No, interest on NRE and FCNR deposits is exempt for a person who is a non-resident under tax law. NRO interest is taxable with 30% TDS.' },
+            { q: 'How much can an NRI repatriate from India?', a: 'Up to USD 1 million per financial year from NRO balances, including sale proceeds of assets, after paying taxes and filing Form 15CA/15CB.' }
         ]
     }
 ];
 
 export const getBlogPost = (slug) => blogPosts.find(p => p.slug === slug);
 export const getBlogByCategory = (cat) => cat ? blogPosts.filter(p => p.category === cat) : blogPosts;
-export const blogCategories = ['GST Updates', 'Tax Saving Tips', 'Business Registration Guide', 'Loan Documentation Guide', 'Financial Planning Tips'];
+export const blogCategories = ['GST Updates', 'Tax Saving Tips', 'Business Registration Guide', 'Loan Documentation Guide', 'Financial Planning Tips', 'International & NRI Services'];

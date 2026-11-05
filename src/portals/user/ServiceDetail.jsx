@@ -218,12 +218,12 @@ const ServiceDetail = () => {
                             <summary className="acc-head">
                                 <div className="acc-head-left">
                                     <div className="acc-tag local">&#128205;</div>
-                                    <div><div className="acc-title">Nagpur consultation guide</div><div className="acc-sub">Practical information to prepare before you enquire</div></div>
+                                    <div><div className="acc-title">Consultation guide</div><div className="acc-sub">Practical information to prepare before you enquire</div></div>
                                 </div>
                                 <div className="acc-chevron">&#9662;</div>
                             </summary>
                             <div className="acc-body local-guide-body">
-                                <span className="local-guide-kicker">FinTaxVers in Nagpur</span>
+                                <span className="local-guide-kicker">FinTaxVers guidance</span>
                                 <h2>{localGuide.heading}</h2>
                                 <p>{localGuide.intro}</p>
                                 <h3>{localGuide.checklistTitle}</h3>
@@ -233,7 +233,7 @@ const ServiceDetail = () => {
                                 <div className="local-guide-actions">
                                     <button
                                         className="local-guide-cta"
-                                        onClick={() => navigate(`/?message=${encodeURIComponent(`I am looking for ${service.title} guidance in Nagpur. `)}&type=${encodeURIComponent(service.category)}`)}
+                                        onClick={() => navigate(`/?message=${encodeURIComponent(`I am looking for ${service.title} guidance. `)}&type=${encodeURIComponent(service.category)}`)}
                                     >
                                         Talk to FinTaxVers
                                     </button>

@@ -124,7 +124,7 @@ function BlogPost() {
                         <aside style={{ position: 'sticky', top: '120px' }}>
                             <div style={{ background: 'linear-gradient(135deg,#0B1F3A,#16325C)', borderRadius: '16px', padding: '28px', color: 'white', marginBottom: '20px' }}>
                                 <h3 style={{ color: 'white', marginBottom: '8px', fontSize: '1.1rem' }}>Need Expert Help?</h3>
-                                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '20px' }}>Talk to Yugant Rahele – Trusted Financial Consultant in Nagpur</p>
+                                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '20px' }}>Talk to Yugant Rahele – Trusted Financial Consultant for India and Global Clients</p>
                                 <a href="tel:+918928895195" style={{ display: 'block', background: '#16A34A', color: 'white', textAlign: 'center', padding: '10px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, marginBottom: '10px' }}>📞 +91-8928895195</a>
                                 <a href="tel:+919011424236" style={{ display: 'block', background: '#16A34A', color: 'white', textAlign: 'center', padding: '10px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, marginBottom: '10px' }}>📞 +91-9011424236</a>
                                 <a href="https://wa.me/918928895195" target="_blank" rel="noreferrer" style={{ display: 'block', background: '#25D366', color: 'white', textAlign: 'center', padding: '10px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600 }}>WhatsApp Us</a>
@@ -159,7 +159,7 @@ function BlogPost() {
             </section>
 
             <footer style={{ background: '#0B1F3A', color: 'rgba(255,255,255,0.6)', padding: '30px 0', textAlign: 'center', fontSize: '0.9rem', marginTop: '60px' }}>
-                <p>© 2026 FinTaxVers Consultancy Services, Nagpur, Maharashtra, India.</p>
+                <p>© 2026 FinTaxVers Consultancy Services, India.</p>
             </footer>
         </div>
     );
