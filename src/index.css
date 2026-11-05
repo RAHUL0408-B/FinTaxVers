@@ -2270,3 +2270,54 @@ html, body { max-width: 100%; overflow-x: hidden; }
   }
   .nav-links a { padding: 6px 14px; }
 }
+
+/* ---------- Links mega menu (sectioned) ---------- */
+.links-mega-menu {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 22px;
+  min-width: min(980px, calc(100vw - 32px));
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: linear-gradient(135deg, #eef2ff 0%, #fdf2f8 45%, #ecfeff 100%) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(30, 41, 99, 0.22);
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+.dropdown:hover .links-mega-menu { transform: translateX(-50%) translateY(0) !important; }
+.links-mega-menu .calc-group {
+  min-width: 0;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 10px 8px;
+  border-top: 4px solid var(--accent);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+}
+.links-mega-menu .calc-group h4 { color: var(--accent) !important; margin: 0 4px 8px; padding-bottom: 6px; border-bottom: 1px dashed var(--accent-soft); font-size: 0.72rem; }
+.links-mega-menu .dropdown-item {
+  white-space: normal; font-size: 0.82rem; padding: 7px 10px; margin-bottom: 4px;
+  background: var(--accent-soft); color: #1e293b; border-left: 3px solid var(--accent); border-radius: 8px;
+}
+.links-mega-menu .dropdown-item:hover { background: var(--accent); color: #fff; transform: none; }
+.links-view-all {
+  grid-column: 1 / -1; text-align: center; padding: 10px; border-radius: 12px; font-weight: 700;
+  color: #fff !important; background: linear-gradient(90deg, #4f46e5, #ec4899); font-size: 0.9rem;
+}
+.links-view-all:hover { filter: brightness(1.08); }
+
+@media (max-width: 992px) {
+  .links-mega-menu {
+    display: none !important;
+    grid-template-columns: 1fr;
+    position: static !important; transform: none !important; min-width: 100% !important; width: 100% !important;
+    padding: 4px 0 10px !important; background: transparent !important; border: none; box-shadow: none !important;
+    border-radius: 0; max-height: none; overflow: visible; gap: 12px;
+  }
+  .dropdown.open .links-mega-menu { display: grid !important; }
+  .links-mega-menu .calc-group { border-top: none; border-left: 4px solid var(--accent); background: var(--accent-soft); box-shadow: none; padding: 12px 10px 8px !important; }
+  .links-mega-menu .dropdown-item { background: rgba(255,255,255,.75) !important; color: #1e293b !important; }
+  .links-mega-menu .calc-group h4 { border: none !important; }
+}

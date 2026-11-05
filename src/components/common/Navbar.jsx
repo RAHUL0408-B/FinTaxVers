@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { linkSections } from '../../data/linkSections';
 import emblem from '../../assets/fintaxvers-emblem.png';
 
 
@@ -188,7 +189,23 @@ const Navbar = () => {
                         </li>
 
                         <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}>About</a></li>
-                        <li><a href="/links" onClick={(e) => { e.preventDefault(); setMenuOpen(false); navigate('/links'); }}>Links</a></li>
+                        <li className={`dropdown ${openDropdown === 'links' ? 'open' : ''}`}>
+                            <a href="/links" onClick={(e) => { e.preventDefault(); if (window.matchMedia('(max-width: 992px)').matches) { toggleDropdown('links'); } else { setMenuOpen(false); navigate('/links'); } }}>
+                                Links
+                                <span style={{ fontSize: '0.6rem', marginLeft: '4px' }}>▼</span>
+                            </a>
+                            <div className="dropdown-menu links-mega-menu glass-card">
+                                {linkSections.map((sec) => (
+                                    <div className="calc-group" key={sec.id} style={{ '--accent': sec.accent, '--accent-soft': sec.badgeBg }}>
+                                        <h4>{sec.icon} {sec.title}</h4>
+                                        {sec.links.map((l) => (
+                                            <a key={l.url + l.label} href={l.url} target="_blank" rel="noopener noreferrer" className="dropdown-item" onClick={() => { setMenuOpen(false); setOpenDropdown(null); }}>{l.label}</a>
+                                        ))}
+                                    </div>
+                                ))}
+                                <a href="/links" className="links-view-all" onClick={(e) => { e.preventDefault(); setMenuOpen(false); setOpenDropdown(null); navigate('/links'); }}>View all useful links →</a>
+                            </div>
+                        </li>
                         <li><a href="/blog" onClick={(e) => { e.preventDefault(); setMenuOpen(false); navigate('/blog'); }}>Blog</a></li>
                     </ul>
                     <button className="nav-cta btn btn-primary" onClick={() => handleNavClick('contact')}>Book Consultation</button>

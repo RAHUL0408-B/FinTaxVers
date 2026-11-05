@@ -55,48 +55,20 @@
     z-index: 1;
 }
 
-/* Slide 1 – GST Return & Business Return */
-.hero-slide-1 .hero-slide-bg {
-    background-image: url('/images/gst_return_business_hero.jpg');
-}
+/* Slide 1 – GST Return + Income Tax Filing */
+.hero-slide-1 .hero-slide-bg { background-image: url('/images/gst_return_business_hero.jpg'); }
 
-/* Slide 2 – Income Tax Filing */
-.hero-slide-2 .hero-slide-bg {
-    background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80');
-}
+/* Slide 2 – Project Report, CMA, Loans & Subsidy */
+.hero-slide-2 .hero-slide-bg { background-image: url('/images/all_loans_hero_new.png'); }
 
-/* Slide 3 – Business Loan Reports */
-.hero-slide-3 .hero-slide-bg {
-    background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80');
-}
+/* Slide 3 – Company Registration + Business Development */
+.hero-slide-3 .hero-slide-bg { background-image: url('/images/company_registration_hero.png'); }
 
-/* Slide 4 – All Loans */
-.hero-slide-4 .hero-slide-bg {
-    background-image: url('/images/all_loans_hero_new.png');
-}
+/* Slide 4 – Internal Audit + Tax Planning & Audits */
+.hero-slide-4 .hero-slide-bg { background-image: url('/images/tax_audit_hero.png'); }
 
-/* Slide 5 – Company Registration */
-.hero-slide-5 .hero-slide-bg {
-    background-image: url('/images/company_registration_hero.png');
-}
-
-/* Slide 6 – Tax Audits */
-.hero-slide-6 .hero-slide-bg {
-    background-image: url('/images/tax_audit_hero.png');
-}
-
-/* Slide 7 – Business Development */
-.hero-slide-7 .hero-slide-bg {
-    background-image: url('/images/business-growth-consulting-hero.jpg');
-}
-
-/* Slide 8 – Home & Car Loan */
-.hero-slide-8 .hero-slide-bg {
-    background-image: url('/images/home_loan_hero_new.png'), url('/images/car_loan_hero_new.png');
-    background-position: left center, right center;
-    background-size: 50% 100%, 50% 100%;
-    background-repeat: no-repeat, no-repeat;
-}
+/* Slide 5 – Import-Export + GeM & Govt. Tenders */
+.hero-slide-5 .hero-slide-bg { background-image: url('/service-images/trade/import-export-logistics.jpg'); }
 
 /* --- Content --- */
 .hero-slide-content {
@@ -380,4 +352,142 @@
     .hero-slide-content {
         padding-top: 148px;
     }
+}
+
+/* =====================================================
+   SPLIT HERO — two real-photo halves per slide
+   ===================================================== */
+.hero-slider-section { background: #0b1220; }
+
+.hero-split {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    gap: 0;
+}
+
+.hero-half {
+    position: relative;
+    flex: 1 1 0;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: flex-grow 0.6s cubic-bezier(.4, 0, .2, 1);
+    --accent: #4ade80;
+}
+.hero-half-b { --accent: #fbbf24; }
+.hero-half:hover { flex-grow: 1.25; }
+
+/* diagonal seam between the two halves (desktop) */
+.hero-half-a { clip-path: polygon(0 0, 100% 0, calc(100% - 60px) 100%, 0 100%); z-index: 2; margin-right: -30px; }
+.hero-half-b { clip-path: polygon(60px 0, 100% 0, 100% 100%, 0 100%); margin-left: -30px; }
+
+.hero-half-photo {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.08);
+    transition: transform 7s ease-out;
+}
+.hero-slide.active .hero-half-photo { transform: scale(1); }
+
+.hero-half-shade {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to top, rgba(6, 12, 28, 0.95) 0%, rgba(6, 12, 28, 0.72) 38%, rgba(6, 12, 28, 0.25) 75%, rgba(6, 12, 28, 0.55) 100%);
+}
+
+.hero-half-num {
+    position: absolute;
+    top: 150px;
+    right: 56px;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(4rem, 9vw, 8rem);
+    font-weight: 800;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.35);
+    pointer-events: none;
+}
+
+.hero-half-body {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 560px;
+    padding: 0 64px 96px 56px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s;
+}
+.hero-half-b .hero-half-body { padding-left: 80px; }
+.hero-slide.active .hero-half-body { opacity: 1; transform: none; }
+.hero-slide.active .hero-half-b .hero-half-body { transition-delay: 0.4s; }
+
+.hero-half-tag {
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 3px solid var(--accent);
+}
+
+.hero-half-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.6rem, 2.7vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    color: #fff;
+}
+.hero-half-title span { color: var(--accent); }
+
+.hero-half-sub {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 24px;
+}
+
+.hero-half-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #0b1220 !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.hero-half-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); }
+
+/* ---------- Tablet / Mobile: stack the halves ---------- */
+@media (max-width: 900px) {
+    .hero-slider-section { height: 100svh; min-height: 640px; }
+    .hero-split { flex-direction: column; }
+    .hero-half, .hero-half-a, .hero-half-b { clip-path: none; margin: 0; align-items: flex-end; }
+    .hero-half:hover { flex-grow: 1; }
+    .hero-half-a { margin-top: 0; padding-top: 112px; background: #0b1220; }
+    .hero-half-a .hero-half-photo, .hero-half-a .hero-half-shade { top: 112px; }
+    .hero-half-b { border-top: 3px solid #fbbf24; }
+    .hero-half-num { top: auto; bottom: 14px; right: 16px; font-size: 3rem; -webkit-text-stroke-width: 1.5px; }
+    .hero-half-body, .hero-half-b .hero-half-body { padding: 0 18px 20px; max-width: 100%; }
+    .hero-half-tag { font-size: 0.66rem; margin-bottom: 8px; }
+    .hero-half-title { font-size: 1.25rem; margin-bottom: 6px; }
+    .hero-half-sub {
+        font-size: 0.8rem; line-height: 1.45; margin-bottom: 12px;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .hero-half-cta { padding: 9px 16px; font-size: 0.82rem; }
+    .hero-arrow { display: none; }
 }

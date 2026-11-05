@@ -1,121 +1,142 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import './HeroSlider.css';
 
+const photo = (id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1200&q=75`;
+
+/* Each slide = two halves. Every half has its own real photo, keyword-rich copy and service link. */
 const slides = [
     {
         id: 1,
-        badge: 'GST Return & Business Return',
-        headline: <>Accurate <span>GST Return</span> & Business Return Filing</>,
-        sub: 'Timely GST return filing and complete business return solutions — handled by expert CAs to keep your business fully compliant and penalty-free.',
-        cta: 'File Now',
-        ctaHref: '#contact',
-        secondaryCta: 'Learn More',
-        secondaryHref: '/services/gst-returns-solutions',
-        bgClass: 'hero-slide-1',
+        halves: [
+            {
+                tag: 'GST Return',
+                title: <>Accurate <span>GST Return</span> Filing</>,
+                sub: 'GST registration and monthly / quarterly return filing by expert CAs — compliant, on time and penalty-free.',
+                cta: 'File GST Return',
+                href: '/services/gst-returns-solutions',
+                img: '1460925895917-afdab827c52f',
+                alt: 'GST return filing dashboard on a laptop',
+            },
+            {
+                tag: 'Income Tax Filing',
+                title: <>Hassle-Free <span>Income Tax Filing</span></>,
+                sub: 'Error-free ITR filing for salaried, professionals and businesses across India, with refund tracking.',
+                cta: 'File ITR Now',
+                href: '/services/income-tax-planning',
+                img: '1554224155-6726b3ff858f',
+                alt: 'Income tax forms and calculator for ITR filing',
+            },
+        ],
     },
     {
         id: 2,
-        badge: 'Income Tax Filing India',
-        headline: <>Hassle-Free <span>Income Tax Filing</span> Services</>,
-        sub: 'Accurate ITR filing with expert CA guidance for individuals, salaried employees, and businesses across India.',
-        cta: 'File Now',
-        ctaHref: '#contact',
-        secondaryCta: 'View Plans',
-        secondaryHref: '/services/income-tax-planning',
-        bgClass: 'hero-slide-2',
+        halves: [
+            {
+                tag: 'Project Report & CMA',
+                title: <>Bank-Ready <span>Project Report &amp; CMA</span></>,
+                sub: 'Detailed project reports and CMA data prepared for quick bank approvals and working capital finance.',
+                cta: 'Get Project Report',
+                href: '/services/cma-data-project-financing',
+                img: '1454165804606-c3d57bc86b40',
+                alt: 'Preparing CMA data and project report documents',
+            },
+            {
+                tag: 'Loans & Subsidy',
+                title: <>All <span>Loans &amp; Subsidy</span> Assistance</>,
+                sub: 'Business, home and car loans plus government subsidy consulting with minimum documentation.',
+                cta: 'Apply for Loan',
+                href: '/services/business-loan-assistance',
+                img: '1521791136064-7986c2920216',
+                alt: 'Loan approval handshake',
+            },
+        ],
     },
     {
         id: 3,
-        badge: 'Business Loan Project Reports',
-        headline: <>Professional <span>Project Reports</span> for Business Loans</>,
-        sub: 'Bank-ready CMA data and detailed project reports designed for quick loan approvals and working capital financing.',
-        cta: 'Consult Now',
-        ctaHref: '#contact',
-        secondaryCta: 'Know More',
-        secondaryHref: '/services/cma-data-project-financing',
-        bgClass: 'hero-slide-3',
+        halves: [
+            {
+                tag: 'Company Registration',
+                title: <>Seamless <span>Company Registration</span></>,
+                sub: 'Private Limited, LLP, MSME (Udyam) and Shop Act registration — we handle all the paperwork.',
+                cta: 'Register Company',
+                href: '/services/company-llp-formation',
+                img: '1450101499163-c8848c66ca85',
+                alt: 'Signing company registration documents',
+            },
+            {
+                tag: 'Business Development',
+                title: <>Expert <span>Business Development</span></>,
+                sub: 'Move from an unorganised to an organised business with a professional working and growth model.',
+                cta: 'Grow My Business',
+                href: '/services/business-development',
+                img: '1542744173-8e7e53415bb0',
+                alt: 'Business development strategy meeting',
+            },
+        ],
     },
     {
         id: 4,
-        badge: 'All Types of Loans',
-        headline: <>We Approve <span>All Loans</span></>,
-        sub: 'Including company loan, home loan and all other types of loans. Get your loan approved quickly and hassle-free.',
-        cta: 'Apply for Loan',
-        ctaHref: '#contact',
-        secondaryCta: 'Learn More',
-        secondaryHref: '/services/loans',
-        bgClass: 'hero-slide-4',
+        halves: [
+            {
+                tag: 'Internal Audit',
+                title: <>Reliable <span>Internal Audit</span></>,
+                sub: 'Strengthen internal controls, detect risks early and improve financial discipline with CA-led audits.',
+                cta: 'Get Audit Support',
+                href: '/services/internal-audit',
+                img: '1553877522-43269d4ea984',
+                alt: 'Internal audit team reviewing accounts',
+            },
+            {
+                tag: 'Tax Planning & Audits',
+                title: <>Expert <span>Tax Planning &amp; Audits</span></>,
+                sub: 'Reduce tax liability legally and stay compliant with Sec 44AB tax audit and year-round tax planning.',
+                cta: 'Plan My Tax',
+                href: '/services/tax-audit-services',
+                img: '1579532537598-459ecdaf39cc',
+                alt: 'Business financial newspaper and tax planning',
+            },
+        ],
     },
     {
         id: 5,
-        badge: 'Start Your Business',
-        headline: <>Seamless <span>Company Registration</span></>,
-        sub: 'Register your startup or company with zero hassle. We handle the paperwork so you can focus on growth.',
-        cta: 'Register Now',
-        ctaHref: '#contact',
-        secondaryCta: 'Our Services',
-        secondaryHref: '/services/registration',
-        bgClass: 'hero-slide-5',
-    },
-    {
-        id: 6,
-        badge: 'Financial Security',
-        headline: <>Expert <span>Tax Planning & Audits</span></>,
-        sub: 'Minimize liabilities and ensure compliance with our comprehensive tax planning and audit services.',
-        cta: 'Get Started',
-        ctaHref: '#contact',
-        secondaryCta: 'View Plans',
-        secondaryHref: '/services/audit',
-        bgClass: 'hero-slide-6',
-    },
-    {
-        id: 7,
-        badge: 'Business Growth',
-        headline: <><span>Business Development</span></>,
-        sub: 'Unorganised to Organised business model • Professional working • Business Development Model',
-        cta: 'Know More',
-        ctaHref: '#contact',
-        secondaryCta: 'Our Services',
-        secondaryHref: '#services',
-        bgClass: 'hero-slide-7',
-    },
-    {
-        id: 8,
-        badge: 'Home & Car Loans',
-        headline: <>Quick <span>Home & Car</span> Loans</>,
-        sub: 'Get the best interest rates for your dream home and fast car loan approvals. Minimum documentation and quick processing.',
-        cta: 'Apply Now',
-        ctaHref: '#contact',
-        secondaryCta: 'View Rates',
-        secondaryHref: '/services/loans',
-        bgClass: 'hero-slide-8',
+        halves: [
+            {
+                tag: 'Import-Export',
+                title: <><span>Import-Export</span> Business Setup</>,
+                sub: 'IEC registration and complete import-export business establishment to take your business global.',
+                cta: 'Start Exporting',
+                href: '/services/import-export-business-establishment',
+                img: '1494412574643-ff11b0a5c1c3',
+                alt: 'Container port for import export business',
+            },
+            {
+                tag: 'GeM & Govt. Tenders',
+                title: <><span>GeM Portal</span> &amp; Govt. Tenders</>,
+                sub: 'GeM portal registration and government tender bid support to win public-sector contracts.',
+                cta: 'Register on GeM',
+                href: '/services/gem-portal-registration',
+                img: '1563013544-824ae1b704d3',
+                alt: 'Online GeM portal registration on laptop',
+            },
+        ],
     },
 ];
 
-const AUTOPLAY_INTERVAL = 5500;
-const MotionDiv = motion.div;
-
-const contentVariants = {
-    hidden: { opacity: 0, y: 28 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' } },
-    exit:   { opacity: 0, y: -18, transition: { duration: 0.35, ease: 'easeIn' } },
-};
+const AUTOPLAY_INTERVAL = 6500;
 
 const HeroSlider = () => {
     const [current, setCurrent] = useState(0);
     const [paused, setPaused] = useState(false);
-    const shouldReduceMotion = useReducedMotion();
 
     const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), []);
     const prev = useCallback(() => setCurrent(c => (c - 1 + slides.length) % slides.length), []);
 
     useEffect(() => {
-        if (paused || shouldReduceMotion) return;
+        if (paused) return;
         const timer = setInterval(next, AUTOPLAY_INTERVAL);
         return () => clearInterval(timer);
-    }, [paused, next, shouldReduceMotion]);
+    }, [paused, next]);
 
     return (
         <section
@@ -123,76 +144,47 @@ const HeroSlider = () => {
             id="home"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
-            aria-label="Hero Banner"
+            aria-label="FinTaxVers services"
         >
-            {/* Slides */}
             {slides.map((slide, idx) => (
                 <div
                     key={slide.id}
-                    className={`hero-slide ${slide.bgClass} ${idx === current ? 'active' : ''}`}
+                    className={`hero-slide ${idx === current ? 'active' : ''}`}
                     aria-hidden={idx !== current}
                 >
-                    <div className="hero-slide-bg" />
-                    <div className="hero-slide-overlay" />
-
-                    <div className="hero-slide-content">
-                        <AnimatePresence mode="wait">
-                            {idx === current && (
-                                <MotionDiv
-                                    key={`slide-content-${slide.id}`}
-                                    className="hero-slide-inner"
-                                    initial="hidden"
-                                    animate="visible"
-                                    exit="exit"
-                                    variants={shouldReduceMotion ? undefined : contentVariants}
+                    <div className="hero-split">
+                        {slide.halves.map((h, hIdx) => {
+                            const Heading = idx === 0 && hIdx === 0 ? 'h1' : 'h2';
+                            return (
+                                <article
+                                    key={h.tag}
+                                    className={`hero-half hero-half-${hIdx === 0 ? 'a' : 'b'}`}
                                 >
-                                    {/* Badge */}
-                                    <div className="hero-slide-badge">
-                                        <span className="hero-slide-badge-dot" />
-                                        {slide.badge}
-                                    </div>
-
-                                    {/* Headline */}
-                                    <h1 className="hero-slide-headline">{slide.headline}</h1>
-
-                                    {/* Sub */}
-                                    <p className="hero-slide-sub">{slide.sub}</p>
-
-                                    {/* CTAs */}
-                                    <div className="hero-slide-actions">
-                                        <a href={slide.ctaHref} className="hero-btn-primary">
-                                            {slide.cta} <ArrowRight size={18} />
-                                        </a>
-                                        <a href={slide.secondaryHref} className="hero-btn-secondary">
-                                            {slide.secondaryCta}
+                                    <div
+                                        className="hero-half-photo"
+                                        style={{ backgroundImage: `url(${photo(h.img)})` }}
+                                        role="img"
+                                        aria-label={h.alt}
+                                    />
+                                    <div className="hero-half-shade" />
+                                    <span className="hero-half-num" aria-hidden="true">
+                                        {String(idx * 2 + hIdx + 1).padStart(2, '0')}
+                                    </span>
+                                    <div className="hero-half-body">
+                                        <span className="hero-half-tag">{h.tag}</span>
+                                        <Heading className="hero-half-title">{h.title}</Heading>
+                                        <p className="hero-half-sub">{h.sub}</p>
+                                        <a href={h.href} className="hero-half-cta" tabIndex={idx === current ? 0 : -1}>
+                                            {h.cta} <ArrowRight size={18} />
                                         </a>
                                     </div>
-
-                                    {/* Trust bar */}
-                                    <div className="hero-trust-bar">
-                                        {[
-                                            { value: '500+', label: 'Clients Served' },
-                                            { value: '98%',  label: 'Filing Accuracy' },
-                                            { value: 'Expert', label: 'CA Team' },
-                                            { value: 'Fast',  label: 'Turnaround' },
-                                        ].map((item, i, arr) => (
-                                            <React.Fragment key={item.label}>
-                                                <div className="hero-trust-item">
-                                                    <span className="hero-trust-value">{item.value}</span>
-                                                    <span className="hero-trust-label">{item.label}</span>
-                                                </div>
-                                                {i < arr.length - 1 && <div className="hero-trust-divider" />}
-                                            </React.Fragment>
-                                        ))}
-                                    </div>
-                                </MotionDiv>
-                            )}
-                        </AnimatePresence>
+                                </article>
+                            );
+                        })}
                     </div>
                 </div>
             ))}
 
-            {/* Prev / Next Arrows */}
             <button className="hero-arrow hero-arrow-left" onClick={prev} aria-label="Previous slide">
                 <ChevronLeft size={22} />
             </button>
@@ -200,7 +192,6 @@ const HeroSlider = () => {
                 <ChevronRight size={22} />
             </button>
 
-            {/* Dot indicators */}
             <div className="hero-slider-controls" role="tablist" aria-label="Slide indicators">
                 {slides.map((_, idx) => (
                     <button
